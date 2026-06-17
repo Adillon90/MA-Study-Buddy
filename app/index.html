@@ -22,7 +22,8 @@
     // ── API key (fill in yours here to skip the key-entry screen) ─────────
     const EMBEDDED_KEY = "";
 
-    // ── Design tokens ───────────    const C = {
+    // ── Design tokens 
+    const C = {
       ink: "#16243A", inkSoft: "#3D4D66", paper: "#F6F4EE",
       card: "#FFFFFF", green: "#1F6F50", greenSoft: "#E7F1EC",
       gold: "#C9A227", goldSoft: "#FDF8EC",
@@ -566,7 +567,8 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
 
     ]; // end DECKS
 
-    // ── Utility ─────────────────    function shuffle(arr) {
+    // ── Utility 
+    function shuffle(arr) {
       const a = [...arr];
       for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -575,7 +577,8 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       return a;
     }
 
-    // ── Deck Picker ─────────────    function DeckPicker({ decks, onSelect }) {
+    // ── Deck Picker 
+    function DeckPicker({ decks, onSelect }) {
       const totalCards = decks.reduce((s, d) => s + d.cards.length, 0);
       return (
         <div style={{ padding: "20px 16px 40px", maxWidth: 580, margin: "0 auto" }}>
@@ -600,7 +603,8 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       );
     }
 
-    // ── Flashcard Game ──────────    function FlashcardGame({ deck, onExit }) {
+    // ── Flashcard Game 
+    function FlashcardGame({ deck, onExit }) {
       const total = deck.cards.length;
       const [remaining, setRemaining] = useState(() => shuffle([...deck.cards]));
       const [learned, setLearned] = useState([]);
@@ -722,7 +726,8 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       );
     }
 
-    // ── API Key Gate ────────────    function ApiKeyGate({ onKey }) {
+    // ── API Key Gate 
+    function ApiKeyGate({ onKey }) {
       const [val, setVal] = useState("");
       const [err, setErr] = useState("");
 
@@ -776,7 +781,8 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       );
     }
 
-    // ── Chat Mode ───────────────    const STARTERS = [
+    // ── Chat Mode 
+    const STARTERS = [
       "How does the 2-year incontestability rule work?",
       "What is the free look period in Massachusetts?",
       "What happens if the insurer never sends claim forms?",
@@ -948,7 +954,8 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       );
     }
 
-    // ── Main App ────────────────    function App() {
+    // ── Main App 
+    function App() {
       const [apiKey, setApiKey] = useState(() => EMBEDDED_KEY || localStorage.getItem("ma_exam_api_key") || "");
 
       function handleChangeKey() {
