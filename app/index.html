@@ -36,8 +36,8 @@
   <script id="app-src" type="text/jsx">
     const { useState, useRef, useEffect } = React;
 
-    // ── API key (fill in yours here to skip the key-entry screen) ─────────
-    const EMBEDDED_KEY = "";
+    // ── Proxy mode: API key lives on the server, not here ─────────────────
+    const EMBEDDED_KEY = "proxy";
 
     // ── Design tokens 
     const C = {
@@ -831,14 +831,9 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
         setInput("");
         setLoading(true);
         try {
-          const res = await fetch("https://api.anthropic.com/v1/messages", {
+          const res = await fetch("/api/chat", {
             method: "POST",
-            headers: {
-              "content-type": "application/json",
-              "x-api-key": apiKey,
-              "anthropic-version": "2023-06-01",
-              "anthropic-dangerous-direct-browser-access": "true",
-            },
+            headers: { "content-type": "application/json" },
             body: JSON.stringify({
               model: "claude-haiku-4-5-20251001",
               max_tokens: 1024,
@@ -1003,7 +998,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
                   Prometric Series 16-52
                 </div>
               </div>
-              {apiKey && (
+              {apiKey && !EMBEDDED_KEY && (
                 <button onClick={handleChangeKey} style={{
                   background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)",
                   color: "rgba(244,242,234,0.65)", fontSize: 12, padding: "5px 11px", borderRadius: 8, cursor: "pointer",
