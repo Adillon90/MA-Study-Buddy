@@ -64,22 +64,57 @@
     }
 
     function Rich({ text }) {
-      const blocks = text.split(/\[\[(.+?)\]\]/g);
-      return (
-        <span>
-          {blocks.map((b, i) => {
-            if (i % 2 === 1) return <CitationChip key={i} text={b} />;
-            const parts = b.split(/\*\*(.+?)\*\*/g);
-            return (
-              <span key={i}>
-                {parts.map((p, j) =>
-                  j % 2 === 1 ? <strong key={j} style={{ color: "inherit" }}>{p}</strong> : <span key={j}>{p}</span>
-                )}
-              </span>
-            );
-          })}
-        </span>
-      );
+      function inline(str) {
+        const blocks = str.split(/\[\[(.+?)\]\]/g);
+        return blocks.map((b, i) => {
+          if (i % 2 === 1) return <CitationChip key={i} text={b} />;
+          const parts = b.split(/\*\*(.+?)\*\*/g);
+          return parts.map((p, j) =>
+            j % 2 === 1 ? <strong key={`b${i}-${j}`} style={{ color: "inherit" }}>{p}</strong> : p
+          );
+        });
+      }
+
+      const lines = text.split('\n');
+      const out = [];
+      let bullets = [];
+
+      function flush() {
+        if (!bullets.length) return;
+        out.push(
+          <ul key={`ul${out.length}`} style={{ margin: "5px 0", padding: 0, listStyle: "none" }}>
+            {bullets.map((b, i) => (
+              <li key={i} style={{ display: "flex", gap: 7, alignItems: "flex-start", marginBottom: 4 }}>
+                <span style={{ color: C.green, fontWeight: 800, flexShrink: 0, marginTop: "0.1em" }}>·</span>
+                <span>{inline(b)}</span>
+              </li>
+            ))}
+          </ul>
+        );
+        bullets = [];
+      }
+
+      for (const line of lines) {
+        const t = line.trim();
+        if (t.startsWith('- ')) {
+          bullets.push(t.slice(2));
+        } else {
+          flush();
+          if (!t) continue;
+          const isSum = /^\*\*Summary:\*\*/i.test(t) || /^Summary:/i.test(t);
+          out.push(
+            <div key={`d${out.length}`} style={isSum ? {
+              marginTop: 10, paddingTop: 8, borderTop: `1px solid ${C.line}`,
+              opacity: 0.8, fontSize: "0.93em",
+            } : { marginBottom: 2 }}>
+              {inline(t)}
+            </div>
+          );
+        }
+      }
+      flush();
+
+      return <>{out}</>;
     }
 
     // ── AI Tutor system prompt (compressed knowledge base) ────────────────
@@ -87,7 +122,7 @@
 
 Talk like a real person, not a textbook. Use plain language and contractions. If someone asks something vague, figure out what they mean and answer it. When a concept is tricky, give the plain-English version first. Be encouraging without being over the top. When someone gets something wrong, stay warm, correct it clearly, and move on.
 
-RULES: Be brief. 1-2 sentences for simple facts, 3 sentences max for anything complex. Never restate the question. No openers like "Great question!" No closers like "I hope that helps!" Never use em dashes or horizontal dividers in your responses. Use **bold** for key numbers and critical terms. Use [[Citation]] only for the single most relevant statute. Use bullets only when listing 3 or more genuinely distinct items. If asked to quiz: one question at a time with A-D options, wait for the answer, then one clear sentence explaining why. Stick to MA A&H exam content only. Never invent numbers.
+RULES: Match length to complexity. Simple one-fact questions get 1-2 sentences with no extra structure. Multi-part explanations use bullet points — one concept per bullet, one sentence each. Always end every response with a **Summary:** line: one sentence capturing the single most important takeaway. Never restate the question. No openers like "Great question!" No closers like "I hope that helps!" Never use em dashes or horizontal dividers. Use **bold** for key numbers and critical terms. Use [[Citation]] only for the single most relevant statute. If asked to quiz: one question at a time with A-D options, wait for the answer, then one clear sentence explaining why. Stick to MA A&H exam content only. Never invent numbers.
 
 MODULE 1:INSURANCE REGULATION (9% of exam)
 Licensing: Minimum age **18**; no pre-licensing course required in MA; apply through NIPR. Lines of authority include: Life; Accident & Health or Sickness; Property; Casualty; Variable Life/Annuity; Personal Lines; Credit (limited line); Travel (limited line).
