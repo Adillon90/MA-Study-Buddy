@@ -11,7 +11,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Lora:wght@600;700&display=swap');
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body, #root { height: 100%; }
-    body { background: #F6F4EE; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+    @supports (height: 100dvh) { html, body, #root { height: 100dvh; } }
+    body { background: #F6F4EE; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     input, button, textarea { font-family: inherit; }
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: transparent; }
@@ -864,10 +865,10 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       return (
         <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column" }}>
           {/* Messages */}
-          <div style={{ flex: 1, overflowY: "auto", padding: isMobile ? "16px 14px 8px" : "24px 20px 12px" }}>
+          <div style={{ flex: 1, overflowY: "auto", overflowX: "hidden", WebkitOverflowScrolling: "touch", padding: isMobile ? "16px 14px 8px" : "24px 20px 12px" }}>
 
             {messages.length === 0 && (
-              <div style={{ maxWidth: 580, margin: "0 auto" }}>
+              <div style={{ maxWidth: 580, width: "100%", margin: "0 auto" }}>
                 {/* Welcome card */}
                 <div style={{
                   background: C.card, border: `1px solid ${C.line}`, borderRadius: 16,
@@ -904,7 +905,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
             )}
 
             {/* Chat messages */}
-            <div style={{ maxWidth: 580, margin: "0 auto" }}>
+            <div style={{ maxWidth: 580, width: "100%", margin: "0 auto" }}>
               {messages.map((m, i) => (
                 <div key={i} style={{
                   marginBottom: 16, display: "flex", flexDirection: "column",
@@ -922,6 +923,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
                     fontSize: isMobile ? 15 : 16, lineHeight: 1.7,
                     border: m.role === "assistant" ? `1px solid ${C.line}` : "none",
                     boxShadow: "0 1px 6px rgba(22,36,58,0.07)",
+                    wordBreak: "break-word", overflowWrap: "anywhere",
                   }}>
                     {m.role === "assistant" ? <Rich text={m.content} /> : m.content}
                   </div>
@@ -945,9 +947,9 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
           {/* Input bar */}
           <div style={{ borderTop: `1px solid ${C.line}`, padding: isMobile ? "10px 12px 14px" : "12px 20px 18px", background: C.card, flexShrink: 0 }}>
             <div style={{
-              maxWidth: 620, margin: "0 auto", display: "flex", alignItems: "center",
+              maxWidth: 620, width: "100%", margin: "0 auto", display: "flex", alignItems: "center",
               background: C.paper, borderRadius: 24, border: `1.5px solid ${C.line}`,
-              padding: "5px 5px 5px 18px",
+              padding: isMobile ? "4px 4px 4px 14px" : "5px 5px 5px 18px",
             }}>
               <input
                 value={input}
@@ -989,7 +991,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       }
 
       return (
-        <div style={{ height: "100%", background: C.paper, display: "flex", flexDirection: "column" }}>
+        <div style={{ height: "100%", background: C.paper, display: "flex", flexDirection: "column", overflowX: "hidden" }}>
           {/* Header */}
           <div style={{ background: C.ink, color: "#F4F2EA", padding: "13px 20px", flexShrink: 0 }}>
             <div style={{ maxWidth: 620, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -1030,7 +1032,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
                 </div>
 
                 {/* Content */}
-                <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflowY: mode === "cards" && !selectedDeck ? "auto" : "hidden" }}>
+                <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflowX: "hidden", overflowY: mode === "chat" ? "hidden" : "auto" }}>
                   {mode === "chat"
                     ? <ChatMode apiKey={apiKey} />
                     : selectedDeck
