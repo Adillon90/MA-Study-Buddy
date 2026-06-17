@@ -16,8 +16,7 @@
 </head>
 <body>
   <div id="root"></div>
-  <script type="text/babel" data-presets="react">
-    /* @jsxRuntime classic */
+  <script id="app-src" type="text/jsx">
     const { useState, useRef, useEffect } = React;
 
     // ── API key (fill in yours here to skip the key-entry screen) ─────────
@@ -992,6 +991,11 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
     }
 
     ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+  <script>
+    var _src = document.getElementById("app-src").textContent;
+    var _out = Babel.transform(_src, { presets: [["react", { runtime: "classic" }]] });
+    new Function(_out.code)();
   </script>
 </body>
 </html>
