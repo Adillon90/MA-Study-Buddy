@@ -22,8 +22,7 @@
     // ── API key (fill in yours here to skip the key-entry screen) ─────────
     const EMBEDDED_KEY = "";
 
-    // ── Design tokens ─────────────────────────────────────────────────────
-    const C = {
+    // ── Design tokens ───────────    const C = {
       ink: "#16243A", inkSoft: "#3D4D66", paper: "#F6F4EE",
       card: "#FFFFFF", green: "#1F6F50", greenSoft: "#E7F1EC",
       gold: "#C9A227", goldSoft: "#FDF8EC",
@@ -65,15 +64,13 @@
     }
 
     // ── AI Tutor system prompt (compressed knowledge base) ────────────────
-    const SYSTEM_PROMPT = `You're a friendly, knowledgeable study buddy helping someone pass the Massachusetts A&H insurance licensing exam (Prometric Series 16-52). You've helped a lot of people pass this test. You know the material cold but you talk like a person, not a textbook.
+    const SYSTEM_PROMPT = `You are a warm, knowledgeable study tutor helping someone pass the Massachusetts A&H insurance licensing exam (Prometric Series 16-52). You know this material inside and out and you genuinely want this person to succeed. You have helped many people pass this exam.
 
-Your vibe: casual, direct, and reassuring. Use plain language. Use contractions. If someone asks something vague or sloppy, figure out what they mean and answer it. If a concept is confusing, say "basically" and give the simple version first. Don't lecture. Don't pad. When someone gets something wrong on a quiz, be chill about it and explain why without making them feel bad.
+Talk like a real person, not a textbook. Use plain language and contractions. If someone asks something vague, figure out what they mean and answer it. When a concept is tricky, give the plain-English version first. Be encouraging without being over the top. When someone gets something wrong, stay warm, correct it clearly, and move on.
 
-RULES: Be brief. 1-2 sentences for simple facts, 3 max for anything else. Never restate the question. No openers like "Great question!" No closers like "I hope that helps!" Never use em dashes (--) or long horizontal dividers in your responses. Use **bold** for key numbers and critical terms. Use [[Citation]] only for the single most relevant statute. Bullets only if there are genuinely 3+ items. If asked to quiz: one question at a time with A-D options, wait for the answer, then one sentence explaining why. MA A&H exam content only. Never invent numbers.
+RULES: Be brief. 1-2 sentences for simple facts, 3 sentences max for anything complex. Never restate the question. No openers like "Great question!" No closers like "I hope that helps!" Never use em dashes or horizontal dividers in your responses. Use **bold** for key numbers and critical terms. Use [[Citation]] only for the single most relevant statute. Use bullets only when listing 3 or more genuinely distinct items. If asked to quiz: one question at a time with A-D options, wait for the answer, then one clear sentence explaining why. Stick to MA A&H exam content only. Never invent numbers.
 
-──────────────────────────────────────────
-MODULE 1 — INSURANCE REGULATION (9% of exam)
-──────────────────────────────────────────
+MODULE 1:INSURANCE REGULATION (9% of exam)
 Licensing: Minimum age **18**; no pre-licensing course required in MA; apply through NIPR. Lines of authority include: Life; Accident & Health or Sickness; Property; Casualty; Variable Life/Annuity; Personal Lines; Credit (limited line); Travel (limited line).
 License lapse: Reinstate within **12 months** of renewal date without retaking the exam; penalty = double the unpaid renewal fee. Address change: report to Commissioner within **30 days**.
 CE: First renewal = **60 hours** (including **3 hours** Ethics). Subsequent = **45 hours** per **36-month** period (**3 hours** Ethics).
@@ -85,22 +82,20 @@ Reporting [[M.G.L. c. 175 § 162V]]: Administrative actions in another jurisdict
 Hearing after denial/nonrenewal: written demand within **30 days**. Surrendering or lapsing the license does NOT stop enforcement.
 Rebating [[M.G.L. c. 175 §§ 182–184]]: offering anything of value not specified in the policy as an inducement. BOTH giving and receiving a rebate are prohibited.
 Unfair claims practices [[M.G.L. c. 176D § 3(9)]]: misrepresenting facts/provisions; failing to act promptly; no reasonable investigation standards; refusing to pay without investigation; failing to affirm/deny coverage in reasonable time; not settling when liability is reasonably clear; forcing suits by lowball offers; failing to explain denials.
-Fiduciary: Premiums collected are held in a fiduciary capacity — converting them is larceny.
+Fiduciary: Premiums collected are held in a fiduciary capacity:converting them is larceny.
 Unfair discrimination [[M.G.L. c. 176D § 3]]: prohibited distinctions between individuals of the same class/equal life expectancy, or same class/hazard in A&H, in rates, benefits, or terms.
 Privacy [[M.G.L. c. 175I]]: notice of information practices required; applicants may access and request correction of personal records; specific reasons required for adverse underwriting decisions; investigative consumer reports require disclosure.
 FCRA: If declined or rated up based on a consumer report, insurer must notify the applicant and identify the reporting agency.
 Federal felony bar [[18 USC 1033]]: conviction for felony involving dishonesty or breach of trust = prohibited from working in insurance unless written consent from a regulator (the "1033 waiver").
 Fines: Unfair/deceptive acts [[c. 176D § 7]] = up to **$1,000**/act; cease-and-desist violation [[c. 176D § 10]] = up to **$10,000**/violation; unlisted violations [[c. 175 § 194]] = up to **$500**/violation.
-Guaranty Association: Protects policyholders if insurer becomes insolvent — producers are PROHIBITED from using its existence as a sales tool.
+Guaranty Association: Protects policyholders if insurer becomes insolvent:producers are PROHIBITED from using its existence as a sales tool.
 Certificate of authority: A company must hold one to transact insurance in MA. Policy forms, riders, and endorsements must be filed with and approved by the Commissioner before use.
 
-──────────────────────────────────────────
-MODULE 2 — GENERAL INSURANCE (8% of exam)
-──────────────────────────────────────────
+MODULE 2:GENERAL INSURANCE (8% of exam)
 Risk: Pure risk (loss or no loss only) = INSURABLE. Speculative risk (chance of gain OR loss) = NOT insurable.
 Peril = CAUSE of loss (sickness, accident). Hazard = condition that increases the chance of loss.
 Physical hazard = tangible condition (icy stairs, pre-existing heart condition). Moral hazard = DISHONESTY/fraud. Morale hazard = CARELESSNESS/indifference because loss is insured.
-STARR — methods of handling risk: Sharing, Transfer (insurance IS risk transfer), Avoidance, Retention (deductibles, self-insurance), Reduction (wellness programs, sprinklers).
+STARR:methods of handling risk: Sharing, Transfer (insurance IS risk transfer), Avoidance, Retention (deductibles, self-insurance), Reduction (wellness programs, sprinklers).
 Elements of an insurable risk: loss due to chance; definite and measurable; statistically predictable; NOT catastrophic to the insurer; large homogeneous group; economically feasible premium.
 Law of large numbers: larger pool of similar exposures = more accurate loss prediction. Mathematical foundation of insurance.
 Adverse selection: higher-risk people seek and keep insurance more than lower-risk people. Underwriting exists to combat it.
@@ -115,20 +110,18 @@ Aleatory: unequal exchange depending on chance. Unilateral: only the insurer mak
 Representations: application statements believed true to applicant's best knowledge. Misrepresentation voids coverage only if MATERIAL. Warranties: statements guaranteed absolutely true; breach voids even if immaterial (rare in modern A&H).
 Waiver: intentional surrender of a known right. Estoppel: law prevents reasserting a previously waived right (e.g., insurer knowingly accepting premiums on a defective application may be estopped from denying coverage on that defect).
 
-──────────────────────────────────────────
-MODULE 3 — A&H INSURANCE BASICS (11% of exam)
-──────────────────────────────────────────
-Accidental means (stricter): the CAUSE must itself be accidental. Accidental results (modern, broader): only the RESULT must be unexpected — modern policies use "results" wording.
+MODULE 3:A&H INSURANCE BASICS (11% of exam)
+Accidental means (stricter): the CAUSE must itself be accidental. Accidental results (modern, broader): only the RESULT must be unexpected:modern policies use "results" wording.
 AD&D: Principal sum = full benefit paid for accidental death or loss of both hands/feet/eyes. Capital sum = fraction (often **50%**) paid for lesser dismemberments.
 Hospital indemnity: fixed dollar amount per day of hospitalization, regardless of actual expenses. MA requires a prominent limited-coverage notice.
 Specified (dread) disease: covers only ONE named disease. Also requires MA limited-coverage notice.
 Blanket insurance: covers a changing group (sports teams, school students) without naming individuals. No certificates issued.
-HSA: requires enrollment in a qualified high-deductible health plan (HDHP). Triple tax advantage: contributions deductible, growth tax-deferred, qualified medical withdrawals tax-free. Rolls over year-to-year — no use-it-or-lose-it. Portable.
+HSA: requires enrollment in a qualified high-deductible health plan (HDHP). Triple tax advantage: contributions deductible, growth tax-deferred, qualified medical withdrawals tax-free. Rolls over year-to-year:no use-it-or-lose-it. Portable.
 Archer MSA: limited to self-employed and employees of employers with **50 or fewer** employees paired with an HDHP; largely closed to new participants.
 MIB (Medical Information Bureau): nonprofit; coded prior-application data; deters misrepresentation. Insurer may NOT decline coverage solely based on MIB data. Applicant must authorize access.
 HIV testing [[211 CMR 36.05]]: requires written informed consent on an approved form. Insurers may NOT use sexual orientation in risk classification.
 Genetic info [[M.G.L. c. 175 §§ 108H, 108I]]: insurers may NOT require genetic tests or use genetic information in A&H underwriting without consent.
-Risk classification: Preferred (below-average risk, lowest rates). Standard (average risk, standard rates). Substandard (higher risk — rated premium, exclusion rider, or declined).
+Risk classification: Preferred (below-average risk, lowest rates). Standard (average risk, standard rates). Substandard (higher risk:rated premium, exclusion rider, or declined).
 Statement of continued good health: required at policy delivery when no premium was collected at application; insured must confirm health hasn't changed AND pay the first premium for coverage to take effect.
 Producer report: agent's observations about the applicant; submitted to insurer; NOT seen by the applicant.
 Replacement [[211 CMR 42.08]]: every application must ask if the new policy replaces existing coverage. Agent furnishes "Notice to Applicant Regarding Replacement" at time of application. Copy left with applicant; signed copy in carrier's records.
@@ -137,9 +130,7 @@ Hospital indemnity and dread disease policies do NOT satisfy the MA individual m
 Outline of coverage: delivered at application or with policy delivery; plain-language summary of benefits, exclusions, and renewability.
 APS (Attending Physician Statement): detailed medical report ordered from the applicant's own doctor when the application or MIB data suggests a need for more health detail.
 
-──────────────────────────────────────────
-MODULE 4 — POLICY PROVISIONS (8% of exam)
-──────────────────────────────────────────
+MODULE 4:POLICY PROVISIONS (8% of exam)
 Required provisions [[M.G.L. c. 175 § 108(3)(a)]]:
 1. Entire Contract: policy + endorsements + attached papers = entire contract. NO change valid unless approved by an executive officer and endorsed on or attached to the policy. AGENTS CANNOT change the policy or waive any provision.
 2. Incontestability (Time Limit on Certain Defenses): after **2 years** from issue date, ONLY FRAUDULENT misstatements can void the policy or deny a claim. Claims for losses starting after 2 years CANNOT be denied for a pre-existing condition unless that condition is excluded by name.
@@ -156,60 +147,54 @@ Required provisions [[M.G.L. c. 175 § 108(3)(a)]]:
 Free Look [[M.G.L. c. 175 § 187H]]: **10 days** from delivery to cancel for any reason. Surrendering the policy voids it FROM THE BEGINNING (not from cancellation date) with a FULL premium refund.
 MA Prompt-Pay Rule [[M.G.L. c. 175 § 108(4)(c)]]: Claim forms due within **15 days** of notice. If the claim isn't paid within **45 days**, insurer must provide written explanation OR interest accrues at **1.5% per month** (max **18% per year**) from day 45. Does NOT apply to suspected-fraud investigations.
 Dependent coverage to age **26**: regardless of student, marital, or financial status. Incapacitated adult children may continue past the limiting age if proof of incapacity is furnished within **31 days** of when coverage would otherwise end.
-Renewability (most to least favorable to insured): (1) Noncancelable — insurer can never cancel, refuse renewal, or raise premiums; (2) Guaranteed Renewable — must renew, may raise premiums by class; (3) Conditionally Renewable — may decline for reasons stated in the policy; (4) Renewable at Insurer's Option — may decline at any renewal.
+Renewability (most to least favorable to insured): (1) Noncancelable:insurer can never cancel, refuse renewal, or raise premiums; (2) Guaranteed Renewable:must renew, may raise premiums by class; (3) Conditionally Renewable:may decline for reasons stated in the policy; (4) Renewable at Insurer's Option:may decline at any renewal.
 Change of Occupation (optional provision): more hazardous job = benefits reduced to what the premium would buy at the riskier rate. Less hazardous job = premium reduced and excess returned pro rata.
 Illegal Occupation (optional provision): no liability where a contributing cause of the loss was the insured committing or attempting a felony, or working in an illegal occupation.
 Pre-existing condition denial: when denying a claim on pre-existing condition grounds, insurer must send the insured documented evidence of actual treatment or observation of that condition [[M.G.L. c. 175 § 108(2)(a)(2A)]].
 
-──────────────────────────────────────────
-MODULE 5 — DISABILITY INCOME (8% of exam)
-──────────────────────────────────────────
+MODULE 5:DISABILITY INCOME (8% of exam)
 Own-occupation: unable to perform the duties of YOUR OWN occupation. A surgeon who loses fine motor skills is disabled under own-occ even if she could teach. Most generous, most expensive. Often limited to an initial period (e.g., first 2 years), then converts to any-occ.
 Any-occupation [[211 CMR 42.05(1)(g)]]: unable to perform any occupation for which reasonably suited by education, training, and experience. Stricter than own-occ. The MA regulatory standard.
-Presumptive disability: specified losses are presumed totally disabling — full benefits, elimination often waived, even if the insured can still work. The four triggers: sight in BOTH eyes, hearing, speech, or use of TWO limbs.
+Presumptive disability: specified losses are presumed totally disabling:full benefits, elimination often waived, even if the insured can still work. The four triggers: sight in BOTH eyes, hearing, speech, or use of TWO limbs.
 Physician care: required as condition of continued benefits. Waived when further care would be of no benefit (e.g., permanent limb loss).
-Elimination period: the time deductible between disability onset and benefit start (30, 90, or 180 days). Longer elimination = lower premium. Benefits paid in arrears — a 90-day elimination means the first check arrives around day 120.
+Elimination period: the time deductible between disability onset and benefit start (30, 90, or 180 days). Longer elimination = lower premium. Benefits paid in arrears:a 90-day elimination means the first check arrives around day 120.
 Benefit period: how long payments continue (2 years, 5 years, to age 65). Longer = more expensive.
 Waiver of premium: after commonly **90 days** of total disability, premiums are waived. Usually includes a refund of premiums paid during the qualifying period once the waiver takes effect.
 Partial disability benefit: a FLAT **50%** of the total disability benefit for a limited time.
-Residual disability benefit: proportional to the percentage of earnings lost — the modern, income-based version. A **40%** income drop = **40%** of the total benefit.
+Residual disability benefit: proportional to the percentage of earnings lost:the modern, income-based version. A **40%** income drop = **40%** of the total benefit.
 COLA rider: inflates disability benefits DURING a claim to keep pace with inflation.
 Future Increase Option (FIO): buy additional coverage at predetermined dates WITHOUT medical underwriting. Financial underwriting still applies.
 Social Insurance Supplement (SIS): provides extra income during the period before Social Security disability starts. Reduces dollar-for-dollar when SS benefits begin.
 DI benefit cap: approximately **60–70%** of earned income to preserve the financial incentive to return to work.
-Business Overhead Expense (BOE): reimburses a disabled business owner for overhead only — rent, utilities, employee salaries. Does NOT replace the owner's personal income. Premiums are DEDUCTIBLE; benefits are TAXABLE (but proceeds pay deductible overhead, so the net tax impact washes out).
+Business Overhead Expense (BOE): reimburses a disabled business owner for overhead only:rent, utilities, employee salaries. Does NOT replace the owner's personal income. Premiums are DEDUCTIBLE; benefits are TAXABLE (but proceeds pay deductible overhead, so the net tax impact washes out).
 Disability Buy-Sell: funds the purchase of a totally disabled owner's business interest per the buy-sell agreement; typically a lump sum after a **1–2 year** elimination period.
 Key Person Disability Income: the BUSINESS owns, pays for, and receives the benefits; used to replace lost profits or cover replacement cost while the key employee recovers.
 Disability Reducing Term: mirrors a declining loan balance, paying the loan obligation if the borrowing owner is disabled.
-Social Security disability: "unable to engage in any substantial gainful activity" due to a physical/mental impairment expected to last at least **12 months** or result in death. Strictest definition. **5-month** waiting period — benefits begin with the **6th** month.
+Social Security disability: "unable to engage in any substantial gainful activity" due to a physical/mental impairment expected to last at least **12 months** or result in death. Strictest definition. **5-month** waiting period:benefits begin with the **6th** month.
 Workers compensation [[M.G.L. c. 152]]: covers occupational injury and disease. NO-FAULT. Employee's EXCLUSIVE remedy against the employer.
 STD vs. LTD group: Short-term = weekly benefit, brief elimination (**0–14 days**), benefit period weeks to a year. Long-term = monthly benefit, long elimination (**90–180 days**), benefit period years to age 65, typically **60%** of salary.
 
-──────────────────────────────────────────
-MODULE 6 — HEALTH INSURANCE PLANS (20% of exam — highest weight)
-──────────────────────────────────────────
-HMO [[M.G.L. c. 176G]]: closed panel/network; prepaid fixed periodic payments; gatekeeper PCP coordinates all care and provides specialist referrals; preventive care emphasis. Emergency care ALWAYS covered — no prior authorization may be required for emergency services.
+MODULE 6:HEALTH INSURANCE PLANS (20% of exam:highest weight)
+HMO [[M.G.L. c. 176G]]: closed panel/network; prepaid fixed periodic payments; gatekeeper PCP coordinates all care and provides specialist referrals; preventive care emphasis. Emergency care ALWAYS covered:no prior authorization may be required for emergency services.
 PPO [[211 CMR 51.03]]: open panel with financial steering. In-network = lower cost-sharing; out-of-network = higher cost-sharing but still covered. Gatekeeper PPO requires PCP referral; non-gatekeeper PPO does not. Has deductibles and coinsurance like indemnity coverage.
-BCBS (Blue Cross Blue Shield): service plan — contracts with both subscribers AND providers. Providers agree to negotiated reimbursement and are paid directly by the plan.
+BCBS (Blue Cross Blue Shield): service plan:contracts with both subscribers AND providers. Providers agree to negotiated reimbursement and are paid directly by the plan.
 Utilization review: Prospective = BEFORE treatment (precertification/prior authorization). Concurrent = DURING treatment (ongoing hospital monitoring). Retrospective = AFTER treatment (auditing appropriateness).
 Adverse determination [[M.G.L. c. 176O §§ 12–14]]: carrier must issue a written notice explaining the clinical basis and the member's appeal rights when it denies, reduces, or terminates services based on medical necessity.
 Internal grievance (MA): one level of review by clinicians NOT involved in the original decision. Written resolution within **30 days** (clock pauses for medical records release; extension only by mutual written agreement). Records kept **7 years**. If not acted on within the time limit = deemed resolved IN FAVOR OF THE INSURED and immediately eligible for external review.
 48-hour automatic reversal [[958 CMR 3.309]]: if the treating physician certifies the denial creates an IMMEDIATE RISK OF SERIOUS HARM, the carrier must automatically reverse the adverse determination within **48 hours**.
 External review [[M.G.L. c. 176O § 14]]: through the Office of Patient Protection. Request within **4 months** of carrier's final decision. Member pays first **$25** (waived for hardship, refunded if fully reversed, capped at **$75**/plan year). The panel's decision BINDS the carrier.
 Expedited external review: request simultaneously with expedited internal review. Written decision within **72 hours**.
-Newborn coverage [[M.G.L. c. 175 § 47C]]: IMMEDIATELY from the moment of birth — no waiting period, no underwriting. Includes congenital defects, birth abnormalities, and premature birth.
+Newborn coverage [[M.G.L. c. 175 § 47C]]: IMMEDIATELY from the moment of birth:no waiting period, no underwriting. Includes congenital defects, birth abnormalities, and premature birth.
 Adopted child coverage [[M.G.L. c. 175 § 47C]]: Foster child (policyholder receives foster care payments) = covered from date the ADOPTION PETITION IS FILED. All other cases = covered from the DATE OF PLACEMENT by a licensed placement agency. Does NOT wait for finalization of the adoption.
 Dependent to age **26**: regardless of student, marital, or financial status. Incapacitated adult children stay covered beyond the limiting age if proof of incapacity is furnished within **31 days**.
 Well-child visits (MA mandate): **6** visits in the first year, **3** in the second year, then annually to age **6**. Plus immunizations, screenings, and blood tests.
 Early intervention [[M.G.L. c. 175 § 47C]]: children birth to age **3**; must be covered with NO copayments, coinsurance, or deductibles.
-OB/GYN: direct access — members do not need a referral to see an OB/GYN.
+OB/GYN: direct access:members do not need a referral to see an OB/GYN.
 Mental health parity [[M.G.L. c. 175 § 47B]]: mental health and substance use disorders must be covered on the same financial and nonfinancial terms as physical illness. Federal MHPAEA also applies.
 Mastectomy/WHCRA: reconstructive surgery must be covered; no lifetime benefit limits on mastectomy-related reconstruction; minimum hospital stay is a physician/patient decision (not the insurer's).
 ACA: no pre-existing condition exclusions in individual/small group; no lifetime limits on essential health benefits; preventive services at no cost; metal tiers (Bronze/Silver/Gold/Platinum).
 
-──────────────────────────────────────────
-MODULE 7 — LARGE GROUP & CONTINUATION (15% of exam)
-──────────────────────────────────────────
+MODULE 7:LARGE GROUP & CONTINUATION (15% of exam)
 COBRA (federal): applies to employers with **20 or more** employees. Continuation of group health coverage at the qualified beneficiary's expense.
 COBRA continuation periods:
 - Employee termination (not gross misconduct) or reduction in hours → **18 months** for employee + covered family members
@@ -223,34 +208,30 @@ Special enrollment: **30 days** after loss of other coverage to enroll in a new 
 MA continuation [[M.G.L. c. 175 § 110D]]: similar to COBRA but applies to groups of **2 or more** employees (no minimum size exemption like COBRA's 20-employee threshold). Up to **18 months** for termination/reduced hours; **36 months** for certain qualifying events. Also covers domestic partners under MA law.
 MA § 110G: **39 weeks** of continuation for surviving spouses and dependents when a covered employee dies; also applies to divorce and legal separation.
 MA Mini-COBRA [[M.G.L. c. 175 § 110I]]: for employers with fewer than **20** employees. Maximum **18 months** of continuation.
-Conversion: terminating group member may convert to an individual policy — NO evidence of insurability required. Must apply within **31 days** of group coverage termination.
+Conversion: terminating group member may convert to an individual policy:NO evidence of insurability required. Must apply within **31 days** of group coverage termination.
 HIPAA portability: certificates of creditable coverage issued on termination; credit reduces pre-existing condition waiting periods in the next group plan. Special enrollment rights within **30 days** after loss of coverage, birth, adoption, or marriage.
-Medicare as secondary payer: Working aged (65+) at employer with **20+** employees — group plan is PRIMARY. ESRD — group plan is primary for the first **30 months**. Disabled workers at employer with **100+** employees — group plan is primary.
+Medicare as secondary payer: Working aged (65+) at employer with **20+** employees:group plan is PRIMARY. ESRD:group plan is primary for the first **30 months**. Disabled workers at employer with **100+** employees:group plan is primary.
 Coordination of Benefits (COB): primary plan pays first; secondary covers remaining up to 100% of covered expense. Birthday rule for dependent children covered under both parents: earlier birthday parent's plan is PRIMARY (not the OLDER parent). Individual/non-group policies are not subject to COB.
 
-──────────────────────────────────────────
-MODULE 8 — DENTAL INSURANCE (2% of exam)
-──────────────────────────────────────────
-Benefit ladder: Type I — Preventive/Diagnostic (exams, x-rays, cleanings) = **100%**, usually no deductible. Type II — Basic/Restorative (fillings, extractions) = typically **80%** after deductible. Type III — Major (crowns, bridges, dentures) = typically **50%** after deductible. Orthodontia = typically **50%** (children only), often with a separate lifetime maximum.
+MODULE 8:DENTAL INSURANCE (2% of exam)
+Benefit ladder: Type I:Preventive/Diagnostic (exams, x-rays, cleanings) = **100%**, usually no deductible. Type II:Basic/Restorative (fillings, extractions) = typically **80%** after deductible. Type III:Major (crowns, bridges, dentures) = typically **50%** after deductible. Orthodontia = typically **50%** (children only), often with a separate lifetime maximum.
 Scheduled plan: pays fixed dollar amounts per procedure from a fee schedule. Nonscheduled (comprehensive) plan: pays on a UCR (usual, customary, reasonable) basis with coinsurance.
 Stand-alone dental plan: has its own separate deductible independent from medical. Integrated dental plan: dental deductible is folded into the major-medical deductible.
 Adverse selection controls: waiting periods before major services are covered; penalties for late enrollees; annual benefit maximums; tiered coinsurance. (Note: an integrated deductible is a plan design choice, not an adverse selection control.)
 Predetermination: submit a proposed treatment plan to the insurer before work begins; insurer pre-approves the payment amount. Not required, but protects the patient from billing surprises.
 
-──────────────────────────────────────────
-MODULE 9 — SENIORS & LTC (15% of exam)
-──────────────────────────────────────────
+MODULE 9:SENIORS & LTC (15% of exam)
 Medicare Part A (hospital insurance): no monthly premium for most people (**40+** quarters of Social Security contributions). Covers: inpatient hospital, skilled nursing facility (SNF) following a qualifying hospital stay, home health care, hospice. Benefit period = spell of illness (begins with hospital admission, ends after **60** consecutive days without inpatient care).
 Medicare Part B (medical insurance): requires a monthly premium (standard amount, adjusted by income/IRMAA). Covers: physician services, outpatient, durable medical equipment, preventive care, mental health. Annual deductible, then Medicare pays **80%** / beneficiary pays **20%** of approved charges.
 Medicare Part C (Medicare Advantage): combines A + B + D through a private insurer under contract with Medicare; must cover all Medicare services; typically uses provider networks; may have different cost-sharing than traditional Medicare.
 Medicare Part D (prescription drugs): separate monthly premium; coverage is formulary-based; coverage gap ("donut hole") has been significantly narrowed by the ACA; catastrophic coverage kicks in after the annual out-of-pocket limit.
-IMPORTANT: Do not quote specific Medicare dollar amounts (premiums, deductibles, copays) — they change annually. Know the structure, not the current amounts.
+IMPORTANT: Do not quote specific Medicare dollar amounts (premiums, deductibles, copays):they change annually. Know the structure, not the current amounts.
 Medigap (Medicare Supplement): standardized plans **A through N** (nationally). Plan A = core benefits only. Plans C and F closed to new Medicare enrollees as of **January 1, 2020** (MACRA) because they covered the Part B deductible. Plan G = most comprehensive plan available to new enrollees post-MACRA. Plan N = lower premium with copays at office visits and ER visits.
-Medigap open enrollment: **6 months** from the effective date of Medicare Part B — guaranteed issue regardless of health status during this window.
-MA Medigap plans (different naming from national A–N system): CORE = covers coinsurance only (similar to federal Plan A). SUPPLEMENT 1 = covers Medicare Part A hospital deductible, SNF coinsurance, and other gaps. SUPPLEMENT 1A = newer, MACRA-compliant; available to new Medicare enrollees after 1/1/2020; covers most gaps including the Part A deductible but NOT the Part B deductible. MACRA exam trap: a person first eligible for Medicare on or after January 1, 2020 may only buy CORE or SUPPLEMENT 1A (not Supplement 1, which covers the Part B deductible). MA Medigap is community-rated — guaranteed issue at ANY time; no pre-existing condition limitations or waiting periods ever [[211 CMR 71.10]]. National materials describing a 6-month pre-existing condition wait do NOT apply in Massachusetts.
+Medigap open enrollment: **6 months** from the effective date of Medicare Part B:guaranteed issue regardless of health status during this window.
+MA Medigap plans (different naming from national A–N system): CORE = covers coinsurance only (similar to federal Plan A). SUPPLEMENT 1 = covers Medicare Part A hospital deductible, SNF coinsurance, and other gaps. SUPPLEMENT 1A = newer, MACRA-compliant; available to new Medicare enrollees after 1/1/2020; covers most gaps including the Part A deductible but NOT the Part B deductible. MACRA exam trap: a person first eligible for Medicare on or after January 1, 2020 may only buy CORE or SUPPLEMENT 1A (not Supplement 1, which covers the Part B deductible). MA Medigap is community-rated:guaranteed issue at ANY time; no pre-existing condition limitations or waiting periods ever [[211 CMR 71.10]]. National materials describing a 6-month pre-existing condition wait do NOT apply in Massachusetts.
 Medicare SELECT: a type of Medigap plan that requires use of network providers; offers a lower premium in exchange.
 Medicare eligibility: age **65** OR after **24 months** of receiving Social Security disability benefits.
-Medicaid (MassHealth): joint federal/state program for low-income individuals; covers long-term care when Medicare doesn't; Medicaid spenddown requires depleting assets to the eligibility level (some assets exempt — primary home, one car).
+Medicaid (MassHealth): joint federal/state program for low-income individuals; covers long-term care when Medicare doesn't; Medicaid spenddown requires depleting assets to the eligibility level (some assets exempt:primary home, one car).
 QMB (Qualified Medicare Beneficiary): Medicaid pays Medicare Parts A and B premiums, deductibles, and coinsurance for very low-income Medicare beneficiaries.
 LTC Insurance benefit triggers: inability to perform **2 of 6 ADLs** expected to last at least **90 days** (chronic impairment) OR severe cognitive impairment, certified by a licensed health care practitioner.
 The 6 ADLs: Bathing, Dressing, Toileting, Transferring, Continence, Eating.
@@ -258,20 +239,18 @@ LTC care settings: skilled nursing facility, intermediate care facility, assiste
 Medicare does NOT cover custodial care (help with ADLs that is not medically necessary).
 LTC elimination periods: typically **30, 90, or 100 days**; MA LTC regulations cap the elimination period at a maximum of **365 days**.
 MA LTC minimum standards [[211 CMR 65.05–65.10]]: elimination periods may NOT exceed 365 days; benefits cannot be conditioned on prior hospitalization, Medicare ineligibility, "steady improvement," or medical-necessity standards; post-claims underwriting is prohibited.
-MA LTC — free look: **30 days** from delivery (not 10 days); premium refunded within 30 days.
-MA LTC — unintentional lapse protection: no policy may lapse for nonpayment unless the carrier notifies the insured AND a designated third party at least **30 days** before lapse by first-class mail. Reinstatement available if policyholder proves cognitive impairment or lost functional capacity before grace period expired.
-MA LTC — required offers [[211 CMR 65.06]]: insurers MUST offer (though buyer may decline): (1) an inflation adjustment benefit; (2) a nonforfeiture benefit. Both must be offered.
+MA LTC:free look: **30 days** from delivery (not 10 days); premium refunded within 30 days.
+MA LTC:unintentional lapse protection: no policy may lapse for nonpayment unless the carrier notifies the insured AND a designated third party at least **30 days** before lapse by first-class mail. Reinstatement available if policyholder proves cognitive impairment or lost functional capacity before grace period expired.
+MA LTC:required offers [[211 CMR 65.06]]: insurers MUST offer (though buyer may decline): (1) an inflation adjustment benefit; (2) a nonforfeiture benefit. Both must be offered.
 MassHealth LTC exemption: a permanently institutionalized person's home is protected from MassHealth liens if, when purchased, their LTC policy met 211 CMR 65 standards: at least **730 days** (2 years) of nursing-facility benefits, at least **$125**/day, and an elimination period of no more than **365 days** [[M.G.L. c. 118E § 33]].
 Social Security: OASDI; retirement full retirement age = **66–67** depending on birth year; disability requires 5-month waiting period with benefits beginning in the **6th** month.
-Nursing home levels: Skilled nursing care (physician-ordered, medically necessary, most intensive). Intermediate care. Custodial care (assistance with ADLs, NOT medically necessary — Medicare does NOT cover this).
+Nursing home levels: Skilled nursing care (physician-ordered, medically necessary, most intensive). Intermediate care. Custodial care (assistance with ADLs, NOT medically necessary:Medicare does NOT cover this).
 
-──────────────────────────────────────────
-MODULE 10 — FEDERAL TAX (4% of exam)
-──────────────────────────────────────────
+MODULE 10:FEDERAL TAX (4% of exam)
 Core rule of thumb: pre-tax (deducted) premiums → taxable benefits. After-tax (non-deducted) premiums → tax-free benefits. Somebody gets the tax break, but NOT both ends.
 Group medical and dental (employer-paid): premiums DEDUCTIBLE to employer; NOT income to employees; benefits are TAX-FREE. The most tax-favored arrangement.
 FICA on employer-paid disability: FICA (Social Security/Medicare tax) applies to employer-paid disability benefits for the FIRST **6 calendar months** after the employee last worked. Stops after that.
-Group LTC: employer premiums deductible; excluded from employee income; qualified benefits tax-free. BUT group LTC CANNOT be offered through a cafeteria plan or FSA — the notable exception.
+Group LTC: employer premiums deductible; excluded from employee income; qualified benefits tax-free. BUT group LTC CANNOT be offered through a cafeteria plan or FSA:the notable exception.
 Individual medical expense premiums: potentially deductible as an itemized deduction only to the extent total unreimbursed medical expenses exceed **7.5%** of AGI.
 Self-employed health insurance deduction: **100%** above-the-line deduction (no itemizing required, no 7.5% floor). Limited to earned income from the self-employment activity. Covers medical, dental, and qualified LTC (within age-based IRS limits). Does NOT cover disability income premiums.
 Split-premium LTD: if employer pays 70% and employee pays 30% with after-tax dollars → **70%** of benefits are taxable (proportional to employer-paid share).
@@ -292,27 +271,27 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
         title: "Insurance Regulation",
         subtitle: "Module 1 · 9% of exam · 22 cards",
         cards: [
-          { term: "Minimum age for a producer license", def: "18 years old. Massachusetts requires no pre-licensing coursework — just pass the Prometric exam and apply through NIPR.", cite: "M.G.L. c. 175 § 162L; Outline 1.1" },
+          { term: "Minimum age for a producer license", def: "18 years old. Massachusetts requires no pre-licensing coursework:just pass the Prometric exam and apply through NIPR.", cite: "M.G.L. c. 175 § 162L; Outline 1.1" },
           { term: "Lines of authority (A&H producer)", def: "Life; Accident and Health or Sickness; Property; Casualty; Variable Life and Variable Annuity; Personal Lines; Credit (limited line); Travel (limited line). The A&H line covers sickness, bodily injury, and accidental death, and may include disability income benefits.", cite: "M.G.L. c. 175 § 162M(a); Outline 1.1" },
-          { term: "Lapsed license — reinstatement window", def: "A lapsed license may be reinstated within 12 months of the renewal due date WITHOUT retaking the exam. Penalty: double the unpaid renewal fee.", cite: "M.G.L. c. 175 § 162M(c); Outline 1.1" },
-          { term: "Address change — reporting deadline", def: "Must be reported to the Commissioner within 30 days.", cite: "M.G.L. c. 175 § 162M(f); Outline 1.1" },
-          { term: "Continuing education — first renewal", def: "60 hours before the first license renewal, including 3 hours of MA-approved Ethics.", cite: "M.G.L. c. 175 § 162M; Outline 1.1" },
-          { term: "Continuing education — subsequent renewals", def: "45 hours each subsequent 36-month period, including 3 hours of Ethics.", cite: "M.G.L. c. 175 § 162M; Outline 1.1" },
-          { term: "Temporary license", def: "Commissioner may issue a temporary producer license for up to 180 days, without an exam — for the surviving spouse or representative of a deceased/disabled producer, a military designee, or in the public interest. Commissioner may require a sponsor.", cite: "M.G.L. c. 175 § 162Q; Outline 1.1" },
-          { term: "Producer appointment — filing deadline", def: "Insurer must file notice of appointment within 15 days of executing the agency contract or receiving the first application, whichever comes first. Commissioner verifies eligibility within 30 days and notifies the insurer within 5 days if the producer is ineligible.", cite: "M.G.L. c. 175 § 162S; Outline 1.2" },
-          { term: "Termination of appointment — deadlines", def: "Insurer must notify the Commissioner within 30 days of the termination date. Within 15 days of that notice, insurer must mail a copy to the producer at their last known address — by certified mail, return receipt requested, when the termination was for a 162R cause.", cite: "M.G.L. c. 175 § 162T; Outline 1.2" },
+          { term: "Lapsed license:reinstatement window", def: "A lapsed license may be reinstated within 12 months of the renewal due date WITHOUT retaking the exam. Penalty: double the unpaid renewal fee.", cite: "M.G.L. c. 175 § 162M(c); Outline 1.1" },
+          { term: "Address change:reporting deadline", def: "Must be reported to the Commissioner within 30 days.", cite: "M.G.L. c. 175 § 162M(f); Outline 1.1" },
+          { term: "Continuing education:first renewal", def: "60 hours before the first license renewal, including 3 hours of MA-approved Ethics.", cite: "M.G.L. c. 175 § 162M; Outline 1.1" },
+          { term: "Continuing education:subsequent renewals", def: "45 hours each subsequent 36-month period, including 3 hours of Ethics.", cite: "M.G.L. c. 175 § 162M; Outline 1.1" },
+          { term: "Temporary license", def: "Commissioner may issue a temporary producer license for up to 180 days, without an exam:for the surviving spouse or representative of a deceased/disabled producer, a military designee, or in the public interest. Commissioner may require a sponsor.", cite: "M.G.L. c. 175 § 162Q; Outline 1.1" },
+          { term: "Producer appointment:filing deadline", def: "Insurer must file notice of appointment within 15 days of executing the agency contract or receiving the first application, whichever comes first. Commissioner verifies eligibility within 30 days and notifies the insurer within 5 days if the producer is ineligible.", cite: "M.G.L. c. 175 § 162S; Outline 1.2" },
+          { term: "Termination of appointment:deadlines", def: "Insurer must notify the Commissioner within 30 days of the termination date. Within 15 days of that notice, insurer must mail a copy to the producer at their last known address:by certified mail, return receipt requested, when the termination was for a 162R cause.", cite: "M.G.L. c. 175 § 162T; Outline 1.2" },
           { term: "Reporting administrative actions and criminal prosecutions", def: "Producer must report any administrative action in another jurisdiction within 30 days of final disposition. Must report any criminal prosecution in any jurisdiction within 30 days of the initial pretrial hearing date.", cite: "M.G.L. c. 175 § 162V; Outline 1.1" },
           { term: "14 grounds for license discipline", def: "(1) False license application info; (2) violating insurance laws/orders; (3) license obtained by fraud; (4) misappropriating money; (5) intentionally misrepresenting contract terms; (6) felony conviction; (7) unfair trade practice or fraud; (8) fraudulent/coercive/incompetent conduct; (9) license denied/suspended in another state; (10) forgery; (11) cheating on a licensing exam; (12) accepting business from an unlicensed person; (13) child support noncompliance; (14) state income tax noncompliance.", cite: "M.G.L. c. 175 § 162R; Outline 1.1" },
           { term: "Hearing after license denial or nonrenewal", def: "The applicant may make written demand within 30 days of the denial or nonrenewal for a hearing under Chapter 30A. Surrendering or lapsing the license does NOT stop enforcement.", cite: "M.G.L. c. 175 § 162R(b); Outline 1.1" },
-          { term: "Rebating", def: "Offering anything of value not specified in the policy as an inducement to buy — premium rebates, gifts, securities, special favors. BOTH giving and receiving a rebate are prohibited.", cite: "M.G.L. c. 175 §§ 182–184; c. 176D § 3(8); Outline 1.2" },
+          { term: "Rebating", def: "Offering anything of value not specified in the policy as an inducement to buy:premium rebates, gifts, securities, special favors. BOTH giving and receiving a rebate are prohibited.", cite: "M.G.L. c. 175 §§ 182–184; c. 176D § 3(8); Outline 1.2" },
           { term: "Unfair claims settlement practices", def: "Prohibited (when frequent enough to be a business practice): misrepresenting facts/provisions; failing to act promptly on communications; no reasonable investigation standards; refusing to pay without investigation; failing to affirm or deny coverage in a reasonable time; failing to make prompt, fair settlement when liability is reasonably clear; forcing suits by making lowball offers; failing to explain denials.", cite: "M.G.L. c. 176D § 3(9); Outline 1.2" },
-          { term: "Premiums held in fiduciary capacity", def: "Premiums a producer collects are held in a fiduciary capacity — converting them is larceny. Paying commission to, or accepting business from, unlicensed persons is also prohibited.", cite: "M.G.L. c. 175 §§ 176–177; Outline 1.2" },
-          { term: "Unfair discrimination", def: "Prohibited — making distinctions between individuals of the same class and equal expectation of life (or same class/hazard in A&H) in rates, benefits, or terms.", cite: "M.G.L. c. 176D § 3; Outline 1.2" },
-          { term: "Privacy — c. 175I", def: "Applicants must receive a notice of information practices, may access and request correction of recorded personal information, and must receive specific reasons for adverse underwriting decisions. Investigative consumer reports require disclosure.", cite: "M.G.L. c. 175I; Outline 1.2" },
-          { term: "FCRA — adverse action", def: "Fair Credit Reporting Act. If insurance is declined or rated up based on a consumer report, the insurer must notify the applicant and identify the reporting agency. If an investigative consumer report is ordered, the applicant must be notified and may request disclosure of its nature and scope.", cite: "15 USC 1681; Outline 1.3" },
-          { term: "Federal felony bar — 18 USC 1033", def: "Anyone convicted of a felony involving dishonesty or breach of trust is prohibited from working in the business of insurance unless they obtain written consent from an insurance regulator — the '1033 waiver.' Making false statements in insurance financial documents is also a federal crime.", cite: "18 USC 1033–1034; Outline 1.3" },
+          { term: "Premiums held in fiduciary capacity", def: "Premiums a producer collects are held in a fiduciary capacity:converting them is larceny. Paying commission to, or accepting business from, unlicensed persons is also prohibited.", cite: "M.G.L. c. 175 §§ 176–177; Outline 1.2" },
+          { term: "Unfair discrimination", def: "Prohibited:making distinctions between individuals of the same class and equal expectation of life (or same class/hazard in A&H) in rates, benefits, or terms.", cite: "M.G.L. c. 176D § 3; Outline 1.2" },
+          { term: "Privacy:c. 175I", def: "Applicants must receive a notice of information practices, may access and request correction of recorded personal information, and must receive specific reasons for adverse underwriting decisions. Investigative consumer reports require disclosure.", cite: "M.G.L. c. 175I; Outline 1.2" },
+          { term: "FCRA:adverse action", def: "Fair Credit Reporting Act. If insurance is declined or rated up based on a consumer report, the insurer must notify the applicant and identify the reporting agency. If an investigative consumer report is ordered, the applicant must be notified and may request disclosure of its nature and scope.", cite: "15 USC 1681; Outline 1.3" },
+          { term: "Federal felony bar:18 USC 1033", def: "Anyone convicted of a felony involving dishonesty or breach of trust is prohibited from working in the business of insurance unless they obtain written consent from an insurance regulator:the '1033 waiver.' Making false statements in insurance financial documents is also a federal crime.", cite: "18 USC 1033–1034; Outline 1.3" },
           { term: "Per-violation fines", def: "Unfair/deceptive acts (c. 176D:7): up to $1,000 per act. Violating a final cease-and-desist order (176D:10): up to $10,000 per violation. Unlisted violations (175:194): up to $500 per violation.", cite: "M.G.L. c. 176D §§ 7, 10; c. 175 § 194; Outline 1.1" },
-          { term: "Guaranty Association — gag rule", def: "The Life and Health Insurance Guaranty Association protects policyholders if an insurer becomes insolvent — but producers are PROHIBITED from using its existence as a sales tool.", cite: "M.G.L. c. 175 § 146B(19); Outline 3.6" },
+          { term: "Guaranty Association:gag rule", def: "The Life and Health Insurance Guaranty Association protects policyholders if an insurer becomes insolvent:but producers are PROHIBITED from using its existence as a sales tool.", cite: "M.G.L. c. 175 § 146B(19); Outline 3.6" },
           { term: "Certificate of authority", def: "A company must hold a certificate of authority to transact insurance in Massachusetts. Admitted/authorized = holds one; nonadmitted = does not. Policy forms, riders, and endorsements must be filed with and approved by the Commissioner before use.", cite: "M.G.L. c. 175 §§ 4, 2B; Outline 1.2" },
         ]
       },
@@ -323,54 +302,53 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
         title: "General Insurance",
         subtitle: "Module 2 · 8% of exam · 22 cards",
         cards: [
-          { term: "Pure risk vs. speculative risk", def: "Pure risk: only a chance of loss or no loss — INSURABLE. Speculative risk: chance of gain OR loss (gambling) — NOT insurable.", cite: "Outline 2.1" },
-          { term: "Peril", def: "The CAUSE of loss — sickness, accident, fire. Distinct from a hazard, which is a condition that increases the chance of loss.", cite: "Outline 2.1" },
-          { term: "Physical hazard", def: "A tangible condition that increases the chance of loss — e.g., an icy staircase, a pre-existing heart condition.", cite: "Outline 2.1" },
-          { term: "Moral hazard", def: "DISHONESTY — intentionally inflating claims, staging accidents, fraud. The motive is financial gain.", cite: "Outline 2.1" },
-          { term: "Morale hazard", def: "CARELESSNESS or indifference because the loss is insured ('it's covered, why lock it'). Not dishonest — just reckless.", cite: "Outline 2.1" },
-          { term: "STARR — methods of handling risk", def: "Sharing, Transfer (insurance is risk transfer), Avoidance, Retention (deductibles, self-insurance), Reduction (sprinklers, wellness programs).", cite: "Outline 2.1" },
+          { term: "Pure risk vs. speculative risk", def: "Pure risk: only a chance of loss or no loss:INSURABLE. Speculative risk: chance of gain OR loss (gambling):NOT insurable.", cite: "Outline 2.1" },
+          { term: "Peril", def: "The CAUSE of loss:sickness, accident, fire. Distinct from a hazard, which is a condition that increases the chance of loss.", cite: "Outline 2.1" },
+          { term: "Physical hazard", def: "A tangible condition that increases the chance of loss:e.g., an icy staircase, a pre-existing heart condition.", cite: "Outline 2.1" },
+          { term: "Moral hazard", def: "DISHONESTY:intentionally inflating claims, staging accidents, fraud. The motive is financial gain.", cite: "Outline 2.1" },
+          { term: "Morale hazard", def: "CARELESSNESS or indifference because the loss is insured ('it's covered, why lock it'). Not dishonest:just reckless.", cite: "Outline 2.1" },
+          { term: "STARR:methods of handling risk", def: "Sharing, Transfer (insurance is risk transfer), Avoidance, Retention (deductibles, self-insurance), Reduction (sprinklers, wellness programs).", cite: "Outline 2.1" },
           { term: "Elements of an insurable risk", def: "Loss must be: due to chance; definite and measurable; statistically predictable; NOT catastrophic to the insurer; part of a large homogeneous group; and the premium must be economically feasible.", cite: "Outline 2.1" },
           { term: "Law of large numbers", def: "The larger the pool of similar exposures, the more accurately losses can be predicted. The mathematical foundation of insurance.", cite: "Outline 2.1" },
           { term: "Adverse selection", def: "The tendency of higher-risk people to seek and keep insurance more than lower-risk people. Underwriting exists to fight it.", cite: "Outline 2.1" },
-          { term: "Reinsurance", def: "Insurers insuring insurers — the ceding company transfers part of a risk to a reinsurer, spreading catastrophic exposure.", cite: "Outline 2.1" },
-          { term: "Stock company vs. mutual company", def: "Stock: owned by stockholders; traditionally issues nonparticipating policies (no dividends to policyholders). Mutual: owned by policyholders; issues participating policies that may pay policy dividends (treated as a return of excess premium — not taxable income).", cite: "Outline 2.2" },
+          { term: "Reinsurance", def: "Insurers insuring insurers:the ceding company transfers part of a risk to a reinsurer, spreading catastrophic exposure.", cite: "Outline 2.1" },
+          { term: "Stock company vs. mutual company", def: "Stock: owned by stockholders; traditionally issues nonparticipating policies (no dividends to policyholders). Mutual: owned by policyholders; issues participating policies that may pay policy dividends (treated as a return of excess premium:not taxable income).", cite: "Outline 2.2" },
           { term: "Domestic / foreign / alien insurer", def: "Domestic: incorporated in this state. Foreign: incorporated in another U.S. state. Alien: incorporated outside the United States. (A Connecticut insurer is foreign in MA; a Canadian insurer is alien.)", cite: "Outline 2.2" },
           { term: "Independent agency system", def: "The producer represents several insurers and OWNS the expirations (the book of business/client relationships). Unlike exclusive/captive agents who represent only one insurer and don't own the expirations.", cite: "Outline 2.2" },
           { term: "Express authority", def: "Authority explicitly granted in the written agency contract.", cite: "Outline 2.3" },
-          { term: "Implied authority", def: "Authority not written, but reasonably necessary to carry out express authority — e.g., collecting premiums, using company letterhead.", cite: "Outline 2.3" },
+          { term: "Implied authority", def: "Authority not written, but reasonably necessary to carry out express authority:e.g., collecting premiums, using company letterhead.", cite: "Outline 2.3" },
           { term: "Apparent authority", def: "Authority a reasonable consumer BELIEVES the agent has because the insurer allowed the appearance. The insurer can be bound even if the act exceeded actual authority.", cite: "Outline 2.3" },
-          { term: "Four elements of a valid contract", def: "(1) Offer and acceptance — application is the offer, policy is acceptance. (2) Consideration — premium + statements / insurer's promise to pay. (3) Competent parties — legal age, sound mind. (4) Legal purpose — insurable interest and consent.", cite: "Outline 2.4" },
+          { term: "Four elements of a valid contract", def: "(1) Offer and acceptance:application is the offer, policy is acceptance. (2) Consideration:premium + statements / insurer's promise to pay. (3) Competent parties:legal age, sound mind. (4) Legal purpose:insurable interest and consent.", cite: "Outline 2.4" },
           { term: "Contract of adhesion", def: "Drafted entirely by the insurer; the applicant takes it or leaves it. Result: ambiguous language is construed AGAINST the insurer. The related doctrine of reasonable expectations protects what a buyer could fairly believe was covered.", cite: "Outline 2.4" },
-          { term: "Aleatory contract", def: "An unequal exchange of values; performance depends on chance. A small premium may yield a huge claim — or nothing at all.", cite: "Outline 2.4" },
-          { term: "Unilateral contract", def: "Only ONE party — the insurer — makes a legally enforceable promise. The insured's premium payments are not legally compelled.", cite: "Outline 2.4" },
-          { term: "Representations vs. warranties", def: "Representations: application statements believed true to the best of the applicant's knowledge. A misrepresentation voids coverage only if MATERIAL. Warranties: statements guaranteed absolutely true — breach voids coverage even if immaterial (rare in modern A&H).", cite: "Outline 2.4" },
+          { term: "Aleatory contract", def: "An unequal exchange of values; performance depends on chance. A small premium may yield a huge claim:or nothing at all.", cite: "Outline 2.4" },
+          { term: "Unilateral contract", def: "Only ONE party:the insurer:makes a legally enforceable promise. The insured's premium payments are not legally compelled.", cite: "Outline 2.4" },
+          { term: "Representations vs. warranties", def: "Representations: application statements believed true to the best of the applicant's knowledge. A misrepresentation voids coverage only if MATERIAL. Warranties: statements guaranteed absolutely true:breach voids coverage even if immaterial (rare in modern A&H).", cite: "Outline 2.4" },
           { term: "Waiver vs. estoppel", def: "Waiver: the intentional surrender of a known right. Estoppel: the law preventing a party from reasserting a right it previously waived. Example: an insurer that knowingly accepts premiums on a defective application may be estopped from later denying coverage on that defect.", cite: "Outline 2.4" },
         ]
       },
 
-      // ── MODULE 3: A&H BASICS ──────────────────────────────────────────
-      {
+      // ── MODULE 3: A&H BASICS       {
         id: "mod3-basics",
         title: "A&H Insurance Basics",
         subtitle: "Module 3 · 11% of exam · 18 cards",
         cards: [
-          { term: "Accidental means vs. accidental results", def: "Accidental means: the CAUSE of the accident must itself be accidental — stricter. Accidental results (accidental bodily injury): only the RESULT must be unexpected and accidental — broader and more favorable to the insured. Modern policies use the 'results' wording.", cite: "Outline 3.1" },
-          { term: "Principal sum vs. capital sum (AD&D)", def: "Principal sum: the full death benefit paid for accidental death (or loss of both hands/feet/sight). Capital sum: a fraction of the principal sum — often 50% — paid for lesser dismemberments.", cite: "Outline 3.4" },
+          { term: "Accidental means vs. accidental results", def: "Accidental means: the CAUSE of the accident must itself be accidental:stricter. Accidental results (accidental bodily injury): only the RESULT must be unexpected and accidental:broader and more favorable to the insured. Modern policies use the 'results' wording.", cite: "Outline 3.1" },
+          { term: "Principal sum vs. capital sum (AD&D)", def: "Principal sum: the full death benefit paid for accidental death (or loss of both hands/feet/sight). Capital sum: a fraction of the principal sum:often 50%:paid for lesser dismemberments.", cite: "Outline 3.4" },
           { term: "Hospital indemnity policy", def: "A limited policy paying a FIXED dollar amount per day hospitalized, regardless of actual expenses incurred. Massachusetts requires a prominent notice that coverage is limited.", cite: "Outline 3.4" },
           { term: "Specified (dread) disease policy", def: "A limited policy covering only ONE named disease (e.g., cancer only). Requires MA's limited-coverage notice on the policy.", cite: "Outline 3.4" },
-          { term: "Blanket insurance", def: "Covers a changing group — sports teams, bus passengers, school students — without naming individuals. No certificates of coverage issued.", cite: "Outline 3.4" },
+          { term: "Blanket insurance", def: "Covers a changing group:sports teams, bus passengers, school students:without naming individuals. No certificates of coverage issued.", cite: "Outline 3.4" },
           { term: "Health Savings Account (HSA)", def: "Requires enrollment in a qualified high-deductible health plan (HDHP). Triple tax advantage: contributions deductible, growth tax-deferred, qualified medical withdrawals tax-free. Funds roll over year to year (no use-it-or-lose-it) and are portable.", cite: "Outline 3.5" },
           { term: "Archer MSA", def: "Older vehicle; limited to self-employed individuals and employees of small employers (50 or fewer employees) paired with a high-deductible plan. Largely closed to new participants.", cite: "Outline 3.5" },
           { term: "Medical Information Bureau (MIB)", def: "A nonprofit member-insurer bureau of coded prior-application data used to deter misrepresentation. Applicant must be notified and authorize access. An insurer may NOT decline solely on MIB data.", cite: "Outline 3.7" },
           { term: "HIV testing requirements (MA)", def: "HIV testing requires the applicant's written informed consent on an approved form, with confidentiality protections. Insurers may NOT use sexual orientation in risk classification.", cite: "211 CMR 36.05; Outline 3.7" },
           { term: "Genetic information (MA)", def: "Massachusetts bars insurers from requiring genetic tests or using genetic information in accident & sickness underwriting without consent.", cite: "M.G.L. c. 175 §§ 108H, 108I; Outline 3.7" },
-          { term: "Risk classification", def: "Preferred: better than average, lowest rates. Standard: average, normal rates. Substandard: higher risk — issued with a rated premium, exclusion rider, or modified benefits, or declined.", cite: "Outline 3.7" },
+          { term: "Risk classification", def: "Preferred: better than average, lowest rates. Standard: average, normal rates. Substandard: higher risk:issued with a rated premium, exclusion rider, or modified benefits, or declined.", cite: "Outline 3.7" },
           { term: "Statement of continued good health", def: "Required at policy delivery when no premium was collected with the application. The insured must confirm their health hasn't changed, AND pay the first premium, for coverage to take effect.", cite: "Outline 3.6" },
-          { term: "Producer report", def: "The agent's observations about the applicant — risk factors, lifestyle notes. Submitted to the insurer but NOT seen by the applicant.", cite: "Outline 3.6" },
+          { term: "Producer report", def: "The agent's observations about the applicant:risk factors, lifestyle notes. Submitted to the insurer but NOT seen by the applicant.", cite: "Outline 3.6" },
           { term: "Replacement of A&S coverage", def: "Every application must ask whether the new policy will replace existing coverage. When replacement is involved, the agent must furnish the prescribed 'Notice to Applicant Regarding Replacement' at the time of application or before the policy is issued. A copy is left with the applicant; a signed copy is kept in the carrier's records.", cite: "211 CMR 42.08; Outline 3.8" },
           { term: "Massachusetts individual mandate", def: "Since 2006, Massachusetts adults 18+ must maintain Minimum Creditable Coverage (MCC) or face a state tax penalty, reported on Schedule HC with the MA income tax return. The MA penalty survives the repeal of the federal ACA penalty.", cite: "M.G.L. c. 111M; 956 CMR 5.00; Outline 3.8" },
-          { term: "Limited policies and the MA mandate", def: "Owning only a limited accident/sickness policy — hospital indemnity, dread disease — does NOT satisfy the Massachusetts individual mandate. MCC requires comprehensive coverage meeting state standards.", cite: "956 CMR 5.00; Outline 3.8" },
-          { term: "Outline of coverage", def: "Must be delivered to the applicant at application (or with policy delivery if so structured) — a plain-language summary of benefits, exclusions, and renewability.", cite: "211 CMR 42.09; Outline 3.6" },
+          { term: "Limited policies and the MA mandate", def: "Owning only a limited accident/sickness policy:hospital indemnity, dread disease:does NOT satisfy the Massachusetts individual mandate. MCC requires comprehensive coverage meeting state standards.", cite: "956 CMR 5.00; Outline 3.8" },
+          { term: "Outline of coverage", def: "Must be delivered to the applicant at application (or with policy delivery if so structured):a plain-language summary of benefits, exclusions, and renewability.", cite: "211 CMR 42.09; Outline 3.6" },
           { term: "Attending Physician Statement (APS)", def: "A detailed medical report obtained from the applicant's own doctor. Used when the application or MIB data suggests a need for more health detail than the application provides.", cite: "Outline 3.7" },
         ]
       },
@@ -383,23 +361,23 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
         cards: [
           { term: "Entire Contract provision", def: "The policy, endorsements, and attached papers make up the entire contract. NO change is valid unless approved by an executive officer of the insurer and endorsed on or attached to the policy. Agents CANNOT change the policy or waive any provision.", cite: "M.G.L. c. 175 § 108(3)(a)(1)" },
           { term: "Time Limit on Certain Defenses (incontestability)", def: "After 2 years from issue, ONLY FRAUDULENT misstatements can void the policy or deny a claim. Claims for losses starting after 2 years cannot be denied for a pre-existing condition unless that condition is excluded by name.", cite: "M.G.L. c. 175 § 108(3)(a)(2)" },
-          { term: "Grace period — weekly premium", def: "7 days. Coverage continues in force during the grace period.", cite: "M.G.L. c. 175 § 108(3)(a)(3)" },
-          { term: "Grace period — monthly premium", def: "10 days. Coverage continues in force during the grace period.", cite: "M.G.L. c. 175 § 108(3)(a)(3)" },
-          { term: "Grace period — all other premium modes", def: "31 days. Coverage continues in force. MA note: if the insurer reserves the right to refuse renewal, nonrenewal notice must be mailed at least 30 days before the premium due date.", cite: "M.G.L. c. 175 § 108(3)(a)(3)" },
-          { term: "Reinstatement — automatic vs. conditional receipt", def: "Premium accepted without an application = automatic reinstatement. With application + conditional receipt: reinstated on approval OR automatically on the 45th day unless the insurer disapproves in writing. Premiums accepted can be applied no more than 60 days back.", cite: "M.G.L. c. 175 § 108(3)(a)(4)" },
-          { term: "Reinstatement — what's covered when", def: "Accidents: covered IMMEDIATELY after reinstatement. Sickness: covered only if it begins more than 10 days after reinstatement.", cite: "M.G.L. c. 175 § 108(3)(a)(4)" },
+          { term: "Grace period:weekly premium", def: "7 days. Coverage continues in force during the grace period.", cite: "M.G.L. c. 175 § 108(3)(a)(3)" },
+          { term: "Grace period:monthly premium", def: "10 days. Coverage continues in force during the grace period.", cite: "M.G.L. c. 175 § 108(3)(a)(3)" },
+          { term: "Grace period:all other premium modes", def: "31 days. Coverage continues in force. MA note: if the insurer reserves the right to refuse renewal, nonrenewal notice must be mailed at least 30 days before the premium due date.", cite: "M.G.L. c. 175 § 108(3)(a)(3)" },
+          { term: "Reinstatement:automatic vs. conditional receipt", def: "Premium accepted without an application = automatic reinstatement. With application + conditional receipt: reinstated on approval OR automatically on the 45th day unless the insurer disapproves in writing. Premiums accepted can be applied no more than 60 days back.", cite: "M.G.L. c. 175 § 108(3)(a)(4)" },
+          { term: "Reinstatement:what's covered when", def: "Accidents: covered IMMEDIATELY after reinstatement. Sickness: covered only if it begins more than 10 days after reinstatement.", cite: "M.G.L. c. 175 § 108(3)(a)(4)" },
           { term: "Notice of Claim", def: "Written notice must reach the insurer within 20 days of the loss, or as soon as reasonably possible. For disability benefits payable for at least 2 years, the insurer may require proof of continuing disability every 6 months.", cite: "M.G.L. c. 175 § 108(3)(a)(5)" },
           { term: "Claim Forms", def: "Insurer must furnish claim forms within 15 days of receiving notice. If it fails to, the claimant satisfies the proof-of-loss requirement by submitting written proof of the occurrence, character, and extent of loss.", cite: "M.G.L. c. 175 § 108(3)(a)(6)" },
-          { term: "Proof of Loss", def: "Due within 90 days. Late proof is excused if not reasonably possible, but the hard outer limit is 1 year — unless the claimant lacks legal capacity.", cite: "M.G.L. c. 175 § 108(3)(a)(7)" },
+          { term: "Proof of Loss", def: "Due within 90 days. Late proof is excused if not reasonably possible, but the hard outer limit is 1 year:unless the claimant lacks legal capacity.", cite: "M.G.L. c. 175 § 108(3)(a)(7)" },
           { term: "Time of Payment of Claims", def: "Non-periodic claims (lump sums): paid IMMEDIATELY upon receipt of proof of loss. Periodic benefits (disability income): paid at least MONTHLY.", cite: "M.G.L. c. 175 § 108(3)(a)(8)" },
-          { term: "Payment of Claims — facility of payment", def: "Death proceeds go to the named beneficiary; if none, to the insured's ESTATE. All other benefits to the insured. An optional facility-of-payment clause lets the insurer pay up to $1,000 to a blood or marital relative equitably entitled.", cite: "M.G.L. c. 175 § 108(3)(a)(9)" },
+          { term: "Payment of Claims:facility of payment", def: "Death proceeds go to the named beneficiary; if none, to the insured's ESTATE. All other benefits to the insured. An optional facility-of-payment clause lets the insurer pay up to $1,000 to a blood or marital relative equitably entitled.", cite: "M.G.L. c. 175 § 108(3)(a)(9)" },
           { term: "Physical Examinations", def: "The insurer, AT ITS OWN EXPENSE, may examine the insured as often as reasonably required while a claim is pending.", cite: "M.G.L. c. 175 § 108(3)(a)(10)" },
           { term: "Legal Actions window", def: "No lawsuit may begin sooner than 60 days after proof of loss is filed. No lawsuit may begin more than 3 years after proof of loss was required.", cite: "M.G.L. c. 175 § 108(3)(a)(11)" },
           { term: "Change of Beneficiary", def: "The insured may change the beneficiary at any time unless the designation is IRREVOCABLE. Beneficiary consent is NOT required to change beneficiaries, surrender, or assign the policy.", cite: "M.G.L. c. 175 § 108(3)(a)(12)" },
           { term: "Free Look (Right to Examine)", def: "10 days from delivery to cancel for any reason. Surrendering the policy voids it FROM THE BEGINNING (not from cancellation date) with a FULL premium refund.", cite: "M.G.L. c. 175 § 187H; Outline 4.1" },
-          { term: "Massachusetts prompt-pay rule", def: "Insurer must furnish claim forms within 15 days of notice. If the claim isn't paid within 45 days, the insurer must explain in writing — otherwise interest accrues at 1.5% per month (max 18% per year) from day 45. Does not apply to suspected-fraud investigations.", cite: "M.G.L. c. 175 § 108(4)(c); Outline 4.3" },
-          { term: "Dependent coverage — age 26", def: "Family policies must cover children to age 26 regardless of student, marital, or financial status. Incapacitated adult children may remain covered beyond that if proof of incapacity is furnished within 31 days of when coverage would otherwise end.", cite: "M.G.L. c. 175 § 108(2)(a)(3); Outline 4.3" },
-          { term: "Renewability hierarchy", def: "Most to least favorable to the insured: (1) Noncancelable — insurer can never cancel, refuse renewal, or raise premiums; (2) Guaranteed renewable — must renew, may raise premiums by class; (3) Conditionally renewable — may decline for reasons stated in policy; (4) Renewable at insurer's option — may decline at renewal.", cite: "Outline 4.3" },
+          { term: "Massachusetts prompt-pay rule", def: "Insurer must furnish claim forms within 15 days of notice. If the claim isn't paid within 45 days, the insurer must explain in writing:otherwise interest accrues at 1.5% per month (max 18% per year) from day 45. Does not apply to suspected-fraud investigations.", cite: "M.G.L. c. 175 § 108(4)(c); Outline 4.3" },
+          { term: "Dependent coverage:age 26", def: "Family policies must cover children to age 26 regardless of student, marital, or financial status. Incapacitated adult children may remain covered beyond that if proof of incapacity is furnished within 31 days of when coverage would otherwise end.", cite: "M.G.L. c. 175 § 108(2)(a)(3); Outline 4.3" },
+          { term: "Renewability hierarchy", def: "Most to least favorable to the insured: (1) Noncancelable:insurer can never cancel, refuse renewal, or raise premiums; (2) Guaranteed renewable:must renew, may raise premiums by class; (3) Conditionally renewable:may decline for reasons stated in policy; (4) Renewable at insurer's option:may decline at renewal.", cite: "Outline 4.3" },
           { term: "Change of Occupation (optional provision)", def: "More hazardous job → benefits reduced to what the premium would buy at the riskier rate. Less hazardous job → premium reduced and excess returned pro rata.", cite: "M.G.L. c. 175 § 108(3)(b)(1); Outline 4.2" },
           { term: "Illegal Occupation (optional provision)", def: "No liability where a contributing cause of the loss was the insured committing or attempting a felony, or working in an illegal occupation.", cite: "M.G.L. c. 175 § 108(3)(b)(10); Outline 4.2" },
           { term: "Pre-existing condition denials (MA)", def: "If an insurer denies a claim based on a pre-existing condition, it must send the insured documented evidence of actual treatment or observation of that condition along with the denial.", cite: "M.G.L. c. 175 § 108(2)(a)(2A); Outline 4.3" },
@@ -414,22 +392,22 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
         cards: [
           { term: "Own occupation definition", def: "Unable to perform the duties of YOUR OWN occupation. A surgeon who can no longer operate is disabled even if she could teach. Most generous and most expensive. Often limited to an initial period (e.g., first 2 years) before converting to any-occ.", cite: "Outline 5.1" },
           { term: "Any occupation definition", def: "Unable to perform the duties of any occupation for which you are reasonably suited by education, training, and experience. Stricter than own-occ. The MA regulatory standard.", cite: "211 CMR 42.05(1)(g); Outline 5.1" },
-          { term: "Presumptive disability", def: "Specified losses are presumed totally disabling — full benefits, often with the elimination period waived, even if the insured can still work. The four triggers: sight in BOTH eyes, hearing, speech, or use of TWO limbs.", cite: "Outline 5.1" },
+          { term: "Presumptive disability", def: "Specified losses are presumed totally disabling:full benefits, often with the elimination period waived, even if the insured can still work. The four triggers: sight in BOTH eyes, hearing, speech, or use of TWO limbs.", cite: "Outline 5.1" },
           { term: "Physician care requirement", def: "The insured must generally be under a physician's regular care as a condition of continued benefits. This requirement is waived when further care would be of no benefit to the insured.", cite: "Outline 5.1" },
-          { term: "Elimination period", def: "The waiting period between disability onset and benefit start — a 'time deductible' (30, 90, or 180 days are common). Longer elimination = lower premium. Benefits are paid in arrears: a 90-day elimination means the first check arrives around day 120.", cite: "Outline 5.2" },
-          { term: "Benefit period", def: "How long disability payments continue — 2 years, 5 years, to age 65. Longer benefit period = more expensive.", cite: "Outline 5.2" },
+          { term: "Elimination period", def: "The waiting period between disability onset and benefit start:a 'time deductible' (30, 90, or 180 days are common). Longer elimination = lower premium. Benefits are paid in arrears: a 90-day elimination means the first check arrives around day 120.", cite: "Outline 5.2" },
+          { term: "Benefit period", def: "How long disability payments continue:2 years, 5 years, to age 65. Longer benefit period = more expensive.", cite: "Outline 5.2" },
           { term: "Waiver of premium", def: "After a stated period of total disability (commonly 90 days), premiums are waived while disability continues. Usually includes a refund of premiums paid during the qualifying period once the waiver takes effect.", cite: "Outline 5.2" },
-          { term: "Partial disability benefit", def: "A FLAT percentage — typically 50% — of the total disability benefit, paid for a limited time when the insured can perform some but not all duties.", cite: "Outline 5.2" },
-          { term: "Residual disability benefit", def: "Pays based on the PERCENTAGE OF EARNINGS LOST — the modern, proportionate version of partial. A 40% income drop pays 40% of the benefit.", cite: "Outline 5.2" },
-          { term: "COLA rider", def: "Cost-of-living adjustment rider — inflation-adjusts disability benefits DURING a claim to keep pace with rising prices.", cite: "Outline 5.2" },
+          { term: "Partial disability benefit", def: "A FLAT percentage:typically 50%:of the total disability benefit, paid for a limited time when the insured can perform some but not all duties.", cite: "Outline 5.2" },
+          { term: "Residual disability benefit", def: "Pays based on the PERCENTAGE OF EARNINGS LOST:the modern, proportionate version of partial. A 40% income drop pays 40% of the benefit.", cite: "Outline 5.2" },
+          { term: "COLA rider", def: "Cost-of-living adjustment rider:inflation-adjusts disability benefits DURING a claim to keep pace with rising prices.", cite: "Outline 5.2" },
           { term: "Future Increase Option (FIO)", def: "Allows the insured to buy additional disability coverage at predetermined future dates without providing evidence of good health (medical underwriting). Financial underwriting still applies.", cite: "Outline 5.2" },
           { term: "Social Insurance Supplement (SIS)", def: "Provides extra income during the period before Social Security disability kicks in or while it's denied. Reduces dollar-for-dollar once social insurance starts paying.", cite: "Outline 5.2" },
-          { term: "DI benefit cap", def: "Insurers cap individual disability income benefits at approximately 60–70% of earned income — never 100%, to preserve the financial incentive to return to work.", cite: "Outline 5.3" },
-          { term: "Business Overhead Expense (BOE)", def: "Reimburses a disabled business owner for OVERHEAD — rent, utilities, employee salaries. Does NOT replace the owner's personal income. Premiums are tax-deductible; benefits are taxable income.", cite: "Outline 5.5" },
-          { term: "Disability Buy-Sell", def: "Funds the purchase of a totally disabled owner's business interest per the buy-sell agreement — usually a lump sum after a long elimination period (1–2 years). Business co-owners own the coverage on each other.", cite: "Outline 5.5" },
+          { term: "DI benefit cap", def: "Insurers cap individual disability income benefits at approximately 60–70% of earned income:never 100%, to preserve the financial incentive to return to work.", cite: "Outline 5.3" },
+          { term: "Business Overhead Expense (BOE)", def: "Reimburses a disabled business owner for OVERHEAD:rent, utilities, employee salaries. Does NOT replace the owner's personal income. Premiums are tax-deductible; benefits are taxable income.", cite: "Outline 5.5" },
+          { term: "Disability Buy-Sell", def: "Funds the purchase of a totally disabled owner's business interest per the buy-sell agreement:usually a lump sum after a long elimination period (1–2 years). Business co-owners own the coverage on each other.", cite: "Outline 5.5" },
           { term: "Key Person Disability Income", def: "The BUSINESS owns, pays for, and receives benefits when an essential employee is disabled. Used to replace profits or cover the cost of a replacement while the key person recovers.", cite: "Outline 5.5" },
           { term: "Disability reducing term", def: "Pays a declining loan obligation if the borrowing business owner is disabled. Mirrors a declining loan balance.", cite: "Outline 5.5" },
-          { term: "Social Security disability definition", def: "Unable to engage in any substantial gainful activity due to a physical or mental impairment expected to last at least 12 months or result in death. The STRICTEST definition — tests against any gainful work. 5-month waiting period; benefits begin with the 6th month.", cite: "Outline 5.6" },
+          { term: "Social Security disability definition", def: "Unable to engage in any substantial gainful activity due to a physical or mental impairment expected to last at least 12 months or result in death. The STRICTEST definition:tests against any gainful work. 5-month waiting period; benefits begin with the 6th month.", cite: "Outline 5.6" },
           { term: "Workers compensation", def: "Covers occupational injury and disease on a NO-FAULT basis. The employee's EXCLUSIVE remedy against the employer. Benefits include medical care, disability income, rehabilitation, and death benefits.", cite: "M.G.L. c. 152; Outline 5.7" },
           { term: "STD vs. LTD group DI", def: "Short-Term Disability: weekly benefit, brief elimination period (0–14 days), benefit period weeks to a year. Long-Term Disability: monthly benefit, long elimination (90–180 days), benefit period years to age 65, typically 60% of salary.", cite: "Outline 5.4" },
         ]
@@ -441,30 +419,30 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
         title: "Health Insurance Plans",
         subtitle: "Module 6 · 20% of exam · 24 cards",
         cards: [
-          { term: "HMO — key characteristics", def: "Closed panel/network (must use plan providers except emergencies); prepaid fixed periodic payments; gatekeeper model (PCP coordinates all care and provides specialist referrals); preventive care emphasis. Emergency care is ALWAYS covered — no HMO may require prior authorization for emergency services.", cite: "M.G.L. c. 176G; Outline 6.2" },
-          { term: "PPO — key characteristics", def: "Open panel with financial steering. In-network care costs less; out-of-network care is still covered at higher cost-sharing. Gatekeeper PPO requires PCP referrals; non-gatekeeper PPO does not. Retains indemnity features — deductibles, coinsurance.", cite: "211 CMR 51.03; Outline 6.2" },
-          { term: "Blue Cross Blue Shield", def: "Service plan — contracts BOTH with subscribers and with providers. Providers agree to negotiated reimbursement and are generally paid directly by the plan. Subscriber receives service, not a reimbursement check.", cite: "M.G.L. c. 176A–B; Outline 6.2" },
+          { term: "HMO:key characteristics", def: "Closed panel/network (must use plan providers except emergencies); prepaid fixed periodic payments; gatekeeper model (PCP coordinates all care and provides specialist referrals); preventive care emphasis. Emergency care is ALWAYS covered:no HMO may require prior authorization for emergency services.", cite: "M.G.L. c. 176G; Outline 6.2" },
+          { term: "PPO:key characteristics", def: "Open panel with financial steering. In-network care costs less; out-of-network care is still covered at higher cost-sharing. Gatekeeper PPO requires PCP referrals; non-gatekeeper PPO does not. Retains indemnity features:deductibles, coinsurance.", cite: "211 CMR 51.03; Outline 6.2" },
+          { term: "Blue Cross Blue Shield", def: "Service plan:contracts BOTH with subscribers and with providers. Providers agree to negotiated reimbursement and are generally paid directly by the plan. Subscriber receives service, not a reimbursement check.", cite: "M.G.L. c. 176A–B; Outline 6.2" },
           { term: "Prospective, concurrent, retrospective review", def: "Prospective review: BEFORE treatment (precertification/prior authorization). Concurrent review: DURING treatment (ongoing hospital stay monitoring). Retrospective review: AFTER treatment (auditing appropriateness).", cite: "Outline 6.3" },
           { term: "Adverse determination notice", def: "When a carrier denies, reduces, or terminates services based on medical necessity, it must issue a written adverse determination notice explaining the clinical basis and the member's appeal rights.", cite: "M.G.L. c. 176O §§ 12–14; Outline 6.3" },
           { term: "Internal grievance process (MA)", def: "One level of internal review by clinicians not involved in the original decision. Written resolution due within 30 days (clock pauses for medical records release; can extend only by mutual written agreement). Records kept 7 years. Grievance not acted on within time limits is deemed resolved IN FAVOR OF THE INSURED and immediately eligible for external review.", cite: "M.G.L. c. 176O §§ 12–13; 958 CMR 3.305; Outline 6.3" },
           { term: "48-hour automatic reversal (MA)", def: "If the treating physician certifies the denial creates an IMMEDIATE RISK OF SERIOUS HARM, the carrier must automatically reverse the adverse determination within 48 hours.", cite: "958 CMR 3.309; Outline 6.3" },
-          { term: "External review — Office of Patient Protection", def: "After a final internal adverse determination, the member may request external review through the Office of Patient Protection within 4 months of the carrier's final decision. Member pays only the first $25 (waived for hardship, refunded if fully reversed, capped at $75 per plan year). The panel's decision BINDS the carrier.", cite: "M.G.L. c. 176O § 14; Outline 6.3" },
+          { term: "External review:Office of Patient Protection", def: "After a final internal adverse determination, the member may request external review through the Office of Patient Protection within 4 months of the carrier's final decision. Member pays only the first $25 (waived for hardship, refunded if fully reversed, capped at $75 per plan year). The panel's decision BINDS the carrier.", cite: "M.G.L. c. 176O § 14; Outline 6.3" },
           { term: "Expedited external review", def: "Member may request expedited internal and external review simultaneously. The external panel must issue a written decision within 72 hours of receiving an expedited request.", cite: "M.G.L. c. 176O §§ 13(d), 14; Outline 6.3" },
-          { term: "Newborn coverage — MA", def: "Newborns are covered IMMEDIATELY from the moment of birth — no waiting period, no underwriting. Includes medically diagnosed congenital defects, birth abnormalities, and premature birth. If a specific premium is required, notification of birth may consist simply of submitting a claim.", cite: "M.G.L. c. 175 § 47C; Outline 6.4" },
-          { term: "Adopted child coverage — MA", def: "Foster child (for whom policyholder receives foster care payments): covered from the date the ADOPTION PETITION IS FILED. All other cases: covered from the DATE OF PLACEMENT by a licensed placement agency. Coverage does NOT wait for finalization of the adoption.", cite: "M.G.L. c. 175 § 47C; Outline 6.4" },
+          { term: "Newborn coverage:MA", def: "Newborns are covered IMMEDIATELY from the moment of birth:no waiting period, no underwriting. Includes medically diagnosed congenital defects, birth abnormalities, and premature birth. If a specific premium is required, notification of birth may consist simply of submitting a claim.", cite: "M.G.L. c. 175 § 47C; Outline 6.4" },
+          { term: "Adopted child coverage:MA", def: "Foster child (for whom policyholder receives foster care payments): covered from the date the ADOPTION PETITION IS FILED. All other cases: covered from the DATE OF PLACEMENT by a licensed placement agency. Coverage does NOT wait for finalization of the adoption.", cite: "M.G.L. c. 175 § 47C; Outline 6.4" },
           { term: "Dependent children to age 26", def: "Policies providing dependent coverage must cover children to age 26 regardless of student, marital, or financial status. Incapacitated adult children stay covered past the limiting age if proof of incapacity is furnished within 31 days.", cite: "M.G.L. c. 175 § 108(2)(a)(3); Outline 6.4" },
-          { term: "Well-child visits — MA mandate", def: "Six visits in the first year, three in the second year, then annually to age six. Plus immunizations, screenings, and blood tests.", cite: "M.G.L. c. 175 § 47C; Outline 6.4" },
+          { term: "Well-child visits:MA mandate", def: "Six visits in the first year, three in the second year, then annually to age six. Plus immunizations, screenings, and blood tests.", cite: "M.G.L. c. 175 § 47C; Outline 6.4" },
           { term: "Early intervention services", def: "For children birth to age 3, must be covered with NO copayments, coinsurance, or deductibles (narrow tax-qualified-plan exception).", cite: "M.G.L. c. 175 § 47C; Outline 6.4" },
-          { term: "ACA — guaranteed issue and renewability", def: "Individual and group coverage must accept every applicant during enrollment periods (PHS 2708). Coverage must be renewed at the policyholder's option (PHS 2703).", cite: "PHS Act §§ 2703, 2708; Outline 6.5" },
-          { term: "ACA — preventive care", def: "Designated preventive services covered with NO cost-sharing (no copay, coinsurance, or deductible) when received in-network.", cite: "PHS Act § 2713; Outline 6.5" },
-          { term: "ACA — emergency services", def: "Covered WITHOUT prior authorization and at IN-NETWORK cost-sharing even when received at out-of-network facilities.", cite: "PHS Act § 2719A(b); Outline 6.5" },
-          { term: "ACA — no lifetime or annual limits on EHBs", def: "Individual and small-group plans must cover Essential Health Benefits; no lifetime or annual DOLLAR LIMITS on EHBs. Annual out-of-pocket maximums apply.", cite: "PHS Act §§ 2707, 2711; Outline 6.5" },
-          { term: "Federal MHPAEA", def: "Mental Health Parity and Addiction Equity Act (2008). Plans offering mental health or substance use disorder benefits must provide them AT PARITY with medical/surgical benefits — financial requirements and treatment limitations may be no more restrictive. Parity required IF coverage is offered; coverage itself is not mandated by this federal law.", cite: "MHPAEA; Outline 6.6" },
-          { term: "Massachusetts mental health coverage mandate", def: "MA goes beyond federal parity by MANDATING coverage of biologically-based mental disorders (schizophrenia, bipolar, major depression, etc.) on a nondiscriminatory basis — same terms as physical illness. Also mandates coverage for: mental disorders of rape victims; non-biologically-based mental disorders of children and adolescents under 19.", cite: "M.G.L. c. 175 § 47B; Outline 6.6" },
-          { term: "Cost transparency — MA carriers", def: "Massachusetts carriers must give members REAL-TIME COST ESTIMATES via a toll-free number and website disclosing the estimated or maximum allowed amount and the member's out-of-pocket cost for proposed services.", cite: "M.G.L. c. 176O § 23; Bulletin 2013-10; Outline 6.3" },
-          { term: "Insureds vs. subscribers/participants", def: "Commercial insurer customers are insureds. Service-plan (BCBS) and HMO members are subscribers or participants — because the plan contracts with providers to deliver care rather than just paying claims.", cite: "Outline 6.1" },
+          { term: "ACA:guaranteed issue and renewability", def: "Individual and group coverage must accept every applicant during enrollment periods (PHS 2708). Coverage must be renewed at the policyholder's option (PHS 2703).", cite: "PHS Act §§ 2703, 2708; Outline 6.5" },
+          { term: "ACA:preventive care", def: "Designated preventive services covered with NO cost-sharing (no copay, coinsurance, or deductible) when received in-network.", cite: "PHS Act § 2713; Outline 6.5" },
+          { term: "ACA:emergency services", def: "Covered WITHOUT prior authorization and at IN-NETWORK cost-sharing even when received at out-of-network facilities.", cite: "PHS Act § 2719A(b); Outline 6.5" },
+          { term: "ACA:no lifetime or annual limits on EHBs", def: "Individual and small-group plans must cover Essential Health Benefits; no lifetime or annual DOLLAR LIMITS on EHBs. Annual out-of-pocket maximums apply.", cite: "PHS Act §§ 2707, 2711; Outline 6.5" },
+          { term: "Federal MHPAEA", def: "Mental Health Parity and Addiction Equity Act (2008). Plans offering mental health or substance use disorder benefits must provide them AT PARITY with medical/surgical benefits:financial requirements and treatment limitations may be no more restrictive. Parity required IF coverage is offered; coverage itself is not mandated by this federal law.", cite: "MHPAEA; Outline 6.6" },
+          { term: "Massachusetts mental health coverage mandate", def: "MA goes beyond federal parity by MANDATING coverage of biologically-based mental disorders (schizophrenia, bipolar, major depression, etc.) on a nondiscriminatory basis:same terms as physical illness. Also mandates coverage for: mental disorders of rape victims; non-biologically-based mental disorders of children and adolescents under 19.", cite: "M.G.L. c. 175 § 47B; Outline 6.6" },
+          { term: "Cost transparency:MA carriers", def: "Massachusetts carriers must give members REAL-TIME COST ESTIMATES via a toll-free number and website disclosing the estimated or maximum allowed amount and the member's out-of-pocket cost for proposed services.", cite: "M.G.L. c. 176O § 23; Bulletin 2013-10; Outline 6.3" },
+          { term: "Insureds vs. subscribers/participants", def: "Commercial insurer customers are insureds. Service-plan (BCBS) and HMO members are subscribers or participants:because the plan contracts with providers to deliver care rather than just paying claims.", cite: "Outline 6.1" },
           { term: "HIPAA group coverage guarantees", def: "Eligibility rules can't single out individual health status; guaranteed issue in qualifying group situations; creditable coverage (prior coverage counts toward any waiting limitation); guaranteed renewability of group coverage.", cite: "HIPAA; Outline 6.2" },
-          { term: "ACA — no health-status discrimination", def: "Premiums and eligibility can't be based on health status, claims history, or genetic information. Income-based Advance Premium Tax Credits for exchange coverage are available through the Massachusetts Health Connector.", cite: "PHS Act § 2705; PPACA § 1401; Outline 6.5" },
+          { term: "ACA:no health-status discrimination", def: "Premiums and eligibility can't be based on health status, claims history, or genetic information. Income-based Advance Premium Tax Credits for exchange coverage are available through the Massachusetts Health Connector.", cite: "PHS Act § 2705; PPACA § 1401; Outline 6.5" },
         ]
       },
 
@@ -474,24 +452,24 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
         title: "Large Group Health Insurance",
         subtitle: "Module 7 · 15% of exam · 18 cards",
         cards: [
-          { term: "Master contract vs. certificate of coverage", def: "ONE master contract is issued to the group sponsor (the employer). Covered employees do NOT receive individual policies — they receive CERTIFICATES OF COVERAGE summarizing their benefits. Employees are certificate holders, not policyowners.", cite: "Outline 7.1" },
-          { term: "Experience rating vs. community rating", def: "Experience rating: premiums reflect the group's own claims history — used for large groups. Community rating: everyone in a broad pool priced the same way. Massachusetts uses modified community rating for the merged individual/small-group market.", cite: "Outline 7.1" },
-          { term: "COB birthday rule", def: "For dependent children of married parents, the plan of the parent whose BIRTHDAY FALLS EARLIER IN THE CALENDAR YEAR is primary — NOT the older parent. The earlier birthday, not the older age.", cite: "211 CMR 38; Outline 7.4" },
-          { term: "COB — employee vs. dependent plan", def: "A plan covering the person AS AN EMPLOYEE pays primary; the plan covering them as a dependent pays secondary.", cite: "211 CMR 38; Outline 7.4" },
+          { term: "Master contract vs. certificate of coverage", def: "ONE master contract is issued to the group sponsor (the employer). Covered employees do NOT receive individual policies:they receive CERTIFICATES OF COVERAGE summarizing their benefits. Employees are certificate holders, not policyowners.", cite: "Outline 7.1" },
+          { term: "Experience rating vs. community rating", def: "Experience rating: premiums reflect the group's own claims history:used for large groups. Community rating: everyone in a broad pool priced the same way. Massachusetts uses modified community rating for the merged individual/small-group market.", cite: "Outline 7.1" },
+          { term: "COB birthday rule", def: "For dependent children of married parents, the plan of the parent whose BIRTHDAY FALLS EARLIER IN THE CALENDAR YEAR is primary:NOT the older parent. The earlier birthday, not the older age.", cite: "211 CMR 38; Outline 7.4" },
+          { term: "COB:employee vs. dependent plan", def: "A plan covering the person AS AN EMPLOYEE pays primary; the plan covering them as a dependent pays secondary.", cite: "211 CMR 38; Outline 7.4" },
           { term: "No-loss no-gain (carrier change)", def: "When an employer switches group carriers, employees should be no worse off: ongoing claims transfer without new probationary periods, and deductible and coinsurance credits carry over for amounts already satisfied that year.", cite: "Outline 7.4" },
-          { term: "COBRA — termination or reduced hours (18 months)", def: "Employee's termination (other than gross misconduct) or reduction in hours triggers 18 months of continuation. Premium: up to 102% of the group rate. Election period: 60 days from the later of the qualifying event or the COBRA notice. Applies to employers with 20+ employees.", cite: "COBRA; Outline 7.6" },
-          { term: "COBRA — disability extension (29 months)", def: "If the beneficiary is disabled (Social Security definition) during the first 60 days of continuation, the 18-month period extends to 29 months. Premium during the extension months: up to 150% of the group rate.", cite: "COBRA; Outline 7.6" },
-          { term: "COBRA — 36-month events", def: "Employee's death, divorce or legal separation, the employee's Medicare entitlement, or a dependent child losing dependent status all trigger 36 months of continuation.", cite: "COBRA; Outline 7.6" },
-          { term: "MA 110D — automatic 31-day extension", def: "When an insured LEAVES THE GROUP for any reason, coverage continues automatically for 31 days after leaving — unless entitled to similar benefits elsewhere. No election required.", cite: "M.G.L. c. 175 § 110D; Outline 7.4" },
-          { term: "MA 110G — involuntary layoff or death (39 weeks)", def: "After an involuntary layoff or the member's DEATH, coverage for the member (or surviving spouse) and dependents continues for 39 WEEKS from ineligibility — or until they become eligible under another group plan. Never longer than their most recent period of coverage. Employer must notify them.", cite: "M.G.L. c. 175 § 110G; Outline 7.4" },
-          { term: "MA 110I — divorce continuation", def: "After divorce or a separate support judgment, the former spouse remains eligible under the member's plan WITHOUT additional premium or medical examination — as if the judgment had not entered — until the REMARRIAGE OF EITHER the member or the former spouse, or as the judgment provides.", cite: "M.G.L. c. 175 § 110I; Outline 7.4" },
+          { term: "COBRA:termination or reduced hours (18 months)", def: "Employee's termination (other than gross misconduct) or reduction in hours triggers 18 months of continuation. Premium: up to 102% of the group rate. Election period: 60 days from the later of the qualifying event or the COBRA notice. Applies to employers with 20+ employees.", cite: "COBRA; Outline 7.6" },
+          { term: "COBRA:disability extension (29 months)", def: "If the beneficiary is disabled (Social Security definition) during the first 60 days of continuation, the 18-month period extends to 29 months. Premium during the extension months: up to 150% of the group rate.", cite: "COBRA; Outline 7.6" },
+          { term: "COBRA:36-month events", def: "Employee's death, divorce or legal separation, the employee's Medicare entitlement, or a dependent child losing dependent status all trigger 36 months of continuation.", cite: "COBRA; Outline 7.6" },
+          { term: "MA 110D:automatic 31-day extension", def: "When an insured LEAVES THE GROUP for any reason, coverage continues automatically for 31 days after leaving:unless entitled to similar benefits elsewhere. No election required.", cite: "M.G.L. c. 175 § 110D; Outline 7.4" },
+          { term: "MA 110G:involuntary layoff or death (39 weeks)", def: "After an involuntary layoff or the member's DEATH, coverage for the member (or surviving spouse) and dependents continues for 39 WEEKS from ineligibility:or until they become eligible under another group plan. Never longer than their most recent period of coverage. Employer must notify them.", cite: "M.G.L. c. 175 § 110G; Outline 7.4" },
+          { term: "MA 110I:divorce continuation", def: "After divorce or a separate support judgment, the former spouse remains eligible under the member's plan WITHOUT additional premium or medical examination:as if the judgment had not entered:until the REMARRIAGE OF EITHER the member or the former spouse, or as the judgment provides.", cite: "M.G.L. c. 175 § 110I; Outline 7.4" },
           { term: "MA Mini-COBRA (176J:9)", def: "Extends COBRA-parallel continuation to small groups below the federal 20-employee threshold. Coverage must be IDENTICAL to active members. No evidence of insurability required. 150% premium after month 18 (disability extension). When continuation ends, carrier must offer a conversion nongroup plan during the 180-day period ending on the expiration date. Does NOT apply to dental or vision plans.", cite: "M.G.L. c. 176J § 9; Outline 7.4" },
           { term: "Small employer definition (MA)", def: "1 to 50 eligible employees. The MA merged market combines individual and small-group coverage into one risk pool. Carriers may require groups of 5 or fewer to enroll through an intermediary or the Health Connector.", cite: "M.G.L. c. 176J § 1; 211 CMR 66.04; Outline 7.5" },
-          { term: "Small-group rating — prohibited factors", def: "Carriers must offer plans to all eligible small groups. Premiums may be adjusted ONLY by enumerated factors: age (capped at 2:1 ratio) and area (factor 0.8–1.2). Health status and claims experience are PROHIBITED rating factors.", cite: "211 CMR 66.07; Outline 7.5" },
-          { term: "Pregnancy Discrimination Act", def: "Employers with 15+ employees must treat pregnancy, childbirth, and related conditions the same as any other medical condition in their health plans — same benefits, same cost-sharing.", cite: "Civil Rights Act / Pregnancy Discrimination Act; Outline 7.6" },
-          { term: "Medicare secondary payer — active workers 65+", def: "For active employees 65+ in employer groups of 20+ employees, the GROUP PLAN pays primary and Medicare is secondary.", cite: "Medicare Secondary Payer rules; Outline 7.6" },
+          { term: "Small-group rating:prohibited factors", def: "Carriers must offer plans to all eligible small groups. Premiums may be adjusted ONLY by enumerated factors: age (capped at 2:1 ratio) and area (factor 0.8–1.2). Health status and claims experience are PROHIBITED rating factors.", cite: "211 CMR 66.07; Outline 7.5" },
+          { term: "Pregnancy Discrimination Act", def: "Employers with 15+ employees must treat pregnancy, childbirth, and related conditions the same as any other medical condition in their health plans:same benefits, same cost-sharing.", cite: "Civil Rights Act / Pregnancy Discrimination Act; Outline 7.6" },
+          { term: "Medicare secondary payer:active workers 65+", def: "For active employees 65+ in employer groups of 20+ employees, the GROUP PLAN pays primary and Medicare is secondary.", cite: "Medicare Secondary Payer rules; Outline 7.6" },
           { term: "Groups must exist for a purpose other than insurance", def: "To qualify for group coverage, the group must exist primarily for employment or another purpose unrelated to buying insurance. Group coverage is governed by the law of the state where the master policy is delivered.", cite: "Outline 7.2" },
-          { term: "Extension of benefits — total disability", def: "An employee who is totally disabled when the group coverage terminates continues to receive benefits for that disabling condition for a limited extension period — the disability doesn't lose coverage just because the plan ended.", cite: "Outline 7.4" },
+          { term: "Extension of benefits:total disability", def: "An employee who is totally disabled when the group coverage terminates continues to receive benefits for that disabling condition for a limited extension period:the disability doesn't lose coverage just because the plan ended.", cite: "Outline 7.4" },
         ]
       },
 
@@ -501,14 +479,14 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
         title: "Dental Insurance",
         subtitle: "Module 8 · 2% of exam · 8 cards",
         cards: [
-          { term: "Dental benefit tiers — 100 / 80 / 50", def: "Diagnostic and preventive (exams, cleanings, X-rays): ~100%, deductible usually waived. Basic services (fillings, extractions, root canals): ~80% after deductible. Major services (crowns, bridges, dentures): ~50% after deductible.", cite: "Outline 8.2" },
-          { term: "Annual benefit maximum", def: "Dental's signature feature — a dollar cap per person per year. The opposite of medical plans' out-of-pocket maximums.", cite: "Outline 8.2" },
-          { term: "Predetermination of benefits", def: "For expensive proposed work, the dentist submits the treatment plan to the insurer BEFORE treatment; the insurer specifies what it will pay. Not a guarantee of outcome — a pre-treatment estimate that prevents surprise bills.", cite: "Outline 8.2" },
+          { term: "Dental benefit tiers:100 / 80 / 50", def: "Diagnostic and preventive (exams, cleanings, X-rays): ~100%, deductible usually waived. Basic services (fillings, extractions, root canals): ~80% after deductible. Major services (crowns, bridges, dentures): ~50% after deductible.", cite: "Outline 8.2" },
+          { term: "Annual benefit maximum", def: "Dental's signature feature:a dollar cap per person per year. The opposite of medical plans' out-of-pocket maximums.", cite: "Outline 8.2" },
+          { term: "Predetermination of benefits", def: "For expensive proposed work, the dentist submits the treatment plan to the insurer BEFORE treatment; the insurer specifies what it will pay. Not a guarantee of outcome:a pre-treatment estimate that prevents surprise bills.", cite: "Outline 8.2" },
           { term: "Scheduled vs. nonscheduled dental plan", def: "Scheduled: pays FIXED DOLLAR AMOUNTS per procedure (a fee schedule). Nonscheduled (comprehensive): pays on a usual/reasonable/customary basis with coinsurance.", cite: "Outline 8.2" },
           { term: "Integrated vs. stand-alone dental deductible", def: "Integrated plan: dental deductible is COMBINED with the major medical deductible (one shared deductible). Stand-alone: dental has its own separate, usually small deductible.", cite: "Outline 8.3" },
-          { term: "Adverse selection — dental plan defenses", def: "People can schedule dental work around gaining coverage. Defenses: (1) waiting/probationary periods before major services; (2) limiting enrollment to initial eligibility and open enrollment windows; (3) annual maximums and tiered coinsurance.", cite: "Outline 8.3" },
-          { term: "Late enrollee penalty — dental", def: "One core adverse-selection defense: employees who don't enroll during their initial eligibility window face reduced benefits or longer waiting periods if they try to enroll later.", cite: "Outline 8.3" },
-          { term: "Combination dental plan", def: "Mixes scheduled and nonscheduled approaches — scheduled (fixed) amounts for some benefit tiers, URC coinsurance for others.", cite: "Outline 8.2" },
+          { term: "Adverse selection:dental plan defenses", def: "People can schedule dental work around gaining coverage. Defenses: (1) waiting/probationary periods before major services; (2) limiting enrollment to initial eligibility and open enrollment windows; (3) annual maximums and tiered coinsurance.", cite: "Outline 8.3" },
+          { term: "Late enrollee penalty:dental", def: "One core adverse-selection defense: employees who don't enroll during their initial eligibility window face reduced benefits or longer waiting periods if they try to enroll later.", cite: "Outline 8.3" },
+          { term: "Combination dental plan", def: "Mixes scheduled and nonscheduled approaches:scheduled (fixed) amounts for some benefit tiers, URC coinsurance for others.", cite: "Outline 8.2" },
         ]
       },
 
@@ -519,33 +497,33 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
         subtitle: "Module 9 · 15% of exam · 28 cards",
         cards: [
           { term: "Medicare eligibility", def: "Age 65+. Also: younger people receiving Social Security disability benefits after 24 months. People with end-stage renal disease (ESRD) or ALS at any age. Administered by CMS.", cite: "Outline 9.1" },
-          { term: "Part A — premium-free eligibility", def: "Premium-free Part A for those with 40 quarters (10 years) of Medicare-covered employment, or a spouse with them. Others may buy in.", cite: "Outline 9.1" },
-          { term: "Part A benefit period", def: "Begins on inpatient admission; ends when the patient has been out of the hospital/SNF for 60 CONSECUTIVE DAYS. The Part A deductible applies PER BENEFIT PERIOD — not per year. A patient can pay it more than once in a year.", cite: "Outline 9.1" },
-          { term: "Part A — hospital inpatient days", def: "Days 1–60: fully covered after the deductible. Days 61–90: daily coinsurance. Beyond 90: the patient draws on 60 LIFETIME RESERVE DAYS (never renewed), each with a higher daily coinsurance.", cite: "Outline 9.1" },
-          { term: "Part A — skilled nursing facility (SNF)", def: "Requires a prior 3-day INPATIENT hospital stay. Days 1–20: fully covered. Days 21–100: daily coinsurance. NOTHING after day 100 per benefit period. Custodial-only care is NOT covered by Medicare.", cite: "Outline 9.1" },
-          { term: "Part A — other covered services", def: "Hospice (terminally ill, electing comfort care over curative treatment); home health care; blood after the first 3 pints.", cite: "Outline 9.1" },
-          { term: "Part B — basics", def: "OPTIONAL. Monthly premium (income-adjusted). After an annual deductible, Medicare pays 80% of the approved amount; the patient owes 20% — with NO OUT-OF-POCKET CAP under Original Medicare. That missing cap is the reason Medigap exists.", cite: "Outline 9.1" },
-          { term: "Part B — key exclusions", def: "Most dental, vision, hearing aids, and — critically — LONG-TERM CUSTODIAL CARE. These gaps drive demand for Medigap, Medicare Advantage, and LTC insurance.", cite: "Outline 9.1" },
+          { term: "Part A:premium-free eligibility", def: "Premium-free Part A for those with 40 quarters (10 years) of Medicare-covered employment, or a spouse with them. Others may buy in.", cite: "Outline 9.1" },
+          { term: "Part A benefit period", def: "Begins on inpatient admission; ends when the patient has been out of the hospital/SNF for 60 CONSECUTIVE DAYS. The Part A deductible applies PER BENEFIT PERIOD:not per year. A patient can pay it more than once in a year.", cite: "Outline 9.1" },
+          { term: "Part A:hospital inpatient days", def: "Days 1–60: fully covered after the deductible. Days 61–90: daily coinsurance. Beyond 90: the patient draws on 60 LIFETIME RESERVE DAYS (never renewed), each with a higher daily coinsurance.", cite: "Outline 9.1" },
+          { term: "Part A:skilled nursing facility (SNF)", def: "Requires a prior 3-day INPATIENT hospital stay. Days 1–20: fully covered. Days 21–100: daily coinsurance. NOTHING after day 100 per benefit period. Custodial-only care is NOT covered by Medicare.", cite: "Outline 9.1" },
+          { term: "Part A:other covered services", def: "Hospice (terminally ill, electing comfort care over curative treatment); home health care; blood after the first 3 pints.", cite: "Outline 9.1" },
+          { term: "Part B:basics", def: "OPTIONAL. Monthly premium (income-adjusted). After an annual deductible, Medicare pays 80% of the approved amount; the patient owes 20%:with NO OUT-OF-POCKET CAP under Original Medicare. That missing cap is the reason Medigap exists.", cite: "Outline 9.1" },
+          { term: "Part B:key exclusions", def: "Most dental, vision, hearing aids, and:critically:LONG-TERM CUSTODIAL CARE. These gaps drive demand for Medigap, Medicare Advantage, and LTC insurance.", cite: "Outline 9.1" },
           { term: "Medicare Initial Enrollment Period (IEP)", def: "7 months: the 3 months BEFORE the 65th-birthday month, the birthday month, and the 3 months AFTER.", cite: "Outline 9.1" },
-          { term: "Medicare Special Enrollment Period (SEP)", def: "For those who kept working with employer group coverage — 8 months after that employment/coverage ends, penalty-free.", cite: "Outline 9.1" },
-          { term: "Part B — late enrollment penalty", def: "Premium rises 10% for each full 12-month period of delayed enrollment. This penalty is LIFETIME — it never goes away.", cite: "Outline 9.1" },
-          { term: "Part C — Medicare Advantage", def: "Private plans (mostly HMO/PPO) replacing Original Medicare's payment structure. Must cover everything Parts A and B cover (hospice stays with Original Medicare). Usually bundle Part D, often add dental/vision. Use provider networks. Annual out-of-pocket maximum included. Enrollee still pays the Part B premium.", cite: "Outline 9.1" },
-          { term: "Part D — late enrollment penalty", def: "Approximately 1% per month of delayed enrollment without creditable drug coverage. The penalty is permanent and added to the monthly premium.", cite: "Outline 9.1" },
-          { term: "MA Medigap — only three plans sold", def: "Massachusetts, Minnesota, and Wisconsin hold federal waivers — they do NOT use the national lettered A–N Medigap plans. The ONLY plans sold in MA are: Core, Supplement 1, and Supplement 1A.", cite: "M.G.L. c. 176K; 211 CMR 71.08; Outline 9.2" },
-          { term: "MA Medigap — Core Plan", def: "The basic package: Part A hospital coinsurance (plus extended days after Medicare benefits end), Part B 20% coinsurance, hospice cost-sharing, first 3 pints of blood, and MA-mandated 60 days per calendar year of inpatient mental health care.", cite: "211 CMR 71.08; Outline 9.2" },
-          { term: "MA Medigap — Supplement 1", def: "Core PLUS: Part A deductible, skilled nursing facility coinsurance, Part B deductible, foreign travel emergency, and expanded inpatient mental health (120 days per benefit period). Roughly comparable to old national Plan F.", cite: "211 CMR 71.08; Outline 9.2" },
-          { term: "MA Medigap — Supplement 1A", def: "Identical to Supplement 1 EXCEPT it does NOT cover the Part B deductible. Added in 2020 because federal MACRA bars newly-eligible Medicare enrollees (on or after January 1, 2020) from buying plans that cover the Part B deductible.", cite: "211 CMR 71.08; MACRA § 401; Outline 9.2" },
-          { term: "MACRA — the exam trap", def: "If a person became eligible for Medicare ON OR AFTER JANUARY 1, 2020: they may buy CORE or SUPPLEMENT 1A only (not Supplement 1, which covers the Part B deductible). If eligible BEFORE 2020: may buy Core, Supplement 1, or Supplement 1A.", cite: "MACRA § 401; 211 CMR 71.08; Outline 9.2" },
-          { term: "MA Medigap — guaranteed issue, community rated", def: "No issuer may AT ANY TIME deny, condition, or price a MA Medigap policy based on age, health status, claims experience, receipt of health care, medical condition, or genetic information. MA Medigap is effectively community rated.", cite: "211 CMR 71.10(1); Outline 9.2" },
-          { term: "MA Medigap — no pre-existing condition limitations", def: "MA Medigap policies may NOT contain pre-existing condition limitations or waiting periods — EVER. National materials describing 6-month pre-ex waits do NOT apply in Massachusetts.", cite: "211 CMR 71.10(2); Outline 9.2" },
-          { term: "LTC benefit triggers", def: "Inability to perform 2 OF 6 Activities of Daily Living (ADLs) — expected to last at least 90 days — OR severe cognitive impairment, certified by a licensed health care practitioner.", cite: "211 CMR 65.05(1); Outline 9.4" },
+          { term: "Medicare Special Enrollment Period (SEP)", def: "For those who kept working with employer group coverage:8 months after that employment/coverage ends, penalty-free.", cite: "Outline 9.1" },
+          { term: "Part B:late enrollment penalty", def: "Premium rises 10% for each full 12-month period of delayed enrollment. This penalty is LIFETIME:it never goes away.", cite: "Outline 9.1" },
+          { term: "Part C:Medicare Advantage", def: "Private plans (mostly HMO/PPO) replacing Original Medicare's payment structure. Must cover everything Parts A and B cover (hospice stays with Original Medicare). Usually bundle Part D, often add dental/vision. Use provider networks. Annual out-of-pocket maximum included. Enrollee still pays the Part B premium.", cite: "Outline 9.1" },
+          { term: "Part D:late enrollment penalty", def: "Approximately 1% per month of delayed enrollment without creditable drug coverage. The penalty is permanent and added to the monthly premium.", cite: "Outline 9.1" },
+          { term: "MA Medigap:only three plans sold", def: "Massachusetts, Minnesota, and Wisconsin hold federal waivers:they do NOT use the national lettered A–N Medigap plans. The ONLY plans sold in MA are: Core, Supplement 1, and Supplement 1A.", cite: "M.G.L. c. 176K; 211 CMR 71.08; Outline 9.2" },
+          { term: "MA Medigap:Core Plan", def: "The basic package: Part A hospital coinsurance (plus extended days after Medicare benefits end), Part B 20% coinsurance, hospice cost-sharing, first 3 pints of blood, and MA-mandated 60 days per calendar year of inpatient mental health care.", cite: "211 CMR 71.08; Outline 9.2" },
+          { term: "MA Medigap:Supplement 1", def: "Core PLUS: Part A deductible, skilled nursing facility coinsurance, Part B deductible, foreign travel emergency, and expanded inpatient mental health (120 days per benefit period). Roughly comparable to old national Plan F.", cite: "211 CMR 71.08; Outline 9.2" },
+          { term: "MA Medigap:Supplement 1A", def: "Identical to Supplement 1 EXCEPT it does NOT cover the Part B deductible. Added in 2020 because federal MACRA bars newly-eligible Medicare enrollees (on or after January 1, 2020) from buying plans that cover the Part B deductible.", cite: "211 CMR 71.08; MACRA § 401; Outline 9.2" },
+          { term: "MACRA:the exam trap", def: "If a person became eligible for Medicare ON OR AFTER JANUARY 1, 2020: they may buy CORE or SUPPLEMENT 1A only (not Supplement 1, which covers the Part B deductible). If eligible BEFORE 2020: may buy Core, Supplement 1, or Supplement 1A.", cite: "MACRA § 401; 211 CMR 71.08; Outline 9.2" },
+          { term: "MA Medigap:guaranteed issue, community rated", def: "No issuer may AT ANY TIME deny, condition, or price a MA Medigap policy based on age, health status, claims experience, receipt of health care, medical condition, or genetic information. MA Medigap is effectively community rated.", cite: "211 CMR 71.10(1); Outline 9.2" },
+          { term: "MA Medigap:no pre-existing condition limitations", def: "MA Medigap policies may NOT contain pre-existing condition limitations or waiting periods:EVER. National materials describing 6-month pre-ex waits do NOT apply in Massachusetts.", cite: "211 CMR 71.10(2); Outline 9.2" },
+          { term: "LTC benefit triggers", def: "Inability to perform 2 OF 6 Activities of Daily Living (ADLs):expected to last at least 90 days:OR severe cognitive impairment, certified by a licensed health care practitioner.", cite: "211 CMR 65.05(1); Outline 9.4" },
           { term: "The 6 ADLs", def: "Bathing, Dressing, Toileting, Transferring, Continence, Eating.", cite: "211 CMR 65.05(1); Outline 9.4" },
-          { term: "LTC — MA minimum standards", def: "Elimination periods may NOT exceed 365 days. Benefits may NOT be conditioned on prior hospitalization, Medicare ineligibility, 'steady improvement,' or medical-necessity standards (with narrow exceptions). Post-claims underwriting is prohibited.", cite: "211 CMR 65.05; Outline 9.4" },
-          { term: "LTC — free look (MA)", def: "The applicant may return an LTC policy within 30 DAYS of delivery for any reason. Premium refunded within 30 days of the return. The right must be prominently printed on or attached to the first page.", cite: "M.G.L. c. 176U § 3(e); Outline 9.4" },
-          { term: "LTC — unintentional lapse protection (MA)", def: "No policy may be issued until the applicant designates at least one person (besides themselves) to receive lapse notices, or signs a dated written waiver declining to. No policy may lapse for nonpayment unless the carrier notifies the insured AND the designee at least 30 days before the lapse, by first-class mail. Reinstatement is available if the policyholder proves they were cognitively impaired or had lost functional capacity before the grace period expired.", cite: "211 CMR 65.10; Outline 9.4" },
+          { term: "LTC:MA minimum standards", def: "Elimination periods may NOT exceed 365 days. Benefits may NOT be conditioned on prior hospitalization, Medicare ineligibility, 'steady improvement,' or medical-necessity standards (with narrow exceptions). Post-claims underwriting is prohibited.", cite: "211 CMR 65.05; Outline 9.4" },
+          { term: "LTC:free look (MA)", def: "The applicant may return an LTC policy within 30 DAYS of delivery for any reason. Premium refunded within 30 days of the return. The right must be prominently printed on or attached to the first page.", cite: "M.G.L. c. 176U § 3(e); Outline 9.4" },
+          { term: "LTC:unintentional lapse protection (MA)", def: "No policy may be issued until the applicant designates at least one person (besides themselves) to receive lapse notices, or signs a dated written waiver declining to. No policy may lapse for nonpayment unless the carrier notifies the insured AND the designee at least 30 days before the lapse, by first-class mail. Reinstatement is available if the policyholder proves they were cognitively impaired or had lost functional capacity before the grace period expired.", cite: "211 CMR 65.10; Outline 9.4" },
           { term: "Respite care", def: "Temporary professional care that provides relief to a family caregiver. Covered under LTC policies.", cite: "211 CMR 65; Outline 9.4" },
           { term: "MassHealth exemption for LTC (MA)", def: "A permanently institutionalized person's home is protected from MassHealth liens if, when purchased, their LTC policy met 211 CMR 65 standards: at least 730 days (2 years) of nursing-facility benefits, at least $125 per day, and an elimination period of no more than 365 days.", cite: "M.G.L. c. 118E § 33; 130 CMR 515.014; Outline 9.4" },
-          { term: "LTC — MA required offers", def: "Insurers must OFFER (though the buyer may decline): (1) an inflation adjustment benefit; (2) a nonforfeiture benefit (some value preserved if the policy lapses after years of premiums). Both must be offered — neither can be omitted.", cite: "211 CMR 65.06(1)–(2); Outline 9.4" },
+          { term: "LTC:MA required offers", def: "Insurers must OFFER (though the buyer may decline): (1) an inflation adjustment benefit; (2) a nonforfeiture benefit (some value preserved if the policy lapses after years of premiums). Both must be offered:neither can be omitted.", cite: "211 CMR 65.06(1)–(2); Outline 9.4" },
         ]
       },
 
@@ -556,25 +534,24 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
         subtitle: "Module 10 · 4% of exam · 13 cards",
         cards: [
           { term: "The rule of thumb", def: "Somebody gets the tax break, but NOT both ends. Pre-tax / deducted premiums → TAXABLE benefits. After-tax / non-deducted premiums → TAX-FREE benefits.", cite: "Outline 10.1" },
-          { term: "Personal disability income — tax treatment", def: "Premiums are NOT deductible (personal expense). Benefits are received INCOME-TAX-FREE. The clearest example of the rule of thumb.", cite: "Outline 10.1" },
+          { term: "Personal disability income:tax treatment", def: "Premiums are NOT deductible (personal expense). Benefits are received INCOME-TAX-FREE. The clearest example of the rule of thumb.", cite: "Outline 10.1" },
           { term: "Personal medical expense deduction", def: "Personal medical insurance premiums count toward the itemized medical expense deduction, deductible only to the extent total unreimbursed medical expenses exceed 7.5% of AGI. Benefits (reimbursements of actual expenses) are not taxable.", cite: "Outline 10.1" },
-          { term: "Employer group medical and dental — tax treatment", def: "Employer-paid premiums are DEDUCTIBLE to the employer as a business expense and are NOT taxable income to employees. Benefits are tax-free. The most tax-favored arrangement in the module.", cite: "Outline 10.2" },
-          { term: "Employer-paid group disability — tax treatment", def: "Employer pays the premium → benefits are TAXABLE to the employee. Employee pays with after-tax dollars → benefits are TAX-FREE. Shared premium → benefits taxable IN PROPORTION to the employer-paid share.", cite: "Outline 10.2" },
+          { term: "Employer group medical and dental:tax treatment", def: "Employer-paid premiums are DEDUCTIBLE to the employer as a business expense and are NOT taxable income to employees. Benefits are tax-free. The most tax-favored arrangement in the module.", cite: "Outline 10.2" },
+          { term: "Employer-paid group disability:tax treatment", def: "Employer pays the premium → benefits are TAXABLE to the employee. Employee pays with after-tax dollars → benefits are TAX-FREE. Shared premium → benefits taxable IN PROPORTION to the employer-paid share.", cite: "Outline 10.2" },
           { term: "FICA on employer-paid disability benefits", def: "Employer-paid disability benefits are subject to Social Security/Medicare (FICA) tax during the FIRST 6 CALENDAR MONTHS after the employee last worked. After 6 months, FICA stops.", cite: "Outline 10.2" },
-          { term: "LTC — cannot go through a cafeteria plan / FSA", def: "Group long-term care coverage: employer premiums deductible, excluded from employee income, qualified benefits tax-free — BUT LTC CANNOT be offered through a cafeteria plan or flexible spending account. It is the notable exception.", cite: "Outline 10.2" },
+          { term: "LTC:cannot go through a cafeteria plan / FSA", def: "Group long-term care coverage: employer premiums deductible, excluded from employee income, qualified benefits tax-free:BUT LTC CANNOT be offered through a cafeteria plan or flexible spending account. It is the notable exception.", cite: "Outline 10.2" },
           { term: "Self-employed health insurance deduction", def: "Sole proprietors, partners, and LLC members may deduct 100% of health insurance premiums for themselves, spouses, and dependents as an ABOVE-THE-LINE deduction (no itemizing, no 7.5% floor). Limited to earned income from the business. Unavailable in months they're eligible for an employer-subsidized plan.", cite: "Outline 10.3" },
-          { term: "Self-employed deduction — what it covers", def: "The 100% above-the-line deduction covers medical, dental, and tax-qualified LTC (within age-based limits). It does NOT cover disability income premiums.", cite: "Outline 10.3" },
-          { term: "Key Person Disability Income — tax treatment", def: "The business owns, pays for, and receives the benefits. Premiums are NOT deductible. Benefits are received TAX-FREE.", cite: "Outline 10.4" },
-          { term: "Disability Buy-Sell — tax treatment", def: "Premiums are NOT deductible. Proceeds funding the buyout are received TAX-FREE.", cite: "Outline 10.4" },
-          { term: "BOE — the tax inversion / exception", def: "Business Overhead Expense is the exception to the rule. Premiums ARE DEDUCTIBLE (as a business expense). Benefits ARE TAXABLE income — but since they pay deductible overhead (rent, salaries), the net tax impact washes out.", cite: "Outline 10.4" },
-          { term: "AD&D — employer group tax treatment", def: "Treated like medical/health coverage: employer premiums are deductible and excluded from employee income; benefits are generally received TAX-FREE.", cite: "Outline 10.2" },
+          { term: "Self-employed deduction:what it covers", def: "The 100% above-the-line deduction covers medical, dental, and tax-qualified LTC (within age-based limits). It does NOT cover disability income premiums.", cite: "Outline 10.3" },
+          { term: "Key Person Disability Income:tax treatment", def: "The business owns, pays for, and receives the benefits. Premiums are NOT deductible. Benefits are received TAX-FREE.", cite: "Outline 10.4" },
+          { term: "Disability Buy-Sell:tax treatment", def: "Premiums are NOT deductible. Proceeds funding the buyout are received TAX-FREE.", cite: "Outline 10.4" },
+          { term: "BOE:the tax inversion / exception", def: "Business Overhead Expense is the exception to the rule. Premiums ARE DEDUCTIBLE (as a business expense). Benefits ARE TAXABLE income:but since they pay deductible overhead (rent, salaries), the net tax impact washes out.", cite: "Outline 10.4" },
+          { term: "AD&D:employer group tax treatment", def: "Treated like medical/health coverage: employer premiums are deductible and excluded from employee income; benefits are generally received TAX-FREE.", cite: "Outline 10.2" },
         ]
       },
 
     ]; // end DECKS
 
-    // ── Utility ───────────────────────────────────────────────────────────
-    function shuffle(arr) {
+    // ── Utility ─────────────────    function shuffle(arr) {
       const a = [...arr];
       for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -583,8 +560,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       return a;
     }
 
-    // ── Deck Picker ───────────────────────────────────────────────────────
-    function DeckPicker({ decks, onSelect }) {
+    // ── Deck Picker ─────────────    function DeckPicker({ decks, onSelect }) {
       const totalCards = decks.reduce((s, d) => s + d.cards.length, 0);
       return (
         <div style={{ padding: "20px 16px 40px", maxWidth: 580, margin: "0 auto" }}>
@@ -609,8 +585,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       );
     }
 
-    // ── Flashcard Game ────────────────────────────────────────────────────
-    function FlashcardGame({ deck, onExit }) {
+    // ── Flashcard Game ──────────    function FlashcardGame({ deck, onExit }) {
       const total = deck.cards.length;
       const [remaining, setRemaining] = useState(() => shuffle([...deck.cards]));
       const [learned, setLearned] = useState([]);
@@ -660,7 +635,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
               display: "block", width: "100%", padding: "13px",
               background: "transparent", color: C.inkSoft, border: `1.5px solid ${C.line}`,
               borderRadius: 12, fontSize: 14.5, fontWeight: 600, cursor: "pointer", marginBottom: 10,
-            }}>Start over — all {total} cards</button>
+            }}>Start over:all {total} cards</button>
             <button onClick={onExit} style={{
               display: "block", width: "100%", padding: "13px",
               background: "transparent", color: C.inkSoft, border: `1.5px solid ${C.line}`,
@@ -732,8 +707,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       );
     }
 
-    // ── API Key Gate ──────────────────────────────────────────────────────
-    function ApiKeyGate({ onKey }) {
+    // ── API Key Gate ────────────    function ApiKeyGate({ onKey }) {
       const [val, setVal] = useState("");
       const [err, setErr] = useState("");
 
@@ -757,7 +731,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
               Connect the AI Tutor
             </div>
             <p style={{ color: C.inkSoft, fontSize: 14, lineHeight: 1.65, marginBottom: 16 }}>
-              The tutor uses the Anthropic API directly from your browser. Enter your API key below — it's stored locally on your device and sent only to Anthropic.
+              The tutor uses the Anthropic API directly from your browser. Enter your API key below:it's stored locally on your device and sent only to Anthropic.
             </p>
             <p style={{ color: C.inkSoft, fontSize: 13, marginBottom: 18 }}>
               Get a key at{" "}
@@ -787,8 +761,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       );
     }
 
-    // ── Chat Mode ─────────────────────────────────────────────────────────
-    const STARTERS = [
+    // ── Chat Mode ───────────────    const STARTERS = [
       "How does the 2-year incontestability rule work?",
       "What is the free look period in Massachusetts?",
       "What happens if the insurer never sends claim forms?",
@@ -960,8 +933,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       );
     }
 
-    // ── Main App ──────────────────────────────────────────────────────────
-    function App() {
+    // ── Main App ────────────────    function App() {
       const [apiKey, setApiKey] = useState(() => EMBEDDED_KEY || localStorage.getItem("ma_exam_api_key") || "");
 
       function handleChangeKey() {
