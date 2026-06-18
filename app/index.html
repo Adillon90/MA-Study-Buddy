@@ -13,8 +13,6 @@
     html, body, #root { height: 100%; }
     @supports (height: 100dvh) { html, body, #root { height: 100dvh; } }
     body { background: #F6F4EE; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    #matrix { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; background: #000; display: block; pointer-events: none; }
-    #root { position: relative; z-index: 1; }
     input, button, textarea { font-family: inherit; }
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: transparent; }
@@ -34,7 +32,6 @@
   </style>
 </head>
 <body>
-  <canvas id="matrix"></canvas>
   <div id="root"></div>
   <script id="app-src" type="text/jsx">
     const { useState, useRef, useEffect } = React;
@@ -1306,7 +1303,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
       }
 
       return (
-        <div style={{ position: "fixed", inset: 0, background: "rgba(246,244,238,0.4)", display: "flex", flexDirection: "column", overflow: "hidden", zIndex: 1 }}>
+        <div style={{ position: "fixed", inset: 0, background: C.paper, display: "flex", flexDirection: "column", overflow: "hidden" }}>
           {/* Header */}
           <div style={{ background: C.ink, color: "#F4F2EA", padding: isMobile ? "8px 14px" : "13px 20px", flexShrink: 0 }}>
             <div style={{ maxWidth: 620, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -1396,38 +1393,6 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
     var _src = document.getElementById("app-src").textContent;
     var _out = Babel.transform(_src, { presets: [["react", { runtime: "classic" }]] });
     new Function(_out.code)();
-  </script>
-  <script>
-    // Matrix digital rain (falling numbers) background
-    (function () {
-      var c = document.getElementById("matrix");
-      if (!c) return;
-      var ctx = c.getContext("2d");
-      var fontSize = 16, drops = [], speeds = [];
-      function setup() {
-        c.width = window.innerWidth; c.height = window.innerHeight;
-        drops = []; speeds = [];
-        var cols = Math.ceil(c.width / fontSize);
-        for (var i = 0; i < cols; i++) {
-          drops[i] = Math.random() * (c.height / fontSize);
-          speeds[i] = 0.45 + Math.random() * 0.75;
-        }
-      }
-      setup();
-      window.addEventListener("resize", setup);
-      function draw() {
-        ctx.fillStyle = "rgba(0,0,0,0.05)";
-        ctx.fillRect(0, 0, c.width, c.height);
-        ctx.fillStyle = "#39FF70";
-        ctx.font = fontSize + "px monospace";
-        for (var i = 0; i < drops.length; i++) {
-          ctx.fillText(String(Math.floor(Math.random() * 10)), i * fontSize, drops[i] * fontSize);
-          if (drops[i] * fontSize > c.height && Math.random() > 0.965) { drops[i] = 0; speeds[i] = 0.45 + Math.random() * 0.75; }
-          drops[i] += speeds[i];
-        }
-      }
-      setInterval(draw, 45);
-    })();
   </script>
 </body>
 </html>
