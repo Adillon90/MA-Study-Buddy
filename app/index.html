@@ -1306,7 +1306,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
       }
 
       return (
-        <div style={{ position: "fixed", inset: 0, background: "rgba(246,244,238,0.55)", display: "flex", flexDirection: "column", overflow: "hidden", zIndex: 1 }}>
+        <div style={{ position: "fixed", inset: 0, background: "rgba(246,244,238,0.4)", display: "flex", flexDirection: "column", overflow: "hidden", zIndex: 1 }}>
           {/* Header */}
           <div style={{ background: C.ink, color: "#F4F2EA", padding: isMobile ? "8px 14px" : "13px 20px", flexShrink: 0 }}>
             <div style={{ maxWidth: 620, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -1418,7 +1418,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
       function draw() {
         ctx.fillStyle = "rgba(0,0,0,0.05)";
         ctx.fillRect(0, 0, c.width, c.height);
-        ctx.fillStyle = "#2BE36A";
+        ctx.fillStyle = "#39FF70";
         ctx.font = fontSize + "px monospace";
         for (var i = 0; i < drops.length; i++) {
           ctx.fillText(String(Math.floor(Math.random() * 10)), i * fontSize, drops[i] * fontSize);
