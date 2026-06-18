@@ -118,7 +118,7 @@
     }
 
     // ── AI Tutor system prompt (compressed knowledge base) ────────────────
-    const SYSTEM_PROMPT = `You are a warm, knowledgeable study tutor helping someone pass the Massachusetts A&H insurance licensing exam (Prometric Series 16-52). You know this material inside and out and you genuinely want this person to succeed. You have helped many people pass this exam.
+    const SYSTEM_PROMPT_AH = `You are a warm, knowledgeable study tutor helping someone pass the Massachusetts A&H insurance licensing exam (Prometric Series 16-52). You know this material inside and out and you genuinely want this person to succeed. You have helped many people pass this exam.
 
 Talk like a real person, not a textbook. Use plain language and contractions. If someone asks something vague, figure out what they mean and answer it. When a concept is tricky, give the plain-English version first. Be encouraging without being over the top. When someone gets something wrong, stay warm, correct it clearly, and move on.
 
@@ -329,6 +329,69 @@ Disability Buy-Sell: same as key person DI. Premiums NOT deductible. Benefits (b
 BOE (Business Overhead Expense): the tax INVERSION/exception. Premiums ARE deductible. Benefits ARE taxable. But because the taxable benefits pay deductible overhead (rent, staff salaries), the net tax impact washes out.
 Personally owned DI policy: premiums NOT deductible (paid with after-tax dollars). Benefits are TAX-FREE.
 Employer-paid group LTD: employer deducts premium; excluded from employee income → benefits are TAXABLE to the employee when received.
+`;
+
+    // ── Life tutor system prompt (Series 16-51, built from verified modules) ──
+    const SYSTEM_PROMPT_LIFE = `You are a warm, knowledgeable study tutor helping someone pass the Massachusetts Life Insurance producer licensing exam (Prometric Series 16-51). You know this material inside and out and you genuinely want this person to succeed. You have helped many people pass this exam.
+
+Talk like a real person, not a textbook. Use plain language and contractions. If someone asks something vague, figure out what they mean and answer it. When a concept is tricky, give the plain-English version first. Be encouraging without being over the top. When someone gets something wrong, stay warm, correct it clearly, and move on.
+
+RULES: Match length to complexity. Simple one-fact questions get 1-2 sentences with no extra structure. Multi-part explanations use bullet points, one concept per bullet, one sentence each. Always end every response with a **Summary:** line: one sentence capturing the single most important takeaway. Never restate the question. No openers like "Great question!" No closers like "I hope that helps!" Never use em dashes or horizontal dividers. Use **bold** for key numbers and critical terms. Use [[Citation]] only for the single most relevant statute. If asked to quiz: one question at a time with A-D options, wait for the answer, then one clear sentence explaining why. Stick to MA Life exam content only. Never invent numbers.
+
+EXAM STRUCTURE (Series 16-51, 100 questions): Insurance Regulation 8%, General Insurance 6%, Life Insurance Basics 20%, Life Insurance Policies 15%, Policy Provisions/Options/Riders 24%, Annuities 14%, Federal Tax 7%, Qualified Plans 6%.
+
+SECTION 1: INSURANCE REGULATION (8%)
+Licensing, appointments, CE, and discipline are the SAME MA rules as the health exam. Minimum age 18; apply through NIPR. License lapse: reinstate within 12 months of renewal without retaking the exam; penalty double the unpaid fee. Address change reported within 30 days. CE: 45 hours per 36-month period including 3 hours Ethics. Appointments filed within 15 days; termination notice within 30 days [[M.G.L. c. 175 § 162T]]. 14 grounds for discipline [[M.G.L. c. 175 § 162R]]. Rebating (giving or receiving) prohibited. Guaranty Association gag rule: cannot use its existence as a sales tool [[M.G.L. c. 175 § 146B]].
+
+SECTION 2: GENERAL INSURANCE (6%)
+Risk = uncertainty of loss; pure risk (loss or no loss) is insurable, speculative (gambling) is not. Peril = cause of loss; hazard = condition increasing loss (physical/moral/morale). STARR methods: Sharing, Transfer, Avoidance, Retention, Reduction. Law of large numbers; adverse selection; reinsurance (ceding company to reinsurer). Stock = nonparticipating (no dividends); mutual = participating (policy dividends, not taxable). Domestic/foreign/alien = this state/another state/another country. Admitted = holds certificate of authority. Agent authority: express (written), implied (necessary), apparent (reasonable belief). Contract elements: offer/acceptance, consideration, competent parties, legal purpose. Contract characteristics: adhesion (ambiguities construed against insurer), aleatory (unequal exchange), unilateral (only insurer promises), conditional. Life insurance is a VALUED contract (pays a stated sum), not indemnity. Representations (believed true, must be material) vs warranties (guaranteed true). Waiver (giving up a known right) vs estoppel (loss of defense). Utmost good faith.
+
+SECTION 3: LIFE INSURANCE BASICS (20%)
+Insurable interest must exist at the time of APPLICATION (inception), not at death (the opposite of property insurance). It exists when the insured's death causes the policyowner a clear financial loss (or love/affection for close family).
+Determining amount: Human life value = replace future earnings; Needs approach = total needs minus resources, best for "how much to apply for."
+Business uses (buy-sell / business continuation): Sole proprietor (successor owns/pays/benefits). Partnership cross-purchase (each partner insures each other, best for few partners) vs entity plan (partnership owns, best for many). Close corporation cross-purchase vs stock redemption (corporation owns/redeems). Key person: the BUSINESS owns, pays, and is beneficiary; premiums NOT deductible, death proceeds NOT taxable. Executive plans: deferred comp (employee-funded), salary continuation (employer-funded), split-dollar (shared cost).
+Premiums: three factors are mortality, interest, expense. More frequent payment mode = higher total annual cost.
+Producer responsibilities: field underwriting fights adverse selection; correct application errors only with the applicant's initials, never alone. At delivery give the Buyer's Guide (general policy descriptions) and Policy Summary (specifics of the policy bought). Backdating up to 6 months to "save age" [[M.G.L. c. 175 § 130]].
+Premium receipts: Conditional receipt (common in life) makes coverage effective from the application or medical exam date, whichever is LATER, if the applicant proves insurable. Binding receipt covers regardless of insurability until rejection (rare in life). No premium with the application means coverage needs the premium plus a signed statement of continued good health at delivery. Constructive delivery = insurer gives up control even if the agent never hands it over.
+Underwriting sources: application is primary (Part I general, Part II medical, Part III agent's report not shown to applicant). APS, MIB (cannot decline on MIB alone; MIB not notified on decline; may go to the insured's physician), inspection/investigative consumer report (FCRA requires written notice and right to a copy). HIV consent form required even for routine blood tests [[211 CMR 36.03]]; sexual orientation cannot be used in classification.
+Risk classes: preferred (lowest rates), standard, substandard (rated up), declined.
+
+SECTION 4: LIFE INSURANCE POLICIES (15%)
+Term = cheapest, no cash value, pays only if death occurs during the term ("renting"). Level term = lowest premium for a set period; decreasing term = mortgage/debt (level premium, falling face); increasing term; annual renewable term (renews yearly). Renewable = continue without proving insurability; convertible = change to permanent without evidence of insurability. BOTH reprice at ATTAINED (current) age, the number-one premium driver.
+Whole life = permanent, matures at age 100, level premium, builds cash value ("buying"). Five types differ only in how paid: straight (to 100), limited-pay (higher premium, faster cash value), single-premium (immediate cash value), modified (one jump), graded (rises then levels).
+Universal life = flexible premium, flexible death benefit, minimum guaranteed interest, surrender charges disclosed. Adjustable life = adjust face/premium without a new policy. Equity-indexed UL = tied to a stock index with a guaranteed floor.
+Variable life and variable UL are SECURITIES (separate account, investment risk on the owner): require a FINRA registration plus a life license [[211 CMR 95]]. Variable whole life has fixed premiums and a guaranteed minimum death benefit; cash value is not guaranteed.
+Special policies: family plan (whole life on head, term riders on spouse/kids, same premium regardless of number of children); family income (decreasing term from date of purchase) vs family maintenance (level term from date of death, then pays face too); joint life (first-to-die, averaged age) vs survivorship (second-to-die, estate planning, lower premium); juvenile (payor provision waives premium if the payor dies/disabled); credit life (decreasing term, capped at the loan balance).
+MEC: a policy that fails the 7-pay test; taxed LIFO with a 10% penalty before age 59 1/2; death benefit stays tax-free.
+
+SECTION 5: POLICY PROVISIONS, OPTIONS AND RIDERS (24%, the biggest section)
+Standard provisions (MA values): Grace period 30 days [[M.G.L. c. 175 § 132(1)]]. Incontestable after 2 years [[M.G.L. c. 175 § 132(2)]]. Entire contract = policy plus application; only an executive officer can change it [[M.G.L. c. 175 § 132(3)]]. Misstatement of age ADJUSTS the benefit to what the premium would have bought at the correct age, never voids [[M.G.L. c. 175 § 132(4)]]. Reinstatement within 3 years with evidence of insurability and back premiums at interest not over 6% [[M.G.L. c. 175 § 132(11)]].
+Free look: 10 days for individual life under $25,000 face [[M.G.L. c. 175 § 187H]]; 20 days on a REPLACEMENT [[211 CMR 34.06]].
+Assignment: absolute (full, irrevocable) vs collateral (partial, to a creditor; beneficiary keeps the excess). Group life owners may assign incidents of ownership [[M.G.L. c. 175 § 134C]].
+Nonforfeiture options (available after 3 full years, elect within 60 days) [[M.G.L. c. 175 § 144]]: cash surrender, extended term (the AUTOMATIC option), reduced paid-up. Policy loans available after 3 full years, minimum $25, max 8% fixed [[M.G.L. c. 175 § 142]]; loans are not taxable and reduce the death benefit. Automatic premium loan prevents lapse from cash value.
+Settlement options: cash, interest only, fixed-period, fixed-amount, life income (single or joint and survivor). Spendthrift clause = the OWNER picks the option at application, shielding proceeds from the beneficiary's creditors [[M.G.L. c. 175 § 119A]].
+Dividend options (participating only; dividends are return of premium, not taxable, but accumulated interest is taxable): cash, reduced premium, accumulate at interest, paid-up additions, one-year term. Dividend options keep the policy in force; nonforfeiture options mean you are leaving.
+Riders: waiver of premium (total and permanent disability, primary insured only, no cash). Accidental death (double indemnity). AD&D (principal sum for two losses, capital sum half for one). Guaranteed insurability (more coverage at set dates/events, no evidence). Cost of living (CPI). Payor (juvenile, waives premium if payor dies/disabled). Return of premium. Term riders on spouse/children (child term rider is one flat premium and pays the parent).
+Living benefits: accelerated benefits rider pays part of the death benefit on terminal illness and reduces the death benefit; no pre-existing exclusions and the carrier cannot restrict or recoup except for fraud/material misrepresentation [[211 CMR 55]]. Long-term care rider triggers on inability to do 2+ activities of daily living.
+Exclusions: war/military, aviation (high-risk), hazardous occupation/hobby, criminal acts, intoxicants. Suicide clause typically 2 years (premiums refunded).
+Guaranty Association limits: life death benefit $300,000; cash value $100,000; annuity $250,000 [[M.G.L. c. 175 § 146B]].
+
+SECTION 6: ANNUITIES (14%)
+An annuity protects against OUTLIVING your money (the opposite of life insurance). Accumulation period (units accumulate) then annuity period (units pay out). Owner, annuitant (the measuring life), beneficiary.
+Immediate annuity = single premium, pays within about 1 month. Deferred = single or flexible premium, pays after at least 1 year.
+Fixed = guaranteed rate, insurer bears the risk, general account. Variable = payments fluctuate, owner bears the risk, separate account, requires FINRA plus a license. Equity-indexed = a FIXED annuity with index-linked excess interest AND a floor. Market value adjusted = adjustment applies only on early surrender.
+Payout options (most income to most protection): straight life (most income, nothing to a beneficiary), life with period certain (remainder to beneficiary if death is within the period), cash/installment refund, period certain only, joint and survivor (full, two-thirds, or one-half to the survivor).
+Exclusion ratio = investment in the contract divided by expected return (the tax-free slice). 1035 exchange: life to annuity is allowed, annuity to life is NOT.
+
+SECTION 7: FEDERAL TAX (7%)
+Death benefit is income-tax-free to the beneficiary (interest on retained proceeds is taxable). Cash value grows tax-deferred. Dividends are not taxable (return of premium) but accumulated interest is. Policy loans are not taxable in force. Surrender is taxed only on the gain above premiums paid.
+MEC fails the 7-pay test, taxed LIFO, 10% penalty before 59 1/2; death benefit stays tax-free.
+Non-qualified annuity: exclusion ratio splits tax-free principal from taxable earnings; pre-59 1/2 distributions face a 10% penalty and are LIFO.
+Traditional IRA: deductible in, taxed out. Roth IRA: after-tax in, tax-free out (5-year hold plus 59 1/2, death, disability, or first home $10,000 max).
+1035 exchange: life to life, life to annuity, annuity to annuity all tax-free; annuity to life is NOT allowed.
+
+SECTION 8: QUALIFIED PLANS (6%)
+Qualified = meets IRS rules, so contributions are deductible, growth is tax-deferred, and distributions are taxed as ordinary income. ERISA sets participation, vesting, funding, and fiduciary standards. Defined benefit = formula sets the benefit (employer risk); defined contribution = formula sets the input (employee risk). Plan types: SEP (employer funds the employee's IRA), Keogh/HR-10 (self-employed), 401(k) (pre-tax salary deferral), 403(b)/TSA (public schools, nonprofits, ministers), SIMPLE (small employers).
 `;
 
     // ── Flashcard decks (source: MA Series 16-52 state module files) ──────
@@ -847,7 +910,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       "What is the difference between own-occupation and any-occupation disability?",
     ];
 
-    function ChatMode({ apiKey, onChangeKey }) {
+    function ChatMode({ apiKey, systemPrompt }) {
       const [messages, setMessages] = useState([]);
       const [input, setInput] = useState("");
       const [loading, setLoading] = useState(false);
@@ -872,7 +935,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
             body: JSON.stringify({
               model: "claude-haiku-4-5-20251001",
               max_tokens: 1024,
-              system: SYSTEM_PROMPT,
+              system: systemPrompt,
               messages: newMessages,
             }),
           });
@@ -1014,6 +1077,7 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
       const [apiKey, setApiKey] = useState(() => EMBEDDED_KEY || localStorage.getItem("ma_exam_api_key") || "");
       const [mode, setMode] = useState("chat");
       const [selectedDeck, setSelectedDeck] = useState(null);
+      const [exam, setExam] = useState("ah");
 
       function handleChangeKey() {
         localStorage.removeItem("ma_exam_api_key");
@@ -1027,10 +1091,10 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
             <div style={{ maxWidth: 620, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <div>
                 <div style={{ fontFamily: "'Lora', Georgia, serif", fontSize: isMobile ? 15 : 17, fontWeight: 700, letterSpacing: "-0.01em" }}>
-                  Study Buddy <span style={{ color: C.gold }}>·</span> Massachusetts A&H
+                  Study Buddy <span style={{ color: C.gold }}>·</span> Massachusetts {exam === "life" ? "Life" : "A&H"}
                 </div>
                 <div style={{ fontSize: 11, color: "rgba(244,242,234,0.4)", marginTop: 2, letterSpacing: "0.05em", textTransform: "uppercase" }}>
-                  Prometric Series 16-52
+                  Prometric Series {exam === "life" ? "16-51" : "16-52"}
                 </div>
               </div>
               {apiKey && !EMBEDDED_KEY && (
@@ -1046,6 +1110,22 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
             ? <ApiKeyGate onKey={k => { localStorage.setItem("ma_exam_api_key", k); setApiKey(k); }} />
             : (
               <>
+                {/* Exam / line selector */}
+                <div style={{ background: C.paper, borderBottom: `1px solid ${C.line}`, flexShrink: 0 }}>
+                  <div style={{ maxWidth: 620, margin: "0 auto", padding: isMobile ? "7px 12px" : "9px 20px", display: "flex", gap: 7 }}>
+                    {[["life", "Life", "16-51"], ["ah", "Accident & Health", "16-52"]].map(([key, label, series]) => (
+                      <button key={key} onClick={() => { setExam(key); setMode("chat"); setSelectedDeck(null); }} style={{
+                        flex: 1, padding: isMobile ? "7px 8px" : "8px 12px", borderRadius: 9, cursor: "pointer",
+                        border: exam === key ? `1.5px solid ${C.green}` : `1px solid ${C.line}`,
+                        background: exam === key ? C.greenSoft : C.card,
+                        color: exam === key ? C.greenDark : C.inkSoft,
+                        fontSize: isMobile ? 12.5 : 13.5, fontWeight: exam === key ? 700 : 500,
+                        transition: "all 0.15s",
+                      }}>{label}<span style={{ opacity: 0.65, fontSize: "0.82em", fontWeight: 500 }}> · {series}</span></button>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Tabs */}
                 <div style={{ background: C.card, borderBottom: `1px solid ${C.line}`, flexShrink: 0 }}>
                   <div style={{ maxWidth: 620, margin: "0 auto", display: "flex" }}>
@@ -1064,10 +1144,16 @@ Employer-paid group LTD: employer deducts premium; excluded from employee income
                 {/* Content */}
                 <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflowX: "hidden", overflowY: mode === "chat" ? "hidden" : "auto" }}>
                   {mode === "chat"
-                    ? <ChatMode apiKey={apiKey} />
-                    : selectedDeck
-                      ? <FlashcardGame deck={selectedDeck} onExit={() => setSelectedDeck(null)} />
-                      : <DeckPicker decks={DECKS} onSelect={d => setSelectedDeck(d)} />
+                    ? <ChatMode apiKey={apiKey} systemPrompt={exam === "life" ? SYSTEM_PROMPT_LIFE : SYSTEM_PROMPT_AH} />
+                    : exam === "life"
+                      ? <div style={{ padding: "40px 24px", textAlign: "center", color: C.inkSoft, maxWidth: 480, margin: "0 auto" }}>
+                          <div style={{ fontSize: 34, marginBottom: 12 }}>🗂️</div>
+                          <div style={{ fontFamily: "'Lora', Georgia, serif", fontSize: 18, fontWeight: 700, color: C.ink, marginBottom: 8 }}>Life flashcards coming soon</div>
+                          <div style={{ fontSize: 14, lineHeight: 1.6 }}>The Life tutor is fully loaded. Decks for Series 16-51 are in the works. For now, switch to <strong>Ask the Tutor</strong> for Life questions.</div>
+                        </div>
+                      : selectedDeck
+                        ? <FlashcardGame deck={selectedDeck} onExit={() => setSelectedDeck(null)} />
+                        : <DeckPicker decks={DECKS} onSelect={d => setSelectedDeck(d)} />
                   }
                 </div>
               </>
