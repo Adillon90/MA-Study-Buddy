@@ -1232,15 +1232,74 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
     }
 
     // ── Main App
+    // ── State registry (only states with content appear in the picker) ────
+    const STATES = {
+      MA: {
+        name: "Massachusetts",
+        exams: [
+          { key: "life", label: "Life", series: "16-51", prompt: SYSTEM_PROMPT_LIFE, starters: STARTERS_LIFE, decks: LIFE_DECKS },
+          { key: "ah", label: "Accident & Health", series: "16-52", prompt: SYSTEM_PROMPT_AH, starters: STARTERS_AH, decks: DECKS },
+        ],
+      },
+    };
+    const READY_STATES = Object.keys(STATES);
+
+    // ── State Picker (entry gate) ─────────────────────────────────────────
+    function StatePicker({ onPick }) {
+      return (
+        <div style={{ flex: 1, overflowY: "auto", padding: isMobile ? "32px 16px" : "48px 20px" }}>
+          <div style={{ maxWidth: 460, width: "100%", margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: 22 }}>
+              <div style={{ fontFamily: "'Lora', Georgia, serif", fontSize: isMobile ? 20 : 23, fontWeight: 700, color: C.ink }}>Pick your state</div>
+              <div style={{ fontSize: isMobile ? 13 : 14, color: C.inkSoft, marginTop: 7, lineHeight: 1.5 }}>Choose where you're getting licensed, and we'll load that state's exams.</div>
+            </div>
+            {READY_STATES.map((code) => (
+              <div key={code} className="deck-card" onClick={() => onPick(code)} style={{
+                background: C.card, border: `1px solid ${C.line}`, borderRadius: 12,
+                padding: isMobile ? "13px 15px" : "15px 18px", marginBottom: 10, cursor: "pointer",
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+                boxShadow: "0 1px 3px rgba(22,36,58,0.04)",
+              }}>
+                <div>
+                  <div style={{ fontWeight: 700, color: C.ink, fontSize: 16 }}>{STATES[code].name}</div>
+                  <div style={{ fontSize: 12.5, color: C.inkSoft, marginTop: 2 }}>{STATES[code].exams.map((e) => e.label).join(" · ")}</div>
+                </div>
+                <div style={{ fontSize: 22, color: C.line }}>›</div>
+              </div>
+            ))}
+            <div style={{ fontSize: 12.5, color: C.inkMuted, textAlign: "center", marginTop: 16 }}>More states coming soon.</div>
+          </div>
+        </div>
+      );
+    }
+
     function App() {
       const [apiKey, setApiKey] = useState(() => EMBEDDED_KEY || localStorage.getItem("ma_exam_api_key") || "");
+      const [stateCode, setStateCode] = useState(() => localStorage.getItem("ma_exam_state") || "");
+      const [examKey, setExamKey] = useState("");
       const [mode, setMode] = useState("chat");
       const [selectedDeck, setSelectedDeck] = useState(null);
-      const [exam, setExam] = useState("ah");
+
+      const stateCfg = STATES[stateCode];
+      const examCfg = stateCfg ? (stateCfg.exams.find((e) => e.key === examKey) || stateCfg.exams[0]) : null;
 
       function handleChangeKey() {
         localStorage.removeItem("ma_exam_api_key");
         setApiKey("");
+      }
+      function pickState(code) {
+        localStorage.setItem("ma_exam_state", code);
+        setStateCode(code);
+        setExamKey(STATES[code].exams[0].key);
+        setMode("chat");
+        setSelectedDeck(null);
+      }
+      function changeState() {
+        localStorage.removeItem("ma_exam_state");
+        setStateCode("");
+        setExamKey("");
+        setMode("chat");
+        setSelectedDeck(null);
       }
 
       return (
@@ -1250,40 +1309,52 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
             <div style={{ maxWidth: 620, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <div>
                 <div style={{ fontFamily: "'Lora', Georgia, serif", fontSize: isMobile ? 15 : 17, fontWeight: 700, letterSpacing: "-0.01em" }}>
-                  Study Buddy <span style={{ color: C.gold }}>·</span> Massachusetts {exam === "life" ? "Life" : "A&H"}
+                  Study Buddy{stateCfg ? <span> <span style={{ color: C.gold }}>·</span> {stateCfg.name}</span> : ""}
                 </div>
                 <div style={{ fontSize: 11, color: "rgba(244,242,234,0.4)", marginTop: 2, letterSpacing: "0.05em", textTransform: "uppercase" }}>
-                  Prometric Series {exam === "life" ? "16-51" : "16-52"}
+                  {examCfg ? "Exam Series " + examCfg.series : "Insurance Licensing Prep"}
                 </div>
               </div>
-              {apiKey && !EMBEDDED_KEY && (
-                <button onClick={handleChangeKey} style={{
-                  background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)",
-                  color: "rgba(244,242,234,0.65)", fontSize: 12, padding: "5px 11px", borderRadius: 8, cursor: "pointer",
-                }}>Change key</button>
-              )}
+              <div style={{ display: "flex", gap: 7, flexShrink: 0 }}>
+                {stateCode && (
+                  <button onClick={changeState} style={{
+                    background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)",
+                    color: "rgba(244,242,234,0.65)", fontSize: 12, padding: "5px 11px", borderRadius: 8, cursor: "pointer", whiteSpace: "nowrap",
+                  }}>Change state</button>
+                )}
+                {apiKey && !EMBEDDED_KEY && (
+                  <button onClick={handleChangeKey} style={{
+                    background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)",
+                    color: "rgba(244,242,234,0.65)", fontSize: 12, padding: "5px 11px", borderRadius: 8, cursor: "pointer", whiteSpace: "nowrap",
+                  }}>Change key</button>
+                )}
+              </div>
             </div>
           </div>
 
           {!apiKey
             ? <ApiKeyGate onKey={k => { localStorage.setItem("ma_exam_api_key", k); setApiKey(k); }} />
-            : (
+            : !stateCfg
+              ? <StatePicker onPick={pickState} />
+              : (
               <>
-                {/* Exam / line selector */}
+                {/* Exam / line selector (only when the state offers more than one exam) */}
+                {stateCfg.exams.length > 1 && (
                 <div style={{ background: C.paper, borderBottom: `1px solid ${C.line}`, flexShrink: 0 }}>
                   <div style={{ maxWidth: 620, margin: "0 auto", padding: isMobile ? "7px 12px" : "9px 20px", display: "flex", gap: 7 }}>
-                    {[["life", "Life", "16-51"], ["ah", "Accident & Health", "16-52"]].map(([key, label, series]) => (
-                      <button key={key} onClick={() => { setExam(key); setMode("chat"); setSelectedDeck(null); }} style={{
+                    {stateCfg.exams.map((e) => (
+                      <button key={e.key} onClick={() => { setExamKey(e.key); setMode("chat"); setSelectedDeck(null); }} style={{
                         flex: 1, padding: isMobile ? "7px 8px" : "8px 12px", borderRadius: 9, cursor: "pointer",
-                        border: exam === key ? `1.5px solid ${C.green}` : `1px solid ${C.line}`,
-                        background: exam === key ? C.greenSoft : C.card,
-                        color: exam === key ? C.greenDark : C.inkSoft,
-                        fontSize: isMobile ? 12.5 : 13.5, fontWeight: exam === key ? 700 : 500,
+                        border: examCfg.key === e.key ? `1.5px solid ${C.green}` : `1px solid ${C.line}`,
+                        background: examCfg.key === e.key ? C.greenSoft : C.card,
+                        color: examCfg.key === e.key ? C.greenDark : C.inkSoft,
+                        fontSize: isMobile ? 12.5 : 13.5, fontWeight: examCfg.key === e.key ? 700 : 500,
                         transition: "all 0.15s",
-                      }}>{label}<span style={{ opacity: 0.65, fontSize: "0.82em", fontWeight: 500 }}> · {series}</span></button>
+                      }}>{e.label}<span style={{ opacity: 0.65, fontSize: "0.82em", fontWeight: 500 }}> · {e.series}</span></button>
                     ))}
                   </div>
                 </div>
+                )}
 
                 {/* Tabs */}
                 <div style={{ background: C.card, borderBottom: `1px solid ${C.line}`, flexShrink: 0 }}>
@@ -1303,10 +1374,10 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                 {/* Content */}
                 <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflowX: "hidden", overflowY: mode === "chat" ? "hidden" : "auto" }}>
                   {mode === "chat"
-                    ? <ChatMode apiKey={apiKey} systemPrompt={exam === "life" ? SYSTEM_PROMPT_LIFE : SYSTEM_PROMPT_AH} starters={exam === "life" ? STARTERS_LIFE : STARTERS_AH} exam={exam} />
+                    ? <ChatMode apiKey={apiKey} systemPrompt={examCfg.prompt} starters={examCfg.starters} exam={examCfg.key} />
                     : selectedDeck
                       ? <FlashcardGame deck={selectedDeck} onExit={() => setSelectedDeck(null)} />
-                      : <DeckPicker decks={exam === "life" ? LIFE_DECKS : DECKS} onSelect={d => setSelectedDeck(d)} />
+                      : <DeckPicker decks={examCfg.decks} onSelect={d => setSelectedDeck(d)} />
                   }
                 </div>
               </>
