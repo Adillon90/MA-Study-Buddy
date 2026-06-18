@@ -12,23 +12,23 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body, #root { height: 100%; }
     @supports (height: 100dvh) { html, body, #root { height: 100dvh; } }
-    body { background: #F6F4EE; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { background: #F2E8E1; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     input, button, textarea { font-family: inherit; }
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #D0CCC5; border-radius: 4px; }
-    ::selection { background: #C2D9CB; color: #16243A; }
+    ::-webkit-scrollbar-thumb { background: #D8CBBC; border-radius: 4px; }
+    ::selection { background: #E4D7C8; color: #34251B; }
     @keyframes pulse-dot {
       0%, 80%, 100% { opacity: 0.25; transform: scale(0.8); }
       40% { opacity: 1; transform: scale(1); }
     }
-    .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #8A9AB5; margin: 0 2.5px; animation: pulse-dot 1.3s ease-in-out infinite; }
+    .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #A99B8B; margin: 0 2.5px; animation: pulse-dot 1.3s ease-in-out infinite; }
     .dot:nth-child(2) { animation-delay: 0.2s; }
     .dot:nth-child(3) { animation-delay: 0.4s; }
-    .starter-btn:hover { border-color: #A8D0B6 !important; background: #F0F9F4 !important; }
+    .starter-btn:hover { border-color: #C9B79E !important; background: #F6EFE4 !important; }
     .deck-card { transition: box-shadow 0.15s, transform 0.15s; }
-    .deck-card:hover { box-shadow: 0 4px 18px rgba(22,36,58,0.11) !important; transform: translateY(-1px); }
-    .send-btn:not(:disabled):hover { background: #175E42 !important; }
+    .deck-card:hover { box-shadow: 0 4px 18px rgba(52,37,27,0.11) !important; transform: translateY(-1px); }
+    .send-btn:not(:disabled):hover { background: #553A28 !important; }
   </style>
 </head>
 <body>
@@ -41,10 +41,10 @@
 
     // ── Design tokens 
     const C = {
-      ink: "#16243A", inkSoft: "#3D4D66", inkMuted: "#8A9AB5", paper: "#F6F4EE",
-      card: "#FFFFFF", green: "#1F6F50", greenSoft: "#E7F1EC", greenDark: "#155E40",
-      gold: "#C9A227", goldSoft: "#FDF8EC",
-      red: "#9C3328", redSoft: "#FDF2F1", line: "#E2DFD6",
+      ink: "#34251B", inkSoft: "#6E5C4C", inkMuted: "#A99B8B", paper: "#F2E8E1",
+      card: "#FFFFFF", green: "#6F4E37", greenSoft: "#ECE3D8", greenDark: "#553A28",
+      gold: "#B89B71", goldSoft: "#F6EFE4",
+      red: "#9C3328", redSoft: "#FBF1EE", line: "#E4D9CD",
     };
     const isMobile = window.innerWidth < 600;
 
@@ -853,7 +853,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
               background: C.card, border: `1px solid ${C.line}`, borderRadius: 12,
               padding: isMobile ? "11px 13px" : "15px 18px", marginBottom: 8, cursor: "pointer",
               display: "flex", justifyContent: "space-between", alignItems: "center",
-              boxShadow: "0 1px 3px rgba(22,36,58,0.04)",
+              boxShadow: "0 1px 3px rgba(52,37,27,0.04)",
             }}>
               <div>
                 <div style={{ fontWeight: 700, color: C.ink, fontSize: 15 }}>{deck.title}</div>
@@ -952,7 +952,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                 background: C.card, border: `1px solid ${C.line}`, borderRadius: 16,
                 display: "flex", flexDirection: "column", alignItems: "center",
                 justifyContent: "center", padding: "28px 24px 20px",
-                boxShadow: "0 2px 10px rgba(22,36,58,0.07)", textAlign: "center",
+                boxShadow: "0 2px 10px rgba(52,37,27,0.07)", textAlign: "center",
               }}>
                 <div style={{ fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.1em", color: "#9C9890", marginBottom: 18 }}>Term</div>
                 <div style={{ fontFamily: "Georgia, serif", fontSize: 21, fontWeight: 700, color: C.ink, lineHeight: 1.35 }}>{current.term}</div>
@@ -966,7 +966,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                 transform: "rotateY(180deg)",
                 background: C.ink, borderRadius: 16,
                 display: "flex", flexDirection: "column", padding: "22px",
-                boxShadow: "0 2px 10px rgba(22,36,58,0.12)", overflowY: "auto",
+                boxShadow: "0 2px 10px rgba(52,37,27,0.12)", overflowY: "auto",
               }}>
                 <div style={{ fontSize: 10.5, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(244,242,234,0.45)", marginBottom: 12 }}>Definition</div>
                 <div style={{ fontSize: 14.5, color: "#F4F2EA", lineHeight: 1.6, flex: 1 }}>{current.def}</div>
@@ -1008,7 +1008,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
         <div style={{ maxWidth: 460, margin: "60px auto 0", padding: "0 20px" }}>
           <div style={{
             background: C.card, border: `1px solid ${C.line}`, borderRadius: 16,
-            padding: "28px 24px", boxShadow: "0 2px 12px rgba(22,36,58,0.08)",
+            padding: "28px 24px", boxShadow: "0 2px 12px rgba(52,37,27,0.08)",
           }}>
             <div style={{ fontFamily: "Georgia, serif", fontSize: 20, fontWeight: 700, color: C.ink, marginBottom: 10 }}>
               Connect the AI Tutor
@@ -1123,7 +1123,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                 <div style={{
                   background: C.card, border: `1px solid ${C.line}`, borderRadius: 16,
                   padding: isMobile ? "14px 14px 14px" : "26px 26px 22px", marginBottom: isMobile ? 12 : 20,
-                  boxShadow: "0 2px 12px rgba(22,36,58,0.06)", borderTop: `3px solid ${C.green}`,
+                  boxShadow: "0 2px 12px rgba(52,37,27,0.06)", borderTop: `3px solid ${C.green}`,
                 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
                     <div style={{ width: 38, height: 38, borderRadius: 10, background: C.greenSoft, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, flexShrink: 0 }}>📖</div>
@@ -1149,7 +1149,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                       border: `1px solid ${C.line}`, background: C.card,
                       borderRadius: 12, fontSize: isMobile ? 13 : 14, color: C.ink, cursor: "pointer",
                       textAlign: "left", lineHeight: 1.45,
-                      boxShadow: "0 1px 4px rgba(22,36,58,0.05)", transition: "border-color 0.15s, background 0.15s",
+                      boxShadow: "0 1px 4px rgba(52,37,27,0.05)", transition: "border-color 0.15s, background 0.15s",
                     }}>{s}</button>
                   ))}
                 </div>
@@ -1174,7 +1174,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                     color: m.role === "user" ? "#F4F2EA" : C.ink,
                     fontSize: isMobile ? 14 : 16, lineHeight: 1.6,
                     border: m.role === "assistant" ? `1px solid ${C.line}` : "none",
-                    boxShadow: "0 1px 6px rgba(22,36,58,0.07)",
+                    boxShadow: "0 1px 6px rgba(52,37,27,0.07)",
                     wordBreak: "break-word", overflowWrap: "anywhere",
                   }}>
                     {m.role === "assistant" ? <Rich text={m.content} /> : m.content}
@@ -1188,7 +1188,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                   <div style={{
                     display: "inline-flex", alignItems: "center", padding: "14px 18px", background: C.card,
                     border: `1px solid ${C.line}`, borderRadius: "20px 20px 20px 6px",
-                    boxShadow: "0 1px 6px rgba(22,36,58,0.07)", minWidth: 68,
+                    boxShadow: "0 1px 6px rgba(52,37,27,0.07)", minWidth: 68,
                   }}><span className="dot" /><span className="dot" /><span className="dot" /></div>
                 </div>
               )}
@@ -1258,7 +1258,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                 background: C.card, border: `1px solid ${C.line}`, borderRadius: 12,
                 padding: isMobile ? "13px 15px" : "15px 18px", marginBottom: 10, cursor: "pointer",
                 display: "flex", justifyContent: "space-between", alignItems: "center",
-                boxShadow: "0 1px 3px rgba(22,36,58,0.04)",
+                boxShadow: "0 1px 3px rgba(52,37,27,0.04)",
               }}>
                 <div>
                   <div style={{ fontWeight: 700, color: C.ink, fontSize: 16 }}>{STATES[code].name}</div>
