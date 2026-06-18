@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Study Buddy · Massachusetts A&H</title>
+  <title>Study Buddy · Massachusetts Life & A&H</title>
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -846,7 +846,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
       return (
         <div style={{ padding: isMobile ? "10px 12px 20px" : "20px 16px 40px", maxWidth: 580, width: "100%", margin: "0 auto" }}>
           <div style={{ fontSize: isMobile ? 12 : 13, color: C.inkSoft, marginBottom: isMobile ? 10 : 18 }}>
-            {decks.length} decks · {totalCards} cards · all content from MA Series 16-52 state module files
+            {decks.length} decks · {totalCards} cards · all content from verified Massachusetts state exam modules
           </div>
           {decks.map((deck) => (
             <div key={deck.id} className="deck-card" onClick={() => onSelect(deck)} style={{
@@ -1067,7 +1067,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
       "What is the difference between cross-purchase and entity buy-sell plans?",
     ];
 
-    function ChatMode({ apiKey, systemPrompt, starters }) {
+    function ChatMode({ apiKey, systemPrompt, starters, exam }) {
       const [messages, setMessages] = useState([]);
       const [input, setInput] = useState("");
       const [loading, setLoading] = useState(false);
@@ -1132,7 +1132,9 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                     </div>
                   </div>
                   <div style={{ fontSize: isMobile ? 13 : 16, color: C.inkSoft, lineHeight: 1.6 }}>
-                    I know all 10 modules of the Massachusetts A&H exam inside and out. Ask me anything, from quick definitions to tricky concepts. I'll keep it short and clear.
+                    {exam === "life"
+                      ? "I know the Massachusetts Life producer exam (Series 16-51) inside and out, from policy types and riders to annuities and taxation. Ask me anything, from quick definitions to tricky concepts. I'll keep it short and clear."
+                      : "I know all 10 modules of the Massachusetts Accident & Health exam (Series 16-52) inside and out. Ask me anything, from quick definitions to tricky concepts. I'll keep it short and clear."}
                   </div>
                 </div>
 
@@ -1205,7 +1207,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } }}
-                placeholder="Ask about the MA A&H exam..."
+                placeholder={exam === "life" ? "Ask about the MA Life exam..." : "Ask about the MA A&H exam..."}
                 disabled={loading}
                 style={{
                   flex: 1, border: "none", background: "transparent",
@@ -1301,7 +1303,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                 {/* Content */}
                 <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflowX: "hidden", overflowY: mode === "chat" ? "hidden" : "auto" }}>
                   {mode === "chat"
-                    ? <ChatMode apiKey={apiKey} systemPrompt={exam === "life" ? SYSTEM_PROMPT_LIFE : SYSTEM_PROMPT_AH} starters={exam === "life" ? STARTERS_LIFE : STARTERS_AH} />
+                    ? <ChatMode apiKey={apiKey} systemPrompt={exam === "life" ? SYSTEM_PROMPT_LIFE : SYSTEM_PROMPT_AH} starters={exam === "life" ? STARTERS_LIFE : STARTERS_AH} exam={exam} />
                     : selectedDeck
                       ? <FlashcardGame deck={selectedDeck} onExit={() => setSelectedDeck(null)} />
                       : <DeckPicker decks={exam === "life" ? LIFE_DECKS : DECKS} onSelect={d => setSelectedDeck(d)} />
