@@ -1045,7 +1045,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
     }
 
     // ── Chat Mode 
-    const STARTERS = [
+    const STARTERS_AH = [
       "How does the 2-year incontestability rule work?",
       "What is the free look period in Massachusetts?",
       "What happens if the insurer never sends claim forms?",
@@ -1056,7 +1056,18 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
       "What is the difference between own-occupation and any-occupation disability?",
     ];
 
-    function ChatMode({ apiKey, systemPrompt }) {
+    const STARTERS_LIFE = [
+      "What is the free look period for a life policy in Massachusetts?",
+      "What is the difference between term and whole life?",
+      "Explain the three nonforfeiture options.",
+      "How does the incontestability clause work?",
+      "What is a modified endowment contract (MEC)?",
+      "How is a variable annuity different from a fixed annuity?",
+      "What does the waiver of premium rider do?",
+      "What is the difference between cross-purchase and entity buy-sell plans?",
+    ];
+
+    function ChatMode({ apiKey, systemPrompt, starters }) {
       const [messages, setMessages] = useState([]);
       const [input, setInput] = useState("");
       const [loading, setLoading] = useState(false);
@@ -1130,7 +1141,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                   Try asking
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 8 }}>
-                  {STARTERS.map((s, i) => (
+                  {starters.map((s, i) => (
                     <button key={i} className="starter-btn" onClick={() => send(s)} style={{
                       padding: isMobile ? "10px 12px" : "13px 15px",
                       border: `1px solid ${C.line}`, background: C.card,
@@ -1290,7 +1301,7 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                 {/* Content */}
                 <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflowX: "hidden", overflowY: mode === "chat" ? "hidden" : "auto" }}>
                   {mode === "chat"
-                    ? <ChatMode apiKey={apiKey} systemPrompt={exam === "life" ? SYSTEM_PROMPT_LIFE : SYSTEM_PROMPT_AH} />
+                    ? <ChatMode apiKey={apiKey} systemPrompt={exam === "life" ? SYSTEM_PROMPT_LIFE : SYSTEM_PROMPT_AH} starters={exam === "life" ? STARTERS_LIFE : STARTERS_AH} />
                     : selectedDeck
                       ? <FlashcardGame deck={selectedDeck} onExit={() => setSelectedDeck(null)} />
                       : <DeckPicker decks={exam === "life" ? LIFE_DECKS : DECKS} onSelect={d => setSelectedDeck(d)} />
