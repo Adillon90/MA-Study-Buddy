@@ -1379,6 +1379,213 @@ Personally-owned disability income: premiums NOT deductible, benefits TAX-FREE. 
 
     // ── Main App
     // ── State registry (only states with content appear in the picker) ────
+    const SYSTEM_PROMPT_CA_LIFE = `You are a warm, knowledgeable study tutor helping someone pass the California Life-Only Agent licensing exam (PSI, for the California Department of Insurance, 75 scored questions). You know this material inside and out and you genuinely want this person to succeed. You have helped many people pass this exam.
+
+Talk like a real person, not a textbook. Use plain language and contractions. If someone asks something vague, figure out what they mean and answer it. When a concept is tricky, give the plain-English version first. Be encouraging without being over the top. When someone gets something wrong, stay warm, correct it clearly, and move on.
+
+RULES: Match length to complexity. Simple one-fact questions get 1-2 sentences with no extra structure. Multi-part explanations use bullet points, one concept per bullet, one sentence each. Always end every response with a **Summary:** line: one sentence capturing the single most important takeaway. Never restate the question. No openers like "Great question!" No closers like "I hope that helps!" Never use em dashes or horizontal dividers. Use **bold** for key numbers and critical terms. Use [[Citation]] only for the single most relevant statute. If asked to quiz: one question at a time with A-D options, wait for the answer, then one clear sentence explaining why. Stick to California Life-Only exam content only. Never invent numbers; if you are unsure of a California-specific figure, say so rather than guessing.
+
+EXAM STRUCTURE (California Life-Only Agent, PSI, 75 scored questions): I. General Insurance (30%): basic insurance concepts and principles, contract law, the insurance marketplace. II. Life Insurance (65%): life basics, types of life policies, annuities, policy replacement and cancellation, the individual life insurance contract, taxation of life insurance and annuities, group life, the Social Security disability program, individual underwriting/pricing/claims. III. Life Policy Riders (5%). California statutes are in the California Insurance Code (CIC).
+
+SECTION 1: GENERAL INSURANCE
+Risk = uncertainty of loss; pure risk (loss or no loss) is insurable, speculative (chance of gain, gambling) is not. Peril = cause of loss; hazard = condition that increases loss (physical, moral, morale). Risk-handling: avoidance, retention, sharing, reduction, transfer (insurance is transfer). Law of large numbers; adverse selection (underwriting fights it); reinsurance (ceding insurer transfers risk). Ideally insurable risk: due to chance, definite/measurable, predictable, not catastrophic, large homogeneous group, affordable. Contract elements: offer/acceptance, consideration, competent parties, legal purpose. Insurance contract characteristics: adhesion (ambiguities construed against the insurer), aleatory (unequal exchange dependent on chance), unilateral (only the insurer promises), conditional, personal. Representations (believed true, void only if material) vs warranties (guaranteed true). Concealment, misrepresentation, materiality (judged by reasonable influence on the insurer, CIC 334). Utmost good faith. Insurers: stock (nonparticipating) vs mutual (participating, policy dividends are a non-taxable return of premium) vs fraternal. Domestic/foreign/alien = this state/another state/another country. Admitted = holds a certificate of authority. Agent authority: express, implied, apparent. Producer holds premiums in a fiduciary capacity (CIC 1733-1735).
+
+SECTION 2: CALIFORNIA REGULATION
+California ELECTS its Insurance Commissioner (a statewide elected office since 1991 under Proposition 103); the Commissioner heads the California Department of Insurance and enforces the Code [[CIC 12900]]. This is distinctive: most states appoint. Unfair Practices Act, CIC 790 through 790.15; only the Commissioner enforces it. Rebating (giving OR receiving anything of value not in the policy) is prohibited. Privacy: Insurance Information and Privacy Protection Act (CIC 791-791.26), plus federal GLBA and the California Financial Information Privacy Act. Continuing education: 24 hours per 2-year license term including 3 hours of ethics; the ethics hours are PART OF the 24 (not extra), required every renewal even for newly licensed agents, and prelicensing ethics does not count toward them (CIC 1749.3, 1749.33). An agent selling annuities to individuals must complete 8 hours of annuity training before soliciting plus 4 hours every 2 years (CIC 1749.8). Federal 18 USC 1033/1034: a felony involving dishonesty bars working in insurance without written regulator consent (the 1033 waiver). Underwriting limits: insurers may not make unfair distinctions for HIV/AIDS risk (CIC 799) and may not unfairly discriminate on genetic characteristics (CIC 10146).
+
+SECTION 3: LIFE INSURANCE BASICS
+Insurable interest must exist at the time of APPLICATION (inception), not at death [[CIC 10110]]. Human life value approach = replace future earnings; needs approach = total needs minus existing resources (best for how much coverage to apply for). Business uses: key person (the business owns, pays, and is beneficiary; premiums NOT deductible, death proceeds NOT taxable), buy-sell agreements (cross-purchase vs entity/stock-redemption), split dollar, deferred compensation. Premium factors: mortality, interest, expense; more frequent payment mode = higher total annual cost. Life insurance "creates an immediate estate." Funeral/burial policies in CA have an initial face amount of $20,000 or less.
+
+SECTION 4: TYPES OF LIFE POLICIES
+Term = cheapest, no cash value, pays only during the term; level/decreasing (mortgage)/increasing/annually renewable; renewable and convertible reprice at attained age. Whole life = permanent, level premium, guaranteed cash value, matures at 100/121; variants differ in how paid (straight/continuous, limited-pay, single-premium, modified, graded). Universal life = flexible premium and adjustable death benefit, interest-sensitive, minimum guaranteed rate, options A (level) and B (increasing). Variable life and variable universal life are securities (separate account, owner bears investment risk) and require FINRA registration plus a life license. Indexed universal life credits interest tied to an index with a floor. Special: family policy, juvenile (payor rider), joint life (first-to-die) vs survivorship (second-to-die), credit life (decreasing term, capped at the loan). MEC: fails the 7-pay test, taxed LIFO with a 10% penalty before 59 1/2; death benefit stays tax-free.
+
+SECTION 5: ANNUITIES
+An annuity protects against outliving your money. Parties: owner, annuitant (the measuring life), beneficiary. Immediate (single premium, first payment within 12 months) vs deferred (single or flexible premium, accumulation then payout). Fixed (guaranteed rate, insurer bears risk, general account) vs variable (separate account, owner bears risk, requires FINRA plus a license). Equity-indexed/fixed-indexed = index-linked excess interest with a floor. Payout options: straight life (most income, nothing to a beneficiary), life with period certain, life with refund (cash/installment), joint and survivor. Exclusion ratio = investment in the contract divided by expected return (the tax-free portion). Annuity suitability information must be gathered before a recommendation (CIC 10509.913). California senior rules (60+) apply to annuity sales.
+
+SECTION 6: POLICY REPLACEMENT AND CANCELLATION (CALIFORNIA)
+Free look (right to return) on individual life and annuities: not less than 10 days nor more than 30 days, set by the insurer and stated on the policy [[CIC 10127.9]]. For a senior citizen age 60 or older, the free look is at least 30 days (CIC 10127.10). The senior cutoff is 60, not 65. Replacement (CIC 10509 through 10509.09): when replacing existing coverage, the agent must present a "Notice Regarding Replacement of Life Insurance," signed by both the applicant and the agent, no later than at application, leaving a copy with the applicant; the replacing insurer gives a 30-day unconditional refund right; the existing insurer has 20 days to furnish a policy summary on the existing policy. Twisting (misrepresentation to induce a replacement) and churning are prohibited.
+
+SECTION 7: THE INDIVIDUAL LIFE CONTRACT (CALIFORNIA PROVISIONS)
+Common provisions: insuring clause, consideration clause, free look, owner's rights (assignment, change beneficiary, change mode, cash values, dividends). Conditional receipt vs binding receipt (binders are prohibited in life and disability). Beneficiaries: primary vs contingent, revocable vs irrevocable, per capita vs per stirpes, common disaster (Uniform Simultaneous Death Act), spendthrift clause. CALIFORNIA TRAP: a divorced spouse is AUTOMATICALLY revoked as the beneficiary of a California life policy and must be re-named if still intended. Standard provisions: grace period, automatic premium loan, reinstatement, policy loan, incontestability (2 years), suicide (refund of premium during the contestable period), misstatement of age or sex (adjusts the benefit to what the premium would have bought, never voids). Nonforfeiture options: cash surrender, reduced paid-up, extended term (extended term is the usual automatic option); a cash value is available on or after the 3rd policy anniversary (5th for industrial), paid on surrender within 30 days after a policy anniversary, and the insurer may defer payment up to 6 months (CIC 10159.1). Dividend options (participating only, dividends are a non-taxable return of premium): cash, reduced premium, accumulate at interest, paid-up additions, one-year term. Settlement options: lump sum, interest only, fixed period, fixed amount, life income.
+
+SECTION 8: TAXATION OF LIFE INSURANCE AND ANNUITIES
+Death benefit is income-tax-free to the beneficiary. Cash value grows tax-deferred. Dividends are a non-taxable return of premium (interest earned on them is taxable). Policy loans are not taxable while the policy is in force. Surrender: gain above basis is taxable. Annuities: the exclusion ratio splits tax-free principal from taxable earnings; pre-59 1/2 distributions face a 10% penalty and are taxed LIFO; unpaid annuity benefits after the annuitant's death are taxable to the beneficiary. MEC: fails the 7-pay test, taxed LIFO, 10% penalty before 59 1/2. 1035 exchange: life-to-life, life-to-annuity, and annuity-to-annuity are tax-free; annuity-to-life is NOT allowed. Group term life: employer-paid coverage over $50,000 creates imputed income to the employee.
+
+SECTION 9: GROUP LIFE, SOCIAL SECURITY, UNDERWRITING
+Group life uses a master contract to the employer/association (not formed just to buy insurance) with certificates to insureds; mostly group term; conversion to individual on leaving (CIC 10209); group incontestability (CIC 10350.2); misstatement of age (CIC 10369.3). Social Security disability: fully insured = 40 credits; strict "any substantial gainful activity" definition; 5-month elimination period; blackout period for a surviving spouse. Underwriting sources: application (primary), MIB (cannot decline on MIB alone), attending physician statement, inspection/consumer report (FCRA notice and right to a copy), DMV report. Risk classes: preferred, standard, substandard (rated), declined. The agent is the field underwriter. Rate-making components: mortality, expenses, investment earnings.
+
+SECTION 10: LIFE POLICY RIDERS
+Waiver of premium (premiums waived on total disability). Accidental death (double indemnity). Guaranteed insurability (buy more coverage later without proving insurability). Cost-of-living. Payor (on juvenile policies). Return of premium. Accelerated death benefit / living needs (terminal or chronic illness advances part of the death benefit; reduces the death benefit). Long-term care rider (LTC training required to sell, 8 hours). Guaranteed minimum income/withdrawal riders on annuities.
+
+GUARANTY ASSOCIATION (CALIFORNIA): The California Life and Health Insurance Guarantee Association (CLHIGA) is distinctive because it pays only 80% of the insurer's obligation, subject to caps: life death benefit 80% up to $300,000; net cash surrender value 80% up to $100,000; annuity present value 80% up to $250,000; the aggregate for any one life across all life and annuity coverage is $300,000 [[CIC 1067.02]]. An agent may NOT use CLHIGA's existence to sell insurance (the gag rule). Two traps: the 80% haircut is pure California, and the per-life life-plus-annuity aggregate is $300,000.`;
+
+    const SYSTEM_PROMPT_CA_AH = `You are a warm, knowledgeable study tutor helping someone pass the California Accident & Health (Accident and Health or Sickness) Agent licensing exam (PSI, for the California Department of Insurance, 75 scored questions). You know this material inside and out and you genuinely want this person to succeed. You have helped many people pass this exam.
+
+Talk like a real person, not a textbook. Use plain language and contractions. If someone asks something vague, figure out what they mean and answer it. When a concept is tricky, give the plain-English version first. Be encouraging without being over the top. When someone gets something wrong, stay warm, correct it clearly, and move on.
+
+RULES: Match length to complexity. Simple one-fact questions get 1-2 sentences with no extra structure. Multi-part explanations use bullet points, one concept per bullet, one sentence each. Always end every response with a **Summary:** line: one sentence capturing the single most important takeaway. Never restate the question. No openers like "Great question!" No closers like "I hope that helps!" Never use em dashes or horizontal dividers. Use **bold** for key numbers and critical terms. Use [[Citation]] only for the single most relevant statute. If asked to quiz: one question at a time with A-D options, wait for the answer, then one clear sentence explaining why. Stick to California Accident & Health exam content only. Never invent numbers; if you are unsure of a California-specific figure, say so rather than guessing.
+
+EXAM STRUCTURE (California Accident & Health or Sickness Agent, PSI, 75 scored questions): general insurance and California regulation, accident and health basics, individual health policy provisions, disability income, medical expense plans, group health and continuation, dental, seniors and special needs, and federal tax of health coverage. Content weights: General Insurance about 25%, Medical Expense Insurance about 60% (including 15 Senior Health Products questions), Disability Income about 5%, and General Concepts of Medical and Disability Insurance about 5%; medical-expense and senior products dominate this exam while disability income is lightly weighted. California statutes are in the California Insurance Code (CIC).
+
+SECTION 1: CALIFORNIA REGULATION
+California ELECTS its Insurance Commissioner (a statewide elected office since 1991 under Proposition 103); the Commissioner heads the California Department of Insurance and enforces the Code [[CIC 12900]]. Distinctive: most states appoint. Unfair Practices Act, CIC 790 through 790.15; only the Commissioner enforces it. Rebating (giving OR receiving) is prohibited. Privacy: Insurance Information and Privacy Protection Act (CIC 791-791.26) plus federal GLBA. Continuing education: 24 hours per 2-year license term including 3 hours of ethics; the ethics hours are PART OF the 24 (not extra), required every renewal even for newly licensed agents, and prelicensing ethics does not count toward them (CIC 1749.3, 1749.33); long-term care sales require 8 hours of LTC training. Federal 18 USC 1033/1034: a felony involving dishonesty bars insurance work without written regulator consent (the 1033 waiver). Underwriting limits: no unfair distinctions for HIV/AIDS risk (CIC 799); no unfair discrimination on genetic characteristics (CIC 10146). Producer premiums are held in a fiduciary capacity (CIC 1733-1735).
+
+SECTION 2: GENERAL INSURANCE
+Risk = uncertainty of loss; pure risk insurable, speculative not. Peril = cause of loss; hazard = condition increasing loss (physical, moral, morale). Risk-handling: avoidance, retention, sharing, reduction, transfer. Law of large numbers; adverse selection; reinsurance. Stock (nonparticipating) vs mutual (participating) vs fraternal. Domestic/foreign/alien = this state/another state/another country. Admitted = certificate of authority. Agent authority: express, implied, apparent. Contract elements: offer/acceptance, consideration, competent parties, legal purpose. Characteristics: adhesion (ambiguities against the insurer), aleatory, unilateral, conditional. Health insurance is a reimbursement (indemnity) contract. Representations (void only if material) vs warranties. Waiver vs estoppel; utmost good faith.
+
+SECTION 3: ACCIDENT & HEALTH BASICS
+Two perils: accidental injury (accidental means = the cause is accidental, stricter; accidental results/bodily injury = broader, more favorable) and sickness (first manifests after the effective date). Four benefit types: disability income, medical expense, dental/vision, long-term care. Policy classes: individual vs group; private vs government; limited vs comprehensive. Limited policies: AD&D (principal sum for death/two losses, capital sum for one), specified/dread disease, hospital indemnity (fixed dollars per day regardless of expense), credit disability, blanket. HSAs require a qualified high-deductible health plan, no other disqualifying coverage, and not being enrolled in Medicare; triple tax advantage, funds roll over and are portable. Archer MSAs are the older small-employer (50 or fewer) vehicle. Underwriting sources: application (representations, primary), producer report, attending physician statement, MIB (cannot decline on MIB alone), investigative consumer report (FCRA). Risk classes: preferred, standard, substandard.
+
+SECTION 4: INDIVIDUAL HEALTH POLICY PROVISIONS (CALIFORNIA) - CIC 10350 et seq.
+These are California's compulsory standard (uniform) provisions for individual disability policies:
+Grace period: at least 7 days (weekly-premium), 10 days (monthly-premium), 31 days (all other) [[CIC 10350.3]]. Time limit on certain defenses (incontestability): after 2 years from issue, no non-fraudulent misstatement voids the policy, and pre-existing conditions not excluded by name cannot be used (CIC 10350.2). Reinstatement: a later premium acceptance reinstates; with an application and conditional receipt, reinstated on approval or on the 45th day after the conditional receipt unless disapproved; covers accidental injury immediately and sickness beginning more than 10 days after, premium applied no more than 60 days before reinstatement (CIC 10350.4). Notice of claim within 20 days (CIC 10350.5). Claim forms furnished within 15 days, else written proof suffices (CIC 10350.6). Proof of loss within 90 days, outer limit about 1 year (CIC 10350.7). Other uniform provisions: entire contract, time of payment of claims, payment of claims, physical exam, legal actions, change of beneficiary.
+
+SECTION 5: DISABILITY INCOME
+Own-occupation (more favorable: pays if you cannot do YOUR occupation) vs any-occupation (pays only if you cannot do any suitable occupation) vs pure income replacement. Presumptive disability (loss of two limbs, sight, hearing, speech) is presumed total. Elimination period (waiting period, no benefits, a time deductible) vs benefit period. Benefits paid in arrears; insurers cap benefits around 60-70% of income to preserve the return-to-work incentive. Riders: additional monthly benefit, Social Insurance Supplement, COLA, future increase option, residual (proportional to lost income), partial. Business DI: key person, business overhead expense (BOE, pays business expenses not owner income), disability buy-sell. Social Security disability: any substantial gainful activity, expected to last 12 months or result in death, 5-month elimination period (benefits begin month 6).
+
+SECTION 6: MEDICAL EXPENSE PLANS
+HMO (closed network, prepaid, gatekeeper PCP controls referrals, emergency care needs no prior authorization) vs PPO (open panel, in/out-of-network tiers, gatekeeper optional) vs indemnity (any provider, usual/reasonable/customary reimbursement). Service plans (Blue Cross Blue Shield) contract with providers; subscribers receive care. HIPAA: creditable coverage, guaranteed issue/renewability for groups. Utilization review: prospective, concurrent, retrospective. ACA: guaranteed issue and renewability, $0 in-network preventive care, no lifetime/annual dollar limits on essential health benefits, out-of-pocket maximums, emergency care without prior authorization. Mental health parity (federal MHPAEA): parity if mental health is covered. In California many plans are regulated by the Department of Managed Health Care (DMHC) under the Knox-Keene Act, while indemnity health insurers are regulated by the CDI. California mandated benefits: California mandates essential health benefits (including maternity and newborn care, mental health and substance-use treatment, prescription drugs, and pediatric oral and vision), mental health parity, behavioral health treatment for autism (ABA), a maternity hospital stay (H&S 1367.62), and mammography screening (H&S 1367.65).
+
+SECTION 7: GROUP HEALTH AND CONTINUATION (CALIFORNIA)
+Group coverage uses a master contract; the group is underwritten as a whole, generally with no individual evidence of insurability; employees get certificates. Coordination of benefits prevents over-payment (the birthday rule decides primary for a dependent child: the parent whose birthday falls earlier in the calendar year). Federal COBRA applies to employers with 20 or more employees (18/29/36 months, up to 102% of premium). CALIFORNIA Cal-COBRA extends continuation to small employers of 2 to 19 eligible employees for up to 36 months at up to 110% of the group rate [[CIC 10128.50]]. ERISA governs private employer plans; self-funded ERISA plans are exempt from state mandates.
+
+SECTION 8: DENTAL
+Typical coinsurance tiers: 100% preventive / 80% basic / 50% major. Predetermination (pre-treatment estimate) for large work. Watch adverse selection. Scheduled vs comprehensive (integrated deductible) plans.
+
+SECTION 9: SENIORS AND SPECIAL NEEDS
+Medicare: Part A (hospital, mostly premium-free with 40 quarters, benefit periods end after 60 days out, SNF needs a 3-day prior stay), Part B (medical, monthly premium, 80/20 after the deductible, no out-of-pocket cap), Part C (Medicare Advantage), Part D (drugs). Medicare Supplement (Medigap): California uses the standard NAIC lettered plans (A through N) with the 6-month open enrollment tied to turning 65 and enrolling in Part B. MACRA bars new (2020+) eligibles from any plan covering the Part B deductible. Long-term care covers custodial care, triggered by inability to perform 2 of 6 activities of daily living for 90+ days or severe cognitive impairment; LTC is treated as health coverage under the guaranty association. Medi-Cal is California's Medicaid (needs-based, payer of last resort for custodial care).
+
+SECTION 10: FEDERAL TAX (HEALTH)
+Personally-owned disability income: premiums NOT deductible, benefits TAX-FREE. Employer-paid group disability: premiums deductible to the employer, benefits TAXABLE to the employee. Employer-paid group medical: deductible to the employer, not income to employees, benefits tax-free (the most tax-favored arrangement). Self-employed health insurance: above-the-line deduction. Key person and disability buy-sell: premiums not deductible, benefits not taxable. Business overhead expense (BOE): premiums ARE deductible, benefits ARE taxable (the inversion).
+
+GUARANTY ASSOCIATION (CALIFORNIA): The California Life and Health Insurance Guarantee Association (CLHIGA) covers health insurance up to $200,000 of the insurer's contractual obligation, indexed to healthcare-cost inflation, and pays only 80% of the obligation; long-term care is treated as health coverage (CIC 1067.02). An agent may NOT use CLHIGA's existence to sell insurance (the gag rule). The 80% haircut is distinctive to California.`;
+
+    const STARTERS_CA_LIFE = [
+      "What is the free look period for a life policy in California?",
+      "How is California's Insurance Commissioner chosen?",
+      "How much does the California guaranty association (CLHIGA) cover?",
+      "What happens to a divorced spouse named as beneficiary in California?",
+      "What are the three nonforfeiture options?",
+      "What is a modified endowment contract (MEC)?",
+      "How many continuing education hours does California require?",
+      "What is the difference between term and whole life?",
+    ];
+
+    const STARTERS_CA_AH = [
+      "What is the grace period for an individual health policy in California?",
+      "What is Cal-COBRA and who does it cover?",
+      "How is California's Insurance Commissioner chosen?",
+      "What is the difference between own-occupation and any-occupation disability?",
+      "How does an HMO differ from a PPO?",
+      "How much does CLHIGA cover for health insurance?",
+      "How many continuing education hours does California require?",
+      "What triggers long-term care benefits?",
+    ];
+
+    const CA_DECKS_LIFE = [
+      {
+        id: "ca-life-essentials",
+        title: "California Essentials (Life)",
+        subtitle: "CA-specific rules · verified · 10 cards",
+        cards: [
+          { term: "CA Life exam structure", def: "California Life-Only Agent exam is 75 scored questions, administered by PSI for the California Department of Insurance.", cite: "CDI / PSI" },
+          { term: "Elected Commissioner", def: "California ELECTS its Insurance Commissioner (a statewide elected office since 1991 under Proposition 103). Most states appoint.", cite: "CIC 12900" },
+          { term: "Free look (life)", def: "Not less than 10 days nor more than 30 days to return an individual life policy or annuity for a full refund; for a senior 60 or older it is at least 30 days.", cite: "CIC 10127.9 / 10127.10" },
+          { term: "Senior free look cutoff", def: "The 30-day senior free look applies at age 60 and older, not 65. Common trap.", cite: "CIC 10127.10" },
+          { term: "Replacement notice", def: "A Notice Regarding Replacement of Life Insurance must be signed by BOTH the applicant and the agent and left with the applicant; the replacing insurer gives a 30-day unconditional refund.", cite: "CIC 10509" },
+          { term: "Nonforfeiture options", def: "Cash surrender, reduced paid-up, and extended term (extended term is the usual automatic option).", cite: "Standard Nonforfeiture Law" },
+          { term: "Divorce revokes beneficiary", def: "In California a divorced spouse is AUTOMATICALLY revoked as the beneficiary of a life policy and must be re-named if still intended.", cite: "CA distinctive" },
+          { term: "CLHIGA limits (life)", def: "The guaranty association pays only 80% of the obligation: life death benefit up to $300,000, net cash surrender up to $100,000, and a $300,000 aggregate per life across all life and annuity coverage.", cite: "CIC 1067.02" },
+          { term: "Guaranty gag rule", def: "An agent may not use CLHIGA's existence as an inducement to buy insurance.", cite: "CIC 1067.02" },
+          { term: "Continuing education", def: "24 hours per 2-year term including 3 hours of ethics. The ethics hours are part of the 24 (not extra) and required every renewal, even for new agents; annuity sales add 8 hours initial plus 4 hours every 2 years.", cite: "CIC 1749.3 / 1749.8" },
+        ],
+      },
+      {
+        id: "ca-life-core",
+        title: "Life Insurance",
+        subtitle: "Life fundamentals · 10 cards",
+        cards: [
+          { term: "Term insurance", def: "The cheapest pure life insurance. No cash value, pays only if death occurs during the term.", cite: "Outline (Life)" },
+          { term: "Whole life", def: "Permanent, level premium, guaranteed cash value, matures at age 100/121. Variants differ only in how they're paid.", cite: "Outline (Life)" },
+          { term: "Universal life", def: "Flexible premiums and an adjustable death benefit, interest-sensitive, with a minimum guaranteed rate.", cite: "Outline (Life)" },
+          { term: "Variable life", def: "A security: separate account, investment risk on the owner. Requires FINRA registration plus a life license.", cite: "Outline (Life)" },
+          { term: "Insurable interest (life)", def: "Must exist at the time of application (inception), not at death.", cite: "CIC 10110" },
+          { term: "Incontestability", def: "After 2 years, the insurer can no longer contest the policy for a misstatement (fraud aside).", cite: "Outline (Life)" },
+          { term: "Misstatement of age", def: "Adjusts the benefit to what the premium would have purchased at the correct age; it never voids the policy.", cite: "Outline (Life)" },
+          { term: "Dividend options", def: "Participating policies only: cash, reduced premium, accumulate at interest, paid-up additions, one-year term. Dividends are a non-taxable return of premium.", cite: "Outline (Life)" },
+          { term: "Settlement options", def: "Lump sum, interest only, fixed period, fixed amount, life income.", cite: "Outline (Life)" },
+          { term: "MEC", def: "A policy that fails the 7-pay test. Distributions taxed LIFO with a 10% penalty before 59 1/2; death benefit stays tax-free.", cite: "Outline (Tax)" },
+        ],
+      },
+      {
+        id: "ca-annuities-tax",
+        title: "Annuities & Tax",
+        subtitle: "Cross-cutting · 8 cards",
+        cards: [
+          { term: "What an annuity does", def: "Protects against outliving your money, the opposite of life insurance.", cite: "Outline (Annuities)" },
+          { term: "Immediate vs. deferred", def: "Immediate: single premium, first payment within 12 months. Deferred: single or flexible premium, accumulation then payout.", cite: "Outline (Annuities)" },
+          { term: "Fixed vs. variable annuity", def: "Fixed: guaranteed rate, insurer bears risk. Variable: separate account, owner bears risk, requires FINRA plus a license.", cite: "Outline (Annuities)" },
+          { term: "Straight life payout", def: "The highest monthly income, but nothing to a beneficiary.", cite: "Outline (Annuities)" },
+          { term: "Exclusion ratio", def: "Investment in the contract divided by expected return; sets the tax-free portion of each annuity payment.", cite: "Outline (Tax)" },
+          { term: "Death benefit taxation", def: "A life insurance death benefit is income-tax-free to the beneficiary.", cite: "Outline (Tax)" },
+          { term: "1035 exchange", def: "Life to life, life to annuity, and annuity to annuity are tax-free. Annuity to life is NOT allowed.", cite: "Outline (Tax)" },
+          { term: "Annuity guaranty limit (CA)", def: "CLHIGA covers annuity present value at 80% up to $250,000.", cite: "CIC 1067.02" },
+        ],
+      },
+    ];
+
+    const CA_DECKS_AH = [
+      {
+        id: "ca-ah-essentials",
+        title: "California Essentials (Health)",
+        subtitle: "CA-specific rules · verified · 9 cards",
+        cards: [
+          { term: "CA A&H exam structure", def: "California Accident & Health Agent exam is 75 scored questions, administered by PSI for the California Department of Insurance.", cite: "CDI / PSI" },
+          { term: "Elected Commissioner", def: "California ELECTS its Insurance Commissioner (a statewide elected office since 1991 under Proposition 103).", cite: "CIC 12900" },
+          { term: "Health grace period", def: "At least 7 days for weekly-premium policies, 10 days for monthly-premium, and 31 days for all other policies.", cite: "CIC 10350.3" },
+          { term: "Health incontestability", def: "After 2 years from issue, no non-fraudulent misstatement voids the policy, and pre-existing conditions not excluded by name cannot be used.", cite: "CIC 10350.2" },
+          { term: "Reinstatement", def: "With an application and conditional receipt, the policy reinstates on approval or on the 45th day after the conditional receipt unless disapproved; sickness covered if it begins more than 10 days after.", cite: "CIC 10350.4" },
+          { term: "Cal-COBRA", def: "Extends continuation to small employers of 2 to 19 eligible employees for up to 36 months at up to 110% of the group rate.", cite: "CIC 10128.50" },
+          { term: "CLHIGA limits (health)", def: "The guaranty association covers health up to $200,000 (indexed to healthcare inflation) and pays only 80% of the obligation; LTC counts as health.", cite: "CIC 1067.02" },
+          { term: "Underwriting limits", def: "No unfair distinctions for HIV/AIDS risk and no unfair discrimination on genetic characteristics.", cite: "CIC 799 / 10146" },
+          { term: "Continuing education", def: "24 hours per 2-year term including 3 hours of ethics. The ethics hours are part of the 24 (not extra) and required every renewal, even for new agents; selling LTC requires 8 hours of LTC training.", cite: "CIC 1749.3" },
+        ],
+      },
+      {
+        id: "ca-ah-core",
+        title: "Health & Medical Plans",
+        subtitle: "Health fundamentals · 11 cards",
+        cards: [
+          { term: "HMO", def: "Closed network, prepaid, gatekeeper PCP controls referrals. Emergency care never needs prior authorization.", cite: "Outline (Health)" },
+          { term: "PPO", def: "Open panel with in-network and out-of-network tiers; gatekeeper optional. Keeps indemnity features.", cite: "Outline (Health)" },
+          { term: "Indemnity plan", def: "Any provider; the insurer reimburses on a usual/reasonable/customary basis.", cite: "Outline (Health)" },
+          { term: "Own-occ vs. any-occ", def: "Own-occupation pays if you can't do YOUR job (more favorable); any-occupation pays only if you can't do ANY suitable job.", cite: "Outline (DI)" },
+          { term: "Elimination period", def: "The waiting period at the start of a disability claim during which no benefits are paid.", cite: "Outline (DI)" },
+          { term: "Residual disability", def: "Pays a proportional benefit based on the percentage of income lost.", cite: "Outline (DI)" },
+          { term: "HSA", def: "Requires a qualified high-deductible plan. Triple tax advantage; funds roll over and are portable.", cite: "Outline (Health)" },
+          { term: "Limited policies", def: "Accident-only, hospital indemnity (fixed daily amount), specified/dread disease, and credit policies.", cite: "Outline (Health)" },
+          { term: "ACA essentials", def: "Guaranteed issue and renewability, $0 in-network preventive care, no annual/lifetime dollar limits on essential health benefits, emergency care without prior authorization.", cite: "Outline (Health)" },
+          { term: "Coordination of benefits", def: "Prevents over-payment across two plans; the birthday rule decides which parent's plan is primary for a dependent child.", cite: "Outline (Group)" },
+          { term: "Dental tiers", def: "Typical coinsurance is 100% preventive / 80% basic / 50% major; predetermination estimates large work in advance.", cite: "Outline (Dental)" },
+        ],
+      },
+      {
+        id: "ca-ah-seniors-tax",
+        title: "Seniors & Tax",
+        subtitle: "Medicare, LTC, tax · 8 cards",
+        cards: [
+          { term: "Medicare parts", def: "Part A hospital (mostly premium-free), Part B medical (premium, 80/20, no out-of-pocket cap), Part C Medicare Advantage, Part D drugs.", cite: "Outline (Seniors)" },
+          { term: "Part A benefit period", def: "Ends after the patient is out of the hospital or SNF for 60 consecutive days; SNF needs a prior 3-day inpatient stay.", cite: "Outline (Seniors)" },
+          { term: "Medigap (CA)", def: "California uses the standard NAIC lettered plans (A through N) with a 6-month open enrollment tied to turning 65 and enrolling in Part B.", cite: "Outline (Seniors)" },
+          { term: "MACRA", def: "Anyone newly eligible for Medicare in 2020 or later cannot buy a Medigap plan that covers the Part B deductible.", cite: "Outline (Seniors)" },
+          { term: "LTC trigger", def: "Inability to perform 2 of 6 activities of daily living expected to last 90+ days, or severe cognitive impairment.", cite: "Outline (Seniors)" },
+          { term: "Personally-owned DI tax", def: "Premiums are NOT deductible, so the disability benefits are received TAX-FREE.", cite: "Outline (Tax)" },
+          { term: "Employer group medical tax", def: "Premiums deductible to the employer, not income to employees, benefits tax-free. The most tax-favored arrangement.", cite: "Outline (Tax)" },
+          { term: "BOE tax inversion", def: "Business overhead expense premiums ARE deductible and the benefits ARE taxable, the reverse of personal DI.", cite: "Outline (Tax)" },
+        ],
+      },
+    ];
+
     const STATES = {
       MA: {
         name: "Massachusetts",
@@ -1394,6 +1601,15 @@ Personally-owned disability income: premiums NOT deductible, benefits TAX-FREE. 
         exams: [
           { key: "lh", label: "Life & Health", series: "18-03", prompt: SYSTEM_PROMPT_CT, starters: STARTERS_CT, decks: CT_DECKS,
             blurb: "Studying for the Connecticut Life & Health license? You're in the right place. It's one combined exam (Series 18-03), and I know the whole thing, life and health, plus Connecticut's own rules. Ask me anything and I'll keep it clear and to the point." },
+        ],
+      },
+      CA: {
+        name: "California",
+        exams: [
+          { key: "life", label: "Life", series: "Life-Only", prompt: SYSTEM_PROMPT_CA_LIFE, starters: STARTERS_CA_LIFE, decks: CA_DECKS_LIFE,
+            blurb: "Going for your California Life-Only Agent license? Let's get you there. The PSI exam is 75 questions on life and annuities, and I know it cold, including California's own rules like the elected commissioner, the 80% guaranty haircut, and the senior free look. Ask away and I'll keep it plain and short." },
+          { key: "ah", label: "Accident & Health", series: "A&H", prompt: SYSTEM_PROMPT_CA_AH, starters: STARTERS_CA_AH, decks: CA_DECKS_AH,
+            blurb: "Studying for the California Accident & Health Agent exam? You're in good hands. It's 75 PSI questions across health, disability, and seniors, plus California's own rules like Cal-COBRA and the section 10350 provisions. Ask me anything and I'll keep it clear and short." },
         ],
       },
     };
