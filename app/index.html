@@ -684,6 +684,152 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
 
     ]; // end DECKS
 
+    // ── Life flashcard decks (source: verified MA Series 16-51 modules) ────
+    const LIFE_DECKS = [
+      {
+        id: "life-sec3-basics",
+        title: "Life Insurance Basics",
+        subtitle: "Section 3 · 20% of exam · 14 cards",
+        cards: [
+          { term: "When insurable interest must exist (life)", def: "At the time of APPLICATION (policy inception), not at the time of death. This is the opposite of property insurance.", cite: "Outline 3.1" },
+          { term: "Human life value vs. needs approach", def: "Human life value estimates the dollar value of future earnings to replace. The needs approach totals family needs minus existing resources, and is best for deciding how much coverage to apply for.", cite: "Outline 3.4" },
+          { term: "Buy-sell: partnership cross-purchase vs. entity", def: "Cross-purchase: each partner owns a policy on each other partner (best for few partners). Entity: the partnership itself owns the policies (best for many partners).", cite: "Outline 3.5" },
+          { term: "Buy-sell: close corporation", def: "Cross-purchase (stockholders insure each other) vs. stock redemption (the corporation owns and redeems the deceased's shares).", cite: "Outline 3.5" },
+          { term: "Key person insurance", def: "The BUSINESS owns, pays for, and is beneficiary. Premiums are NOT deductible, so the death proceeds to the business are NOT taxable.", cite: "Outline 3.5" },
+          { term: "Executive plans", def: "Deferred compensation (employee-funded), salary continuation (employer-funded), split-dollar (employer and employee share the cost).", cite: "Outline 3.5" },
+          { term: "Three premium factors", def: "Mortality, interest, and expense (the loading). More frequent payment mode means a higher total annual cost.", cite: "Outline 3.7" },
+          { term: "Correcting an application error", def: "The producer may correct it only if the APPLICANT initials the change. A producer can never alter the application alone.", cite: "Outline 3.8" },
+          { term: "Buyer's Guide vs. Policy Summary", def: "Buyer's Guide gives general descriptions of policy types. Policy Summary gives the specifics of the policy purchased. Both are delivered with the policy.", cite: "Outline 3.8" },
+          { term: "Backdating ('saving age')", def: "An application may be backdated up to 6 months for a lower premium; the owner pays the back premiums.", cite: "M.G.L. c. 175 § 130; Outline 3.8" },
+          { term: "Conditional vs. binding receipt", def: "Conditional (common in life): coverage from the application or exam date, whichever is later, IF insurable. Binding: covered regardless of insurability until rejection (rare in life).", cite: "Outline 3.8" },
+          { term: "Medical Information Bureau (MIB)", def: "An information exchange. An insurer cannot decline solely on MIB data, the MIB is not notified of a decline, and data may be released to the insured's physician.", cite: "Outline 3.9" },
+          { term: "HIV testing consent", def: "A signed informed-consent form is required even for routine blood tests. Sexual orientation cannot be used in risk classification.", cite: "211 CMR 36.03; Outline 3.9" },
+          { term: "Risk classifications", def: "Preferred (lowest rates), standard (average), substandard (rated up for higher risk), declined (uninsurable).", cite: "Outline 3.9" },
+        ],
+      },
+      {
+        id: "life-sec4-policies",
+        title: "Life Insurance Policies",
+        subtitle: "Section 4 · 15% of exam · 14 cards",
+        cards: [
+          { term: "Term insurance", def: "The cheapest pure life insurance. No cash value, pays only if death occurs during the term. Think of it as renting.", cite: "Outline 4.1" },
+          { term: "Decreasing term", def: "Level premium, face amount falls on a schedule. Used for mortgage or other declining debt protection.", cite: "Outline 4.1" },
+          { term: "Renewable and convertible", def: "Renewable continues coverage without proving insurability. Convertible changes term to permanent without evidence of insurability. BOTH reprice at attained (current) age.", cite: "Outline 4.1" },
+          { term: "Whole life", def: "Permanent coverage, matures at age 100, level premium, builds cash value. Think of it as buying.", cite: "Outline 4.2" },
+          { term: "Five whole life types", def: "Straight (pay to 100), limited-pay (higher premium, faster cash value), single-premium (immediate cash value), modified (one premium jump), graded (rises then levels). They differ only in how they're paid.", cite: "Outline 4.2" },
+          { term: "Universal life", def: "Flexible premiums and an adjustable death benefit, with a minimum guaranteed interest rate. Surrender charges must be disclosed.", cite: "Outline 4.3" },
+          { term: "Variable life products", def: "Securities (separate account, investment risk on the owner). Require a FINRA registration plus a life license. Cash value is not guaranteed.", cite: "211 CMR 95; Outline 4.3" },
+          { term: "Family plan", def: "Whole life on the head of household, level term riders on spouse and children, one premium regardless of the number of children.", cite: "Outline 4.4" },
+          { term: "Family income vs. family maintenance", def: "Family income uses decreasing term from the date of purchase. Family maintenance uses level term from the date of death, then also pays the face.", cite: "Outline 4.4" },
+          { term: "Joint life vs. survivorship", def: "Joint life pays at the first death (averaged age). Survivorship (second-to-die) pays at the last death, common in estate planning, with a lower premium.", cite: "Outline 4.4" },
+          { term: "Juvenile / payor provision", def: "Insures a minor; the payor provision waives premiums until the child reaches a set age if the adult payor dies or becomes disabled.", cite: "Outline 4.4" },
+          { term: "Credit life", def: "Covers a debtor, capped at the outstanding loan balance, usually decreasing term matched to the loan.", cite: "Outline 4.6" },
+          { term: "Modified endowment contract (MEC)", def: "A policy that fails the 7-pay test. Distributions taxed LIFO with a 10% penalty before age 59 1/2. The death benefit stays tax-free.", cite: "Outline 4.3; 7.2" },
+          { term: "Equity-indexed universal life", def: "Cash value tied to a stock index but with a guaranteed minimum floor, unlike a variable policy.", cite: "Outline 4.3" },
+        ],
+      },
+      {
+        id: "life-sec5-provisions",
+        title: "Provisions, Options & Riders",
+        subtitle: "Section 5 · 24% of exam · 16 cards",
+        cards: [
+          { term: "Grace period", def: "30 days for any premium after the first year. Coverage continues during it.", cite: "M.G.L. c. 175 § 132(1)" },
+          { term: "Incontestability", def: "The policy becomes incontestable after 2 years in force during the insured's lifetime (except nonpayment).", cite: "M.G.L. c. 175 § 132(2)" },
+          { term: "Entire contract", def: "The policy plus the application form the entire contract. Only an executive officer can change it.", cite: "M.G.L. c. 175 § 132(3)" },
+          { term: "Misstatement of age", def: "Adjusts the benefit to what the premium would have purchased at the correct age. It never voids the policy.", cite: "M.G.L. c. 175 § 132(4)" },
+          { term: "Reinstatement", def: "Within 3 years of lapse, with evidence of insurability and back premiums at interest not over 6%.", cite: "M.G.L. c. 175 § 132(11)" },
+          { term: "Free look (two windows)", def: "10 days for individual life under $25,000 face. 20 days on a replacement.", cite: "M.G.L. c. 175 § 187H; 211 CMR 34.06" },
+          { term: "Absolute vs. collateral assignment", def: "Absolute: full, irrevocable transfer. Collateral: partial, to a creditor as security; the beneficiary keeps any excess over the debt.", cite: "Outline 5.1" },
+          { term: "Nonforfeiture options", def: "Available after 3 full years, elect within 60 days: cash surrender, extended term (the AUTOMATIC option), or reduced paid-up.", cite: "M.G.L. c. 175 § 144" },
+          { term: "Policy loans", def: "Available after 3 full years, minimum $25, fixed interest up to 8%. Loans are not taxable and reduce the death benefit.", cite: "M.G.L. c. 175 § 142" },
+          { term: "Spendthrift clause", def: "The OWNER selects the settlement option at application, shielding proceeds from the beneficiary's creditors.", cite: "M.G.L. c. 175 § 119A; Outline 5.2" },
+          { term: "Dividend options", def: "Participating only. Dividends are a non-taxable return of premium (interest earned is taxable). The policy stays in force, unlike nonforfeiture options.", cite: "Outline 5.6" },
+          { term: "Waiver of premium", def: "Waives premiums during total and permanent disability of the primary insured. Pays no cash.", cite: "Outline 5.7" },
+          { term: "AD&D: principal vs. capital sum", def: "Principal sum (full face) for two losses (both hands, both eyes). Capital sum (half) for a single loss.", cite: "Outline 5.10" },
+          { term: "Accelerated benefits rider", def: "Pays part of the death benefit on terminal illness, reducing the death benefit. No pre-existing exclusions; the carrier cannot restrict or recoup except for fraud.", cite: "211 CMR 55" },
+          { term: "Suicide clause", def: "No death benefit if suicide occurs within the stated period (typically 2 years); premiums are usually refunded.", cite: "Outline 5.1" },
+          { term: "Guaranty Association limits", def: "Life death benefit $300,000; cash value $100,000; annuity $250,000.", cite: "M.G.L. c. 175 § 146B" },
+        ],
+      },
+      {
+        id: "life-sec6-annuities",
+        title: "Annuities",
+        subtitle: "Section 6 · 14% of exam · 12 cards",
+        cards: [
+          { term: "What an annuity protects against", def: "Outliving your money. It is the opposite of life insurance, which protects against dying too soon.", cite: "Outline 6.1" },
+          { term: "Annuitant", def: "The measuring life whose lifespan governs the payout. The owner controls the contract; the beneficiary receives death proceeds.", cite: "Outline 6.1" },
+          { term: "Immediate vs. deferred", def: "Immediate: single premium, pays within about 1 month. Deferred: single or flexible premium, pays after at least 1 year.", cite: "Outline 6.2" },
+          { term: "Fixed annuity", def: "Guaranteed rate, level income, investment risk on the INSURER, general account.", cite: "Outline 6.4" },
+          { term: "Variable annuity", def: "Payments fluctuate with the separate account, investment risk on the OWNER. Requires FINRA plus a license.", cite: "Outline 6.4" },
+          { term: "Equity-indexed annuity", def: "A FIXED annuity with index-linked excess interest AND a guaranteed floor.", cite: "Outline 6.4" },
+          { term: "Market value adjusted annuity", def: "The adjustment applies only on early surrender; otherwise it behaves like a fixed annuity.", cite: "Outline 6.4" },
+          { term: "Straight life payout", def: "The highest monthly income, but nothing to a beneficiary.", cite: "Outline 6.3" },
+          { term: "Life with period certain", def: "Lifetime income that guarantees a minimum period; the beneficiary collects the remainder if death is within the period.", cite: "Outline 6.3" },
+          { term: "Joint and survivor options", def: "Income continues to the survivor. Full, two-thirds, or one-half survivor versions reduce the survivor's payment.", cite: "Outline 6.3" },
+          { term: "Exclusion ratio", def: "Investment in the contract divided by expected return. It sets the tax-free portion of each annuity payment.", cite: "Outline 6.5; 7.3" },
+          { term: "1035 exchange direction", def: "Life to annuity is allowed tax-free. Annuity to life is NOT allowed.", cite: "Outline 7.6" },
+        ],
+      },
+      {
+        id: "life-sec1-regulation",
+        title: "Insurance Regulation",
+        subtitle: "Section 1 · 8% of exam · 8 cards",
+        cards: [
+          { term: "License reinstatement window", def: "A lapsed license may be reinstated within 12 months of renewal without retaking the exam; penalty is double the unpaid fee.", cite: "M.G.L. c. 175 § 162M(c)" },
+          { term: "Address change", def: "Reported to the Commissioner within 30 days.", cite: "M.G.L. c. 175 § 162M(f)" },
+          { term: "Continuing education", def: "45 hours per 36-month period, including 3 hours of Ethics.", cite: "M.G.L. c. 175 § 162M" },
+          { term: "Appointment filing", def: "The insurer files notice of appointment within 15 days of the agency contract or first application, whichever comes first.", cite: "M.G.L. c. 175 § 162S" },
+          { term: "Termination notice", def: "Notify the Commissioner within 30 days, then notify the producer within 15 days (certified mail for a for-cause termination).", cite: "M.G.L. c. 175 § 162T" },
+          { term: "Reporting other-state actions", def: "Administrative actions in another jurisdiction reported within 30 days of final disposition.", cite: "M.G.L. c. 175 § 162V" },
+          { term: "Rebating", def: "Offering anything of value not in the policy as an inducement. Both giving and receiving are prohibited.", cite: "M.G.L. c. 175 §§ 182-184" },
+          { term: "Guaranty Association gag rule", def: "A producer may not use the Association's existence as an inducement to buy insurance.", cite: "M.G.L. c. 175 § 146B" },
+        ],
+      },
+      {
+        id: "life-sec7-tax",
+        title: "Federal Tax",
+        subtitle: "Section 7 · 7% of exam · 8 cards",
+        cards: [
+          { term: "Death benefit taxation", def: "Income-tax-free to the beneficiary as a lump sum. Interest on proceeds left with the insurer is taxable.", cite: "Outline 7.1" },
+          { term: "Cash value growth", def: "Accumulates tax-deferred while the policy is in force.", cite: "Outline 7.1" },
+          { term: "Dividends", def: "A non-taxable return of premium, but interest earned on accumulated dividends is taxable.", cite: "Outline 7.1" },
+          { term: "Policy loans", def: "Not taxable while a non-MEC policy stays in force.", cite: "Outline 7.1" },
+          { term: "MEC taxation", def: "Fails the 7-pay test. Distributions taxed LIFO with a 10% penalty before 59 1/2. Death benefit stays tax-free.", cite: "Outline 7.2" },
+          { term: "Traditional vs. Roth IRA", def: "Traditional: deductible in, taxed out. Roth: after-tax in, tax-free out (5-year hold plus 59 1/2, death, disability, or first home $10,000 max).", cite: "Outline 7.4" },
+          { term: "Exclusion ratio (annuity tax)", def: "Splits each non-qualified annuity payment into tax-free principal and taxable earnings.", cite: "Outline 7.3" },
+          { term: "1035 exchange", def: "Life to life, life to annuity, and annuity to annuity are tax-free. Annuity to life is NOT allowed.", cite: "Outline 7.6" },
+        ],
+      },
+      {
+        id: "life-sec2-general",
+        title: "General Insurance",
+        subtitle: "Section 2 · 6% of exam · 8 cards",
+        cards: [
+          { term: "Peril vs. hazard", def: "A peril is the cause of loss. A hazard (physical, moral, morale) is a condition that increases the chance of loss.", cite: "Outline 2.1" },
+          { term: "Stock vs. mutual", def: "Stock: owned by stockholders, nonparticipating (no policy dividends). Mutual: owned by policyholders, participating (pays policy dividends).", cite: "Outline 2.2" },
+          { term: "Domestic, foreign, alien", def: "Domestic: this state. Foreign: another U.S. state. Alien: another country.", cite: "Outline 2.2" },
+          { term: "Agent authority", def: "Express (written in the contract), implied (necessary to carry out express), apparent (reasonable belief the insurer allowed).", cite: "Outline 2.3" },
+          { term: "Life as a valued contract", def: "Life insurance pays a stated sum (valued), not the actual loss (indemnity, like health and property).", cite: "Outline 2.4" },
+          { term: "Representations vs. warranties", def: "Representations are believed true and void coverage only if material. Warranties are guaranteed true.", cite: "Outline 2.4" },
+          { term: "Adhesion and aleatory", def: "Adhesion: take-it-or-leave-it, ambiguities construed against the insurer. Aleatory: unequal exchange of value.", cite: "Outline 2.4" },
+          { term: "Waiver vs. estoppel", def: "Waiver is voluntarily giving up a known right. Estoppel is the resulting loss of the defense.", cite: "Outline 2.4" },
+        ],
+      },
+      {
+        id: "life-sec8-qualified",
+        title: "Qualified Plans",
+        subtitle: "Section 8 · 6% of exam · 6 cards",
+        cards: [
+          { term: "What 'qualified' means", def: "Meets IRS rules, so contributions are deductible and growth is tax-deferred. Distributions are taxed as ordinary income.", cite: "Outline 8.1" },
+          { term: "ERISA", def: "Sets minimum participation, vesting, funding, and fiduciary standards for private-industry plans.", cite: "Outline 8.1" },
+          { term: "Defined benefit vs. defined contribution", def: "Defined benefit: a formula sets the benefit (employer risk). Defined contribution: a formula sets the input, and the benefit varies (employee risk).", cite: "Outline 8.1" },
+          { term: "SEP and SIMPLE", def: "SEP: the employer contributes to the employee's IRA. SIMPLE: a tax-favored plan for small employers.", cite: "Outline 8.3" },
+          { term: "Keogh (HR-10)", def: "Funds retirement for self-employed individuals and unincorporated businesses.", cite: "Outline 8.3" },
+          { term: "403(b) / TSA", def: "For employees of public schools, certain tax-exempt organizations, and some ministers.", cite: "Outline 8.3" },
+        ],
+      },
+    ]; // end LIFE_DECKS
+
     // ── Utility 
     function shuffle(arr) {
       const a = [...arr];
@@ -1145,15 +1291,9 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
                 <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflowX: "hidden", overflowY: mode === "chat" ? "hidden" : "auto" }}>
                   {mode === "chat"
                     ? <ChatMode apiKey={apiKey} systemPrompt={exam === "life" ? SYSTEM_PROMPT_LIFE : SYSTEM_PROMPT_AH} />
-                    : exam === "life"
-                      ? <div style={{ padding: "40px 24px", textAlign: "center", color: C.inkSoft, maxWidth: 480, margin: "0 auto" }}>
-                          <div style={{ fontSize: 34, marginBottom: 12 }}>🗂️</div>
-                          <div style={{ fontFamily: "'Lora', Georgia, serif", fontSize: 18, fontWeight: 700, color: C.ink, marginBottom: 8 }}>Life flashcards coming soon</div>
-                          <div style={{ fontSize: 14, lineHeight: 1.6 }}>The Life tutor is fully loaded. Decks for Series 16-51 are in the works. For now, switch to <strong>Ask the Tutor</strong> for Life questions.</div>
-                        </div>
-                      : selectedDeck
-                        ? <FlashcardGame deck={selectedDeck} onExit={() => setSelectedDeck(null)} />
-                        : <DeckPicker decks={DECKS} onSelect={d => setSelectedDeck(d)} />
+                    : selectedDeck
+                      ? <FlashcardGame deck={selectedDeck} onExit={() => setSelectedDeck(null)} />
+                      : <DeckPicker decks={exam === "life" ? LIFE_DECKS : DECKS} onSelect={d => setSelectedDeck(d)} />
                   }
                 </div>
               </>
