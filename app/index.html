@@ -117,6 +117,11 @@
       return <>{out}</>;
     }
 
+    // ── Continuing education reference (all 19 states; appended to every prompt) ──
+    const CE_BY_STATE = `
+
+CONTINUING EDUCATION BY STATE (resident producer; answer this if asked about a specific state's CE): The default is 24 hours every 2 years including 3 hours of ethics, and that applies to California, Colorado, Connecticut (plus 6 hours per line of authority), Georgia, Indiana, Maine, Michigan, New Hampshire, New Jersey, North Carolina, Pennsylvania, Rhode Island, South Carolina (plus 8 hours per line), Tennessee, Vermont, and West Virginia. Exceptions: Massachusetts is 45 hours per 36 months (3 ethics); New York is about 15 hours per 2 years for a single line; Virginia is 16 hours for one license type or 24 for two or more (still 3 ethics).`;
+
     // ── AI Tutor system prompt (compressed knowledge base) ────────────────
     const SYSTEM_PROMPT_AH = `You are a warm, knowledgeable study tutor helping someone pass the Massachusetts A&H insurance licensing exam (Prometric Series 16-52). You know this material inside and out and you genuinely want this person to succeed. You have helped many people pass this exam.
 
@@ -329,7 +334,7 @@ Disability Buy-Sell: same as key person DI. Premiums NOT deductible. Benefits (b
 BOE (Business Overhead Expense): the tax INVERSION/exception. Premiums ARE deductible. Benefits ARE taxable. But because the taxable benefits pay deductible overhead (rent, staff salaries), the net tax impact washes out.
 Personally owned DI policy: premiums NOT deductible (paid with after-tax dollars). Benefits are TAX-FREE.
 Employer-paid group LTD: employer deducts premium; excluded from employee income → benefits are TAXABLE to the employee when received.
-`;
+` + CE_BY_STATE;
 
     // ── Life tutor system prompt (Series 16-51, built from verified modules) ──
     const SYSTEM_PROMPT_LIFE = `You are a warm, knowledgeable study tutor helping someone pass the Massachusetts Life Insurance producer licensing exam (Prometric Series 16-51). You know this material inside and out and you genuinely want this person to succeed. You have helped many people pass this exam.
@@ -392,7 +397,7 @@ Traditional IRA: deductible in, taxed out. Roth IRA: after-tax in, tax-free out 
 
 SECTION 8: QUALIFIED PLANS (6%)
 Qualified = meets IRS rules, so contributions are deductible, growth is tax-deferred, and distributions are taxed as ordinary income. ERISA sets participation, vesting, funding, and fiduciary standards. Defined benefit = formula sets the benefit (employer risk); defined contribution = formula sets the input (employee risk). Plan types: SEP (employer funds the employee's IRA), Keogh/HR-10 (self-employed), 401(k) (pre-tax salary deferral), 403(b)/TSA (public schools, nonprofits, ministers), SIMPLE (small employers).
-`;
+` + CE_BY_STATE;
 
     // ── Connecticut tutor system prompt (Series 18-03, combined Life + Health) ──
     const SYSTEM_PROMPT_CT = `You are a warm, knowledgeable study tutor helping someone pass the Connecticut Life and Accident & Health producer licensing exam (Pearson VUE Series 18-03, one combined exam covering both Life and Health). You know this material inside and out and you genuinely want this person to succeed. You have helped many people pass this exam.
@@ -450,7 +455,7 @@ Medicare: Part A (hospital, mostly premium-free), Part B (medical, monthly premi
 
 SECTION 16: FEDERAL TAX (Health)
 Personally-owned disability income: premiums NOT deductible, benefits TAX-FREE. Employer-paid group disability: premiums deductible to the employer, benefits TAXABLE to the employee. Employer-paid group medical: deductible to employer, not income to employees, benefits tax-free. Self-employed health insurance: above-the-line deduction. Key person and disability buy-sell: premiums not deductible, benefits not taxable. Business overhead expense (BOE): premiums ARE deductible, benefits ARE taxable (the inversion).
-`;
+` + CE_BY_STATE;
 
     // ── Flashcard decks (source: MA Series 16-52 state module files) ──────
     const DECKS = [
