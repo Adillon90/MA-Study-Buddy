@@ -1403,27 +1403,30 @@ Qualified = meets IRS rules, so contributions are deductible, growth is tax-defe
       var c = document.getElementById("matrix");
       if (!c) return;
       var ctx = c.getContext("2d");
-      var fontSize = 16, drops = [];
+      var fontSize = 16, drops = [], speeds = [];
       function setup() {
         c.width = window.innerWidth; c.height = window.innerHeight;
-        drops = [];
+        drops = []; speeds = [];
         var cols = Math.ceil(c.width / fontSize);
-        for (var i = 0; i < cols; i++) drops[i] = Math.random() * (c.height / fontSize);
+        for (var i = 0; i < cols; i++) {
+          drops[i] = Math.random() * (c.height / fontSize);
+          speeds[i] = 0.45 + Math.random() * 0.75;
+        }
       }
       setup();
       window.addEventListener("resize", setup);
       function draw() {
-        ctx.fillStyle = "rgba(0,0,0,0.07)";
+        ctx.fillStyle = "rgba(0,0,0,0.05)";
         ctx.fillRect(0, 0, c.width, c.height);
         ctx.fillStyle = "#2BE36A";
         ctx.font = fontSize + "px monospace";
         for (var i = 0; i < drops.length; i++) {
           ctx.fillText(String(Math.floor(Math.random() * 10)), i * fontSize, drops[i] * fontSize);
-          if (drops[i] * fontSize > c.height && Math.random() > 0.975) drops[i] = 0;
-          drops[i] += 0.5;
+          if (drops[i] * fontSize > c.height && Math.random() > 0.965) { drops[i] = 0; speeds[i] = 0.45 + Math.random() * 0.75; }
+          drops[i] += speeds[i];
         }
       }
-      setInterval(draw, 55);
+      setInterval(draw, 45);
     })();
   </script>
 </body>
