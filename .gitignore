@@ -1,0 +1,17 @@
+# Local tooling / editor config
+.claude/
+
+# Local convenience copy with an embedded API key — never commit (keep the key local).
+# index.html is the tracked/deployed app; it takes the key at runtime, not hardcoded.
+app/study-buddy.html
+app/ma-study-buddy-demo.jsx
+
+# Third-party vendor study materials (copyrighted, not for redistribution).
+# The project's modules are original syntheses verified against primary statutes,
+# not these vendor guides. Kept locally only.
+PDF INFO/
+modules/life/_source/
+
+# Binary source artifacts — the repo tracks the text/markdown extractions instead.
+*.pdf
+*.zip
